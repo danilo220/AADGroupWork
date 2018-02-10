@@ -3,7 +3,7 @@ package com.aadgroup.aadgroupwork;
 import android.content.Context;
 import android.graphics.Color;
 
-public class Tile extends android.support.v7.widget.AppCompatImageButton {
+public class Tile extends android.support.v7.widget.AppCompatImageView {
     private int numberOfDots;
     private Boolean isActive = false;
 
@@ -18,7 +18,7 @@ public class Tile extends android.support.v7.widget.AppCompatImageButton {
         return numberOfDots;
     }
 
-    public Boolean toggleActive()
+    public void toggleActive()
     {
         isActive = !isActive;
         if (isActive)
@@ -29,6 +29,10 @@ public class Tile extends android.support.v7.widget.AppCompatImageButton {
         {
             this.setBackgroundColor(Color.TRANSPARENT);
         }
+    }
+
+    public Boolean getIsActive()
+    {
         return isActive;
     }
 }
