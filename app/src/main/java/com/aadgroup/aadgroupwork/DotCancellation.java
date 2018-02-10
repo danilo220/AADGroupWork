@@ -52,7 +52,15 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
 
         //add tiles to grid
         gridLayout.addView(AddNewTile("tile_5_0", 5));
+        gridLayout.addView(AddNewTile("tile_4_2", 4));
+        gridLayout.addView(AddNewTile("tile_3_3", 3));
+        gridLayout.addView(AddNewTile("tile_3_6", 3));
         gridLayout.addView(AddNewTile("tile_3_1", 3));
+        gridLayout.addView(AddNewTile("tile_5_6", 5));
+        gridLayout.addView(AddNewTile("tile_4_0", 4));
+        gridLayout.addView(AddNewTile("tile_5_3", 5));
+        gridLayout.addView(AddNewTile("tile_5_9", 5));
+        gridLayout.addView(AddNewTile("tile_5_14", 5));
     }
 
     private void fillFileList()
@@ -79,7 +87,7 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         tempTile.setImageResource(GetImage(this, fileName));
         tempTile.setOnClickListener(this);
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 200);
         tempTile.setLayoutParams(params);
 
         return tempTile;
