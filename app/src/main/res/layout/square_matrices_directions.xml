@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.955"
-        app:srcCompat="@drawable/directions11" />
+        android:src="@drawable/directions11" />
 
     <Button
         android:id="@+id/button"
@@ -75,7 +75,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/leftleft" />
+                android:src="@drawable/leftleft" />
 
             <ImageView
                 android:id="@+id/imageView12"
@@ -106,7 +106,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/upleft" />
+                android:src="@drawable/upleft" />
             />
 
             <ImageView
@@ -138,7 +138,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/rightleft" />
+                android:src="@drawable/rightleft" />
             />
 
             <ImageView
@@ -170,7 +170,7 @@
                 android:id="@+id/imageView6"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/downleft" />
+                android:src="@drawable/downleft" />
 
             <ImageView
                 android:id="@+id/imageView21"
@@ -206,25 +206,25 @@
                 android:id="@+id/imageView10"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/rightright" />
+                android:src="@drawable/rightright" />
 
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="70dp"
                 android:layout_height="76dp"
-                app:srcCompat="@drawable/leftright" />
+                android:src="@drawable/leftright" />
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/upright" />
+                android:src="@drawable/upright" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/downright" />
+                android:src="@drawable/downright" />
 
         </TableRow>
 

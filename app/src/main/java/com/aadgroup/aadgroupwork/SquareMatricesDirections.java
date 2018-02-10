@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.view.View.DragShadowBuilder;
 
 /**
  * Created by Danilo on 30/01/2018.
@@ -35,36 +36,28 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
 
     @Override
-    public boolean onDrag(View v, DragEvent event) {
-        // TODO Auto-generated method stub
-        if(event.getAction()==DragEvent.ACTION_DROP){
-            //we want to make sure it is dropped only to left and right parent view
-            View view = (View)event.getLocalState();
+    public boolean onTouch(View v, MotionEvent e) {
+        if (e.getAction() == MotionEvent.ACTION_DOWN) {
+            DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+            v.startDrag(null, shadowBuilder, v, 0);
+            v.setVisibility(View.INVISIBLE);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-            if(v.getId() == R.id.imageView12)
-            {
-
-                ViewGroup source = (ViewGroup) view.getParent();
-                source.removeView(view);
-
-                LinearLayout target = (LinearLayout) v;
-                target.addView(view);
-            }
-            //make view visible as we set visibility to invisible while starting drag
+    @Override
+    public boolean onDrag(View v, DragEvent e) {
+        if (e.getAction()==DragEvent.ACTION_DROP) {
+            View view = (View) e.getLocalState();
+            ViewGroup from = (ViewGroup) view.getParent();
+            from.removeView(view);
+            LinearLayout to = (LinearLayout) v;
+            to.addView(view);
             view.setVisibility(View.VISIBLE);
         }
         return true;
     }
 
-    @Override
-    public boolean onTouch(View view, MotionEvent event) {
-        // TODO Auto-generated method stub
-        if(event.getAction() == MotionEvent.ACTION_DOWN){
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-            view.startDrag(null, shadowBuilder, view, 0);
-            view.setVisibility(View.INVISIBLE);
-            return true;
-        }
-        return false;
-    }
 }
