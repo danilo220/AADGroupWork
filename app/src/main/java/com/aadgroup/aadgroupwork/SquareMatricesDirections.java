@@ -18,20 +18,20 @@ import android.view.View.DragShadowBuilder;
  * Created by Danilo on 30/01/2018.
  */
 
-public class SquareMatricesDirections extends Activity implements View.OnTouchListener, View.OnDragListener
-{
+public class SquareMatricesDirections extends Activity implements View.OnTouchListener, View.OnDragListener {
+    TextView txt;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.square_matrices_directions);
-        findViewById(R.id.answer1).setOnTouchListener(this);
+
         findViewById(R.id.dragAnswer).setOnTouchListener(this);
 
-        findViewById(R.id.imageView12).setOnDragListener(this);
+        findViewById(R.id.imageView21).setOnDragListener(this);
+        findViewById(R.id.textToChange).setOnDragListener(this);
 
-        System.out.print("test");
+        txt = (TextView) findViewById(R.id.textChange);
     }
 
 
@@ -40,7 +40,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         if (e.getAction() == MotionEvent.ACTION_DOWN) {
             DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
             v.startDrag(null, shadowBuilder, v, 0);
-            v.setVisibility(View.INVISIBLE);
+            v.setVisibility(View.VISIBLE);
             return true;
         } else {
             return false;
@@ -49,15 +49,24 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
     @Override
     public boolean onDrag(View v, DragEvent e) {
-        if (e.getAction()==DragEvent.ACTION_DROP) {
-            View view = (View) e.getLocalState();
-            ViewGroup from = (ViewGroup) view.getParent();
-            from.removeView(view);
-            LinearLayout to = (LinearLayout) v;
-            to.addView(view);
-            view.setVisibility(View.VISIBLE);
+        int action = e.getAction();
+        View view = (View) e.getLocalState();
+        switch (e.getAction()) {
+            case DragEvent.ACTION_DROP:
+                if (view.getId() == R.id.dragAnswer && v.getId() == R.id.imageView21) {
+                    ViewGroup from = (ViewGroup) view.getParent();
+                    from.removeView(view);
+                    v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
+                    System.out.print("Not working");
+                    return true;
+                }
+                else{
+
+                }
+                break;
+
         }
         return true;
     }
-
 }
+
