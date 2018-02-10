@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity
 
         Button dotButton = findViewById(R.id.btn_dot);
         Button directionButton = findViewById(R.id.btn_direction);
+        Button roadRecognitionButton = findViewById(R.id.btn_road_recognition);
 
 
         dotButton.setOnClickListener(new View.OnClickListener() {
@@ -30,6 +31,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
+                startActivity(myIntent);
+            }
+        });
+
+        roadRecognitionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
                 startActivity(myIntent);
             }
         });
