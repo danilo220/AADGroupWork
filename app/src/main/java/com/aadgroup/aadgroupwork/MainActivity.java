@@ -15,11 +15,21 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         Button dotButton = findViewById(R.id.btn_dot);
+        Button directionButton = findViewById(R.id.btn_direction);
+
 
         dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(getApplicationContext(), DotCancellation.class);
+                startActivity(myIntent);
+            }
+        });
+
+        directionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
                 startActivity(myIntent);
             }
         });
