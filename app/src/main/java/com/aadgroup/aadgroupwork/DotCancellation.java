@@ -1,6 +1,7 @@
 package com.aadgroup.aadgroupwork;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,14 +13,19 @@ import java.util.ArrayList;
 public class DotCancellation extends AppCompatActivity implements View.OnClickListener
 {
     ArrayList<Tile> allTiles = new ArrayList<>();
-
-    int[] numberOfEachImage = {0, 0, 0, 9, 6, 14};
+    Account loggedInAcc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dot_cancellation);
+
+        Intent intent = getIntent();
+        loggedInAcc = (Account)intent.getSerializableExtra("AccountDetails");
+
+        Toast toast = Toast.makeText(this, "Logged in as " + loggedInAcc.getUsername(), Toast.LENGTH_SHORT);
+        toast.show();
 
         GridLayout gridLayout = findViewById(R.id.gridLayout);
 
