@@ -7,10 +7,13 @@
 
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:id="@+id/tableLayout2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="140dp">
+        android:layout_marginTop="139dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow android:gravity="center">
 
@@ -108,10 +111,13 @@
 
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:id="@+id/tableLayout3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="537dp">
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2">
 
         <TableRow android:gravity="center">
 
@@ -208,17 +214,21 @@
         android:id="@+id/UndoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="13dp"
         android:text="Undo"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="690dp" />
+        app:layout_constraintStart_toStartOf="@+id/tableLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
 
     <Button
         android:id="@+id/ResetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="83dp"
+        android:layout_marginTop="13dp"
         android:text="Reset"
-        tools:layout_editor_absoluteX="430dp"
-        tools:layout_editor_absoluteY="690dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
 
 
 </android.support.constraint.ConstraintLayout>
