@@ -30,6 +30,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="buttonOnReset"
         android:src="@drawable/directions42"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -264,7 +265,7 @@
         app:layout_constraintVertical_bias="0.941" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/resetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -327,14 +328,17 @@
 
         <TableRow
             android:layout_width="83dp"
-            android:layout_height="64dp">
+            android:layout_height="64dp"><![CDATA[
+
+            />
+
+            ]]>
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/upleft" />
-            />
+                android:src="@drawable/rightleft" />
 
             <ImageView
                 android:id="@+id/box31"
@@ -359,14 +363,17 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"><![CDATA[
+
+            />
+
+            ]]>
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imageView3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/rightleft" />
-            />
+                android:src="@drawable/upleft" />
 
             <ImageView
                 android:id="@+id/box21"
@@ -436,12 +443,6 @@
                 android:src="@drawable/rightright" />
 
             <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/upright" />
-
-            <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="70dp"
                 android:layout_height="76dp"
@@ -452,6 +453,12 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/downright" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/upright" />
 
         </TableRow>
 
