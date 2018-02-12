@@ -16,24 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Database">
-        </activity>
-
-        <activity android:name=".DotCancellation">
-        </activity>
-
-        <activity android:name=".PathForming">
-        </activity>
-
-        <activity android:name=".RoadSign">
-        </activity>
-
-        <activity android:name=".SquareMatricesCompass">
-        </activity>
-
-        <activity android:name=".SquareMatricesDirections">
-        </activity>
+        <activity android:name=".Database"></activity>
+        <activity android:name=".DotCancellation"></activity>
+        <activity android:name=".PathForming"></activity>
+        <activity android:name=".RoadSign"></activity>
+        <activity android:name=".SquareMatricesCompass"></activity>
+        <activity android:name=".SquareMatricesDirections"></activity>
+        <activity android:name=".Results"
+            android:parentActivityName=".MainActivity">></activity>
     </application>
 
 </manifest>

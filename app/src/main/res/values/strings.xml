@@ -4,4 +4,12 @@
     <string name="password">Password:</string>
     <string name="login">Log In</string>
     <string name="loggedIn">You are logged in as</string>
+    <string name="results">Place results here</string>
+    <string name="selectLanguage">Select a Language</string>
+    <string name="beginTest">Begin Test</string>
+    <string name="viewResults">View Results</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>German</item>
+    </string-array>
 </resources>
