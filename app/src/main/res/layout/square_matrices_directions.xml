@@ -8,7 +8,188 @@
     tools:context="com.aadgroup.aadgroupwork.SquareMatricesDirections">
 
     <ImageView
-        android:id="@+id/dragAnswer"
+        android:id="@+id/dragAnswer41"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions41"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.955" />
+
+    <ImageView
+        android:id="@+id/dragAnswer42"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="buttonOnReset"
+        android:src="@drawable/directions42"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer43"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions43"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer44"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions44"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer31"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions31"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer32"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions32"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer33"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions33"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer34"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions34"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer21"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions21"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer22"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions22"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer23"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions23"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer11"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginBottom="28dp"
@@ -20,7 +201,52 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer12"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer13"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <ImageView
+        android:id="@+id/dragAnswer14"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/directions24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
 
     <Button
         android:id="@+id/button"
@@ -39,7 +265,7 @@
         app:layout_constraintVertical_bias="0.941" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/resetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -64,8 +290,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -78,86 +306,92 @@
                 android:src="@drawable/leftleft" />
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/box41"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView14"
+                android:id="@+id/box42"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView13"
+                android:id="@+id/box43"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView25"
+                android:id="@+id/box44"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="83dp"
-            android:layout_height="64dp">
+            android:layout_height="64dp"><![CDATA[
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/upleft" />
             />
 
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="70dp"
-                android:layout_height="70dp" />
-
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="70dp"
-                android:layout_height="70dp" />
-
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="70dp"
-                android:layout_height="70dp" />
-
-            <ImageView
-                android:id="@+id/imageView26"
-                android:layout_width="70dp"
-                android:layout_height="70dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            ]]>
 
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:src="@drawable/rightleft" />
+
+            <ImageView
+                android:id="@+id/box31"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+
+            <ImageView
+                android:id="@+id/box32"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+
+            <ImageView
+                android:id="@+id/box33"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+
+            <ImageView
+                android:id="@+id/box34"
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"><![CDATA[
+
             />
 
+            ]]>
+
             <ImageView
-                android:id="@+id/imageView20"
+                android:id="@+id/imageView3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/upleft" />
+
+            <ImageView
+                android:id="@+id/box21"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView19"
+                android:id="@+id/box22"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView18"
+                android:id="@+id/box23"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView27"
+                android:id="@+id/box24"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
         </TableRow>
@@ -173,22 +407,22 @@
                 android:src="@drawable/downleft" />
 
             <ImageView
-                android:id="@+id/imageView21"
+                android:id="@+id/box11"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView23"
+                android:id="@+id/box12"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView22"
+                android:id="@+id/box13"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
 
             <ImageView
-                android:id="@+id/imageView28"
+                android:id="@+id/box14"
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
         </TableRow>
@@ -215,16 +449,16 @@
                 android:src="@drawable/leftright" />
 
             <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/upright" />
-
-            <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/downright" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/upright" />
 
         </TableRow>
 
@@ -251,20 +485,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tableLayout"
         app:layout_constraintVertical_bias="0.739" />
-
-    <TextView
-        android:id="@+id/textChange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804" />
 
 </android.support.constraint.ConstraintLayout>
