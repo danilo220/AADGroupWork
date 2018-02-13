@@ -4,10 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class DotCancellation extends AppCompatActivity implements View.OnClickListener
@@ -16,32 +22,39 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
     Account loggedInAcc;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dot_cancellation);
 
         Intent intent = getIntent();
-        loggedInAcc = (Account)intent.getSerializableExtra("AccountDetails");
 
-        Toast toast = Toast.makeText(this, "Logged in as " + loggedInAcc.getUsername(), Toast.LENGTH_SHORT);
-        toast.show();
+        if (intent.hasExtra("AccountDetails")) {
+            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
 
+            Toast toast = Toast.makeText(this, "Logged in as " + loggedInAcc.getUsername(), Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        AddAllTiles();
+    }
+
+    private void AddAllTiles()
+    {
         GridLayout gridLayout = findViewById(R.id.gridLayout);
 
-        //add tiles to grid
-        gridLayout.addView(AddNewTile("tile_5_0"));
-        gridLayout.addView(AddNewTile("tile_4_2"));
-        gridLayout.addView(AddNewTile("tile_3_3"));
-        gridLayout.addView(AddNewTile("tile_3_6"));
-        gridLayout.addView(AddNewTile("tile_3_1"));
-        gridLayout.addView(AddNewTile("tile_5_6"));
-        gridLayout.addView(AddNewTile("tile_4_0"));
-        gridLayout.addView(AddNewTile("tile_5_3"));
-        gridLayout.addView(AddNewTile("tile_5_9"));
-        gridLayout.addView(AddNewTile("tile_5_14"));
-        gridLayout.addView(AddNewTile("tile_4_1"));
-        gridLayout.addView(AddNewTile("tile_4_3"));
+        try {
+            InputStream is = getAssets().open("tiles.txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            String tileName = reader.readLine();
+
+            while (tileName != null)
+            {
+                gridLayout.addView(AddNewTile(tileName));
+                tileName = reader.readLine();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private Tile AddNewTile(String fileName)
@@ -52,6 +65,7 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         tempTile.setOnClickListener(this);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(75, 75);
+        params.setMargins(50, 50, 50, 50);
         tempTile.setLayoutParams(params);
 
         return tempTile;

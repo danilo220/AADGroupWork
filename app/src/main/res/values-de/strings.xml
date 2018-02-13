@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AADGroupWork</string>
+    <string name="username">Nutzername:</string>
+    <string name="password">Passwort:</string>
+    <string name="login">Einloggen</string>
+    <string name="loggedIn">Du bist eingeloggt als </string>
+    <string name="results">Place results here</string>
+    <string name="selectLanguage">Wähle eine Sprache</string>
+    <string name="beginTest">Test Beginnen</string>
+    <string name="viewResults">Ergebnisse anzeigen</string>
+    <string-array name="languages">
+        <item>Englisch</item>
+        <item>Deutsche</item>
+    </string-array>
+</resources>
