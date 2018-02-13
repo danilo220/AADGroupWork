@@ -7,15 +7,20 @@
 
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:id="@+id/tableLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="139dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
-            android:gravity="center">
+        <TableRow android:gravity="center">
+
             <ImageView
                 android:id="@+id/firstImage"
                 android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_height="145dp"
                 android:paddingRight="10dip"
                 android:src="@drawable/road_recognition_one" />
 
@@ -41,8 +46,7 @@
                 android:src="@drawable/road_recognition_four" />
         </TableRow>
 
-        <TableRow
-            android:gravity="center">
+        <TableRow android:gravity="center">
 
             <ImageView
                 android:id="@+id/fifthImage"
@@ -73,8 +77,8 @@
                 android:src="@drawable/road_recognition_eight" />
         </TableRow>
 
-        <TableRow
-            android:gravity="center">
+        <TableRow android:gravity="center">
+
             <ImageView
                 android:id="@+id/nithImage"
                 android:layout_width="120dp"
@@ -104,5 +108,128 @@
                 android:src="@drawable/road_recognition_twelve" />
         </TableRow>
     </TableLayout>
+
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2">
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/roadSignOne"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_one" />
+
+            <ImageView
+                android:id="@+id/roadSignEleven"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_eleven" />
+
+            <ImageView
+                android:id="@+id/roadSignThree"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_three" />
+
+            <ImageView
+                android:id="@+id/roadSignFive"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_five" />
+
+            <ImageView
+                android:id="@+id/roadSignTen"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_ten" />
+
+            <ImageView
+                android:id="@+id/roadSignSeven"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_seven" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                android:id="@+id/roadSignTwo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_two" />
+
+            <ImageView
+                android:id="@+id/roadSignEight"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_eight" />
+
+            <ImageView
+                android:id="@+id/roadSignTwelve"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_twelve" />
+
+            <ImageView
+                android:id="@+id/roadSignFour"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_four" />
+
+            <ImageView
+                android:id="@+id/roadSignSix"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_six" />
+
+            <ImageView
+                android:id="@+id/roadSignNine"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:paddingRight="10dip"
+                android:src="@drawable/road_sign_nine" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/UndoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="13dp"
+        android:text="Undo"
+        app:layout_constraintStart_toStartOf="@+id/tableLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+
+    <Button
+        android:id="@+id/ResetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="83dp"
+        android:layout_marginTop="13dp"
+        android:text="Reset"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+
+
 </android.support.constraint.ConstraintLayout>
 
