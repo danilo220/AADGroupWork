@@ -32,16 +32,21 @@ public class TestResults implements Serializable {
         roadSignRecognitionScore = score;
     }
 
-    public Float passEquation()
+    private Float passEquation()
     {
         return (dotCancellation_timeTaken * 0.012F) + (dotCancellation_falsePositives * 0.216F)
                 + (squareMatriciesCompassScore * 0.409F) + (roadSignRecognitionScore * 1.168F) - 13.79F;
     }
 
-    public Float failEquation()
+    private Float failEquation()
     {
         return (dotCancellation_timeTaken * 0.017F) + (dotCancellation_falsePositives * 0.035F)
                 + (squareMatriciesCompassScore * 0.185F) + (roadSignRecognitionScore * 0.813F) - 10.042F;
+    }
+
+    public Boolean passTests()
+    {
+        return (passEquation() > failEquation());
     }
 
     public int getTime()
