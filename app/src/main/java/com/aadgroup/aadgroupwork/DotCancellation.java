@@ -50,7 +50,7 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         finishButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 CalculateScore();
-                Toast toast = Toast.makeText(getApplicationContext(), "Missed: " + Integer.toString(allResults.getMissed()) + " Incorrect: " + Integer.toString(allResults.getIncorrect()) + " Time: " + Integer.toString(allResults.getTime()), Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Missed: " + Integer.toString(allResults.getMissed()) + " Incorrect: " + Integer.toString(allResults.getFalsePositives()) + " Time: " + Integer.toString(allResults.getTime()), Toast.LENGTH_SHORT);
                 toast.show();
                 txtCounter.setText(counter.getTimeString());
 
