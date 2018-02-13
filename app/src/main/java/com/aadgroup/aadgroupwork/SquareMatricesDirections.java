@@ -5,12 +5,16 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,10 +30,15 @@ import java.util.Collections;
 
 public class SquareMatricesDirections extends Activity implements View.OnTouchListener, View.OnDragListener {
     public int choosePicture;
-    TextView test;
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14;
-    Button resetButton;
+    Button menuButton;
+
     ArrayList<Integer> number = new ArrayList<Integer>();
+
+    int wrongAnswer = 0;
+    int rightAnswer = 0;
+
+    private Chronometer chronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +46,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         super.onCreate(savedInstanceState);
         ArrayList<Integer> number = new ArrayList<Integer>();
         setContentView(R.layout.square_matrices_directions);
+
+        chronometer = (Chronometer) findViewById(R.id.chronometer);
         Button resetButton = findViewById(R.id.resetButton);
+        final Button startButton = findViewById(R.id.start);
+
+        menuButton = findViewById(R.id.Menu);
+        menuButton.setVisibility(View.INVISIBLE);
 
         findViewById(R.id.dragAnswer41).setOnTouchListener(this);
         findViewById(R.id.dragAnswer42).setOnTouchListener(this);
@@ -111,8 +126,14 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         a14.setVisibility(View.INVISIBLE);
 
         Button roadRecognitionButton = findViewById(R.id.btn_road_recognition);
-        random();
-        randomPicture();
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +144,19 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
             }
         });
 
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                chronometer.start();
+                random();
+                randomPicture();
+                startButton.setVisibility(View.INVISIBLE);
+            }
+        });
+
     }
+
 
 
     @Override
@@ -137,6 +170,8 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
             return false;
         }
     }
+
+
 
     private void random(){
         int firstNum = 0;
@@ -154,8 +189,14 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         number.remove(0);
         System.out.println(number);
         System.out.println(choosePicture);
-        if (choosePicture == 0){
+        if (choosePicture == 0)
+        {
             System.out.println("Finished Game@@@@@@@@@@@@@@@@@@@@@@@");
+            int collectTime;
+            chronometer.stop();
+
+            collectTime = (int) (SystemClock.elapsedRealtime() - chronometer.getBase());
+            menuButton.setVisibility(View.VISIBLE);
         }
         if (choosePicture == 1){
             a11.setVisibility(View.VISIBLE);
@@ -219,7 +260,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
-
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -227,6 +268,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -234,6 +276,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -241,6 +284,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -248,6 +292,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -255,6 +300,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -262,6 +308,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -269,6 +316,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -276,6 +324,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -283,6 +332,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -290,6 +340,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -297,6 +348,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -304,6 +356,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     a12.setVisibility(View.VISIBLE);
                     randomPicture();
                     return true;
@@ -312,6 +365,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -319,6 +373,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
@@ -326,12 +381,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
+                    rightAnswer = rightAnswer + 1;
                     randomPicture();
                     return true;
                 }
 
 
                 else{
+                    wrongAnswer = wrongAnswer + 1;
+                    System.out.println(wrongAnswer + " Wrong Answer");
 
                 }
                 break;
