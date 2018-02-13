@@ -147,14 +147,9 @@ public class MainActivity extends AppCompatActivity
                     switch (selectedLanguage) {
                         case "English":
                             switchLanguage("en");
-                            //this.setContentView(R.layout.activity_main);
-                            Toast toast = Toast.makeText(getApplicationContext(), "en", Toast.LENGTH_SHORT);
-                            toast.show();
                             break;
                         case "German":
                             switchLanguage("de");
-                            Toast toast2 = Toast.makeText(getApplicationContext(), "de", Toast.LENGTH_SHORT);
-                            toast2.show();
                             break;
                         default:
                             break;
@@ -168,13 +163,7 @@ public class MainActivity extends AppCompatActivity
 
             public void switchLanguage(String languageCode)
             {
-                /*String languageToLoad = languageCode; // your language
-                Locale locale = new Locale(languageToLoad);
-                Locale.setDefault(locale);
-                Configuration config = new Configuration();
-                config.locale = locale;
-                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-                this.setContentView(R.layout.activity_main)*/
+                //https://stackoverflow.com/questions/12908289/how-to-change-language-of-app-when-user-selects-language
                 Locale myLocale = new Locale(languageCode);
                 Resources res = getResources();
                 DisplayMetrics dm = res.getDisplayMetrics();
@@ -189,6 +178,8 @@ public class MainActivity extends AppCompatActivity
 
         });
     }
+
+    //prevents spinner from auto-firing
     @Override
     public void onUserInteraction()
     {

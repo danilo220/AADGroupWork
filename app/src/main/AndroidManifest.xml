@@ -23,7 +23,7 @@
         <activity android:name=".SquareMatricesCompass"></activity>
         <activity android:name=".SquareMatricesDirections"></activity>
         <activity android:name=".Results"
-            android:parentActivityName=".MainActivity">></activity>
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

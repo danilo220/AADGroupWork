@@ -1,15 +1,16 @@
 package com.aadgroup.aadgroupwork;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,22 +21,100 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
 {
     ArrayList<Tile> allTiles = new ArrayList<>();
     Account loggedInAcc;
+    Boolean scrollBottom = false;
+    Boolean scrollRight = false;
+    TextView txtCounter;
+    Counter counter;
+    TestResults allResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dot_cancellation);
 
-        Intent intent = getIntent();
+        counter = new Counter();
 
+        txtCounter = findViewById(R.id.txtCounter);
+        txtCounter.setText(counter.getTimeString());
+
+        Intent intent = getIntent();
         if (intent.hasExtra("AccountDetails")) {
             loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
 
             Toast toast = Toast.makeText(this, "Logged in as " + loggedInAcc.getUsername(), Toast.LENGTH_SHORT);
             toast.show();
         }
-
         AddAllTiles();
+
+        ImageView finishButton = findViewById(R.id.iv_finish);
+        finishButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                CalculateScore();
+                Toast toast = Toast.makeText(getApplicationContext(), "Missed: " + Integer.toString(allResults.getMissed()) + " Incorrect: " + Integer.toString(allResults.getIncorrect()) + " Time: " + Integer.toString(allResults.getTime()), Toast.LENGTH_SHORT);
+                toast.show();
+                txtCounter.setText(counter.getTimeString());
+
+                /*
+                Intent myIntent = new Intent(getApplicationContext(), NEXT ACTIVITY HERE);
+                myIntent.putExtra("AccountDetails", loggedInAcc);
+                myIntent.putExtra("TestResults", allResults);
+                startActivity(myIntent);
+                 */
+            }
+        });
+
+        ImageView verticalButton = findViewById(R.id.iv_vertical);
+        verticalButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ScrollView scrollTiles = findViewById(R.id.scrollTiles);
+                if (scrollBottom)
+                {
+                    scrollTiles.scrollTo(0, 0);
+                }
+                else
+                {
+                    scrollTiles.scrollTo(0, scrollTiles.getBottom());
+                }
+                scrollBottom = !scrollBottom;
+            }
+        });
+
+        ImageView horizontalButton = findViewById(R.id.iv_horizontal);
+        horizontalButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                HorizontalScrollView scrollHorizontal = findViewById(R.id.horizontalScrollTiles);
+                if (scrollRight)
+                {
+                    scrollHorizontal.scrollTo(0, 0);
+                }
+                else
+                {
+                    scrollHorizontal.scrollTo(scrollHorizontal.getRight(), 0);
+                }
+                scrollRight = !scrollRight;
+            }
+        });
+
+        Thread t = new Thread(){
+            @Override
+            public void run(){
+                while(true){
+                    try {
+                        Thread.sleep(1000);  //1000ms = 1 sec
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                counter.increaseTime();
+                                txtCounter.setText(counter.getTimeString());
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        t.start();
     }
 
     private void AddAllTiles()
@@ -68,6 +147,8 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         params.setMargins(50, 50, 50, 50);
         tempTile.setLayoutParams(params);
 
+        allTiles.add(tempTile);
+
         return tempTile;
     }
 
@@ -78,15 +159,13 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        Tile t = (Tile)v;
-        t.toggleActive();
-        Toast toast = Toast.makeText(this, Integer.toString(t.getNumberOfDots()), Toast.LENGTH_SHORT);
-        toast.show();
+        Tile tile = (Tile)v;
+        tile.toggleActive();
     }
 
     private void CalculateScore()
     {
-        int timeTaken = 900; //dummy int to calculate time
+        int timeTaken = counter.getSeconds();
         int missedFourDots = 0;
         int cancelledNonFourDots = 0;
 
@@ -104,10 +183,14 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
                     cancelledNonFourDots++;
                 }
             }
-            else if (allTiles.get(i).getNumberOfDots() == 3)
+            else if (allTiles.get(i).getNumberOfDots() == 4)
             {
                 missedFourDots++;
             }
         }
+        allResults = new TestResults();
+        allResults.setDotCancellationResults(timeTaken, missedFourDots, cancelledNonFourDots);
     }
+
+
 }
