@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.view.View.DragShadowBuilder;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -28,13 +29,14 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     TextView test;
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14;
     Button resetButton;
+    ArrayList<Integer> number = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         ArrayList<Integer> number = new ArrayList<Integer>();
         setContentView(R.layout.square_matrices_directions);
-        TextView test = findViewById(R.id.textToChange);
         Button resetButton = findViewById(R.id.resetButton);
 
         findViewById(R.id.dragAnswer41).setOnTouchListener(this);
@@ -72,8 +74,8 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         findViewById(R.id.box13).setOnDragListener(this);
         findViewById(R.id.box14).setOnDragListener(this);
 
-        //a41 = (ImageView) findViewById(R.id.dragAnswer41);
-       // a41.setVisibility(View.INVISIBLE);
+        a41 = (ImageView) findViewById(R.id.dragAnswer41);
+        a41.setVisibility(View.INVISIBLE);
         a42 = (ImageView) findViewById(R.id.dragAnswer42);
         a42.setVisibility(View.INVISIBLE);
         a43 = (ImageView) findViewById(R.id.dragAnswer43);
@@ -110,6 +112,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
         Button roadRecognitionButton = findViewById(R.id.btn_road_recognition);
         random();
+        randomPicture();
 
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,19 +140,23 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
     private void random(){
         int firstNum = 0;
-        ArrayList<Integer> number = new ArrayList<Integer>();
+        //ArrayList<Integer> number = new ArrayList<Integer>();
+
         for (int i = 1; i <= 16; ++i){
             number.add(i);
-            Collections.shuffle(number);
-        }
-        choosePicture = number.get(0);
-        number.remove(0);
-        System.out.println(number);
-        System.out.print(number);
+    }
+        Collections.shuffle(number);
+        number.add(0);
     }
 
     private void randomPicture(){
-        random();
+        choosePicture = number.get(0);
+        number.remove(0);
+        System.out.println(number);
+        System.out.println(choosePicture);
+        if (choosePicture == 0){
+            System.out.println("Finished Game@@@@@@@@@@@@@@@@@@@@@@@");
+        }
         if (choosePicture == 1){
             a11.setVisibility(View.VISIBLE);
         }
@@ -214,7 +221,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
 
                     randomPicture();
-                    System.out.println(choosePicture);
                     return true;
                 }
                 else if (view.getId() == R.id.dragAnswer42 && v.getId() == R.id.box42) {
@@ -248,7 +254,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 else if (view.getId() == R.id.dragAnswer32 && v.getId() == R.id.box32) {
                     ViewGroup from = (ViewGroup) view.getParent();
                     from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
+                    v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
                     randomPicture();
                     return true;
                 }
@@ -299,6 +305,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     from.removeView(view);
                     v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
                     a12.setVisibility(View.VISIBLE);
+                    randomPicture();
                     return true;
                 }
                 else if (view.getId() == R.id.dragAnswer12&& v.getId() == R.id.box12) {

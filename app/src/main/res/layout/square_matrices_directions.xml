@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="0.956" />
 
     <ImageView
         android:id="@+id/dragAnswer42"
@@ -30,7 +30,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="buttonOnReset"
         android:src="@drawable/directions42"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -226,7 +225,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions14"
+        android:src="@drawable/directions13"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -241,7 +240,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions24"
+        android:src="@drawable/directions14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -370,10 +369,10 @@
             ]]>
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/upleft" />
+                android:src="@drawable/downleft" />
 
             <ImageView
                 android:id="@+id/box21"
@@ -401,10 +400,10 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imageView3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/downleft" />
+                android:src="@drawable/upleft" />
 
             <ImageView
                 android:id="@+id/box11"
@@ -443,6 +442,12 @@
                 android:src="@drawable/rightright" />
 
             <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/upright" />
+
+            <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="70dp"
                 android:layout_height="76dp"
@@ -454,12 +459,6 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/downright" />
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/upright" />
-
         </TableRow>
 
         <TableRow
@@ -468,22 +467,5 @@
 
         </TableRow>
     </TableLayout>
-
-    <TextView
-        android:id="@+id/textToChange"
-        android:layout_width="92dp"
-        android:layout_height="19dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#ff4567"
-        android:text="drag this"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tableLayout"
-        app:layout_constraintVertical_bias="0.739" />
 
 </android.support.constraint.ConstraintLayout>
