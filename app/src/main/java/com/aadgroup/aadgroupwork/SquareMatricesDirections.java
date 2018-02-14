@@ -183,7 +183,26 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         });
 
     }
-
+    void removeCard(View view, View v)
+    {
+        if (view.getId() == R.id.dragAnswer41)
+        {
+            randomPicture();
+            if (v.getId() == R.id.box41)
+            {
+                rightAnswer = rightAnswer - 2;
+            }
+            else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44
+                    || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11 )
+            {
+                rightAnswer = rightAnswer - 1;
+            }
+            else
+            {
+                rightAnswer = 0;
+            }
+        }
+    }
 
     @Override
     public boolean onTouch(View v, MotionEvent e) {
@@ -284,6 +303,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(0);//TODO: change this pseudo code.
+                    removeCard();
                     System.out.println(view.getId());
                     System.out.println(v.getId());
                 }
