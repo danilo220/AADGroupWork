@@ -32,13 +32,12 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     public int choosePicture;
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14;
     Button menuButton;
+    TextView timerText;
 
     ArrayList<Integer> number = new ArrayList<Integer>();
 
     int wrongAnswer = 0;
     int rightAnswer = 0;
-
-    private Chronometer chronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +46,9 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         ArrayList<Integer> number = new ArrayList<Integer>();
         setContentView(R.layout.square_matrices_directions);
 
-        chronometer = (Chronometer) findViewById(R.id.chronometer);
         Button resetButton = findViewById(R.id.resetButton);
         final Button startButton = findViewById(R.id.start);
+        final TextView timerText = findViewById(R.id.textTimer);
 
         menuButton = findViewById(R.id.Menu);
         menuButton.setVisibility(View.INVISIBLE);
@@ -125,7 +124,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         a14 = (ImageView) findViewById(R.id.dragAnswer14);
         a14.setVisibility(View.INVISIBLE);
 
-        Button roadRecognitionButton = findViewById(R.id.btn_road_recognition);
 
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,10 +145,23 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chronometer.setBase(SystemClock.elapsedRealtime());
-                chronometer.start();
                 random();
                 randomPicture();
+
+                new CountDownTimer(300000, 1000) { //Sets 5 Minutes
+
+                    public void onTick(long millisUntilFinished) {
+                        timerText.setText("Timer: " + millisUntilFinished / 1000);
+                    }
+
+                    public void onFinish() {
+                        timerText.setText("You can carry on playing if you wish.");
+                        rightAnswer = rightAnswer;
+                        menuButton.setVisibility(View.VISIBLE);
+
+                    }
+                }.start();
+
                 startButton.setVisibility(View.INVISIBLE);
             }
         });
@@ -192,10 +203,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         if (choosePicture == 0)
         {
             System.out.println("Finished Game@@@@@@@@@@@@@@@@@@@@@@@");
-            int collectTime;
-            chronometer.stop();
-
-            collectTime = (int) (SystemClock.elapsedRealtime() - chronometer.getBase());
             menuButton.setVisibility(View.VISIBLE);
         }
         if (choosePicture == 1){
@@ -260,7 +267,8 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     randomPicture();
                     if (v.getId() == R.id.box41) {
                         ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
+                        a41.setVisibility(View.VISIBLE);
+
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
                         rightAnswer = rightAnswer + 2;
                     }
