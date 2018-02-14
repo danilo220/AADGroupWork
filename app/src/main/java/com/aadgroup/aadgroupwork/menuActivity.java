@@ -15,24 +15,25 @@ public class menuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        dotCancel.setOnClickListener(new TextView.OnClickListener(){
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
-                startActivity(intent);
-            }
-        });
 
         int dotFinish = 0;
         int directionsFinish = 0;
-        int roadSignsFinish = 1;
+        int roadSignsFinish = 0;
         int compassFinish = 0;
-        int pathformFinish = 1;
+        int pathformFinish = 0;
 
         dotCancel = findViewById(R.id.dotcancel);
         directions = findViewById(R.id.directions);
         roadsigns = findViewById(R.id.roadsign);
         compass = findViewById(R.id.compass);
         pathformer = findViewById(R.id.pathforming);
+
+        dotCancel.setOnClickListener(new TextView.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
+                startActivity(intent);
+            }
+        });
 
         if (dotFinish == 1){
             dotCancel.setPaintFlags(dotCancel.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);

@@ -3,10 +3,13 @@ package com.aadgroup.aadgroupwork;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +19,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -23,16 +32,30 @@ import static java.lang.System.in;
 
 public class MainActivity extends AppCompatActivity
 {
-    ArrayList<Account> allAccounts = new ArrayList<>();
-    int accIndex = -1;
+    //ArrayList<Account> allAccounts = new ArrayList<>();
+    //int accIndex = -1;
     private boolean userIsInteracting;
+    private FirebaseAuth mAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance();
 
-        allAccounts.add(new Account("Dave123", "1234", false));
+                Button logInButton = findViewById(R.id.btn_dot);
+        logInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn();
+            }
+        });
+
+
+
+/*        allAccounts.add(new Account("Dave123", "1234", false));
         allAccounts.add(new Account("Sarah88", "1234", false));
         allAccounts.add(new Account("Henry", "1234", true));
 
@@ -97,7 +120,7 @@ public class MainActivity extends AppCompatActivity
                     errorMsg.setText("Account details incorrect!");
                 }
             }
-        });
+        });*/
 
         Button menuButton = findViewById(R.id.menuButton);
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +216,41 @@ public class MainActivity extends AppCompatActivity
     public void onUserInteraction()
     {
         super.onUserInteraction();
-        userIsInteracting = true;
+        //userIsInteracting = true;
     }
+
+    private void signIn() {
+
+        EditText txtUsername = findViewById(R.id.txtUsername);
+        String username = txtUsername.getText().toString();
+
+        EditText txtPassword = findViewById(R.id.txtPassword);
+        String password = txtPassword.getText().toString();
+
+        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+            Toast.makeText(MainActivity.this, "Fields are Empty", Toast.LENGTH_LONG).show();
+        } else {
+            mAuth.signInWithEmailAndPassword(username, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+                                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
+                                startActivity(myIntent);
+                                // Sign in success, update UI with the signed-in user's information
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Toast.makeText(MainActivity.this, "Sign in Successful", Toast.LENGTH_LONG).show();
+                            }
+
+                            // ...
+                        }
+                    });
+        }
+    }
+
+
+
+
 
 }
