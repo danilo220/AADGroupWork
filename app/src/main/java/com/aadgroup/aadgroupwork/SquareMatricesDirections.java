@@ -256,136 +256,346 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         View view = (View) e.getLocalState();
         switch (e.getAction()) {
             case DragEvent.ACTION_DROP:
-                if (view.getId() == R.id.dragAnswer41 && v.getId() == R.id.box41) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
+                if (view.getId() == R.id.dragAnswer41) {
                     randomPicture();
-                    return true;
+                    if (v.getId() == R.id.box41) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
                 }
-                else if (view.getId() == R.id.dragAnswer42 && v.getId() == R.id.box42) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
+                else if (view.getId() == R.id.dragAnswer42) {
                     randomPicture();
-                    return true;
+                    if (v.getId() == R.id.box42) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box41 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box32 || v.getId() == R.id.box22 || v.getId() == R.id.box12 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
                 }
-                else if (view.getId() == R.id.dragAnswer43 && v.getId() == R.id.box43) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
+                else if (view.getId() == R.id.dragAnswer43) {
                     randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer44 && v.getId() == R.id.box44) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer31 && v.getId() == R.id.box31) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer32 && v.getId() == R.id.box32) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer33 && v.getId() == R.id.box33) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer34 && v.getId() == R.id.box34) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer21&& v.getId() == R.id.box21) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer22&& v.getId() == R.id.box22) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer23&& v.getId() == R.id.box23) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer24&& v.getId() == R.id.box24) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer11&& v.getId() == R.id.box11) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    a12.setVisibility(View.VISIBLE);
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer12&& v.getId() == R.id.box12) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer13&& v.getId() == R.id.box13) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
-                }
-                else if (view.getId() == R.id.dragAnswer14&& v.getId() == R.id.box14) {
-                    ViewGroup from = (ViewGroup) view.getParent();
-                    from.removeView(view);
-                    v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
-                    rightAnswer = rightAnswer + 1;
-                    randomPicture();
-                    return true;
+                    if (v.getId() == R.id.box43) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box44 || v.getId() == R.id.box33 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
                 }
 
+                else if (view.getId() == R.id.dragAnswer44) {
+                    randomPicture();
+                    if (v.getId() == R.id.box44) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box43 || v.getId() == R.id.box34 || v.getId() == R.id.box24 || v.getId() == R.id.box14 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+
+                else if (view.getId() == R.id.dragAnswer31) {
+                    randomPicture();
+                    if (v.getId() == R.id.box31) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box32 || v.getId() == R.id.box33 || v.getId() == R.id.box34 || v.getId() == R.id.box41 || v.getId() == R.id.box21 || v.getId() == R.id.box11 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+
+                else if (view.getId() == R.id.dragAnswer32) {
+                    randomPicture();
+                    if (v.getId() == R.id.box32) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box31 || v.getId() == R.id.box33 || v.getId() == R.id.box34 || v.getId() == R.id.box42 || v.getId() == R.id.box22 || v.getId() == R.id.box12 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+
+                else if (view.getId() == R.id.dragAnswer33) {
+                    randomPicture();
+                    if (v.getId() == R.id.box33) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box31 || v.getId() == R.id.box32 || v.getId() == R.id.box34 || v.getId() == R.id.box43 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer34) {
+                    randomPicture();
+                    if (v.getId() == R.id.box34) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box31 || v.getId() == R.id.box32 || v.getId() == R.id.box33 || v.getId() == R.id.box44 || v.getId() == R.id.box24 || v.getId() == R.id.box14 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer21) {
+                    randomPicture();
+                    if (v.getId() == R.id.box21) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box22 || v.getId() == R.id.box23 || v.getId() == R.id.box24 || v.getId() == R.id.box41 || v.getId() == R.id.box31 || v.getId() == R.id.box11 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer22) {
+                    randomPicture();
+                    if (v.getId() == R.id.box22) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box21 || v.getId() == R.id.box23 || v.getId() == R.id.box24 || v.getId() == R.id.box42 || v.getId() == R.id.box32 || v.getId() == R.id.box12 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer23) {
+                    randomPicture();
+                    if (v.getId() == R.id.box23) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box21 || v.getId() == R.id.box22 || v.getId() == R.id.box24 || v.getId() == R.id.box43 || v.getId() == R.id.box33 || v.getId() == R.id.box13 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer24) {
+                    randomPicture();
+                    if (v.getId() == R.id.box24) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box21 || v.getId() == R.id.box22 || v.getId() == R.id.box23 || v.getId() == R.id.box44 || v.getId() == R.id.box34 || v.getId() == R.id.box14 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer11) {
+                    randomPicture();
+                    if (v.getId() == R.id.box11) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box12 || v.getId() == R.id.box13 || v.getId() == R.id.box14 || v.getId() == R.id.box21 || v.getId() == R.id.box31 || v.getId() == R.id.box41 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer12) {
+                    randomPicture();
+                    if (v.getId() == R.id.box12) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box11 || v.getId() == R.id.box13 || v.getId() == R.id.box14 || v.getId() == R.id.box22 || v.getId() == R.id.box32 || v.getId() == R.id.box42 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer13) {
+                    randomPicture();
+                    if (v.getId() == R.id.box13) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box11 || v.getId() == R.id.box12 || v.getId() == R.id.box14 || v.getId() == R.id.box23 || v.getId() == R.id.box33 || v.getId() == R.id.box43 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
+                else if (view.getId() == R.id.dragAnswer14) {
+                    randomPicture();
+                    if (v.getId() == R.id.box14) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 2;
+                    }
+                    else if (v.getId() == R.id.box12 || v.getId() == R.id.box13 || v.getId() == R.id.box11 || v.getId() == R.id.box24 || v.getId() == R.id.box34 || v.getId() == R.id.box44 ) {
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
+                        rightAnswer = rightAnswer + 1;
+                    }
+                    else{
+                        ViewGroup from = (ViewGroup) view.getParent();
+                        from.removeView(view);
+                        v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
+                        //Wrong answer
+                    }
+                }
 
                 else{
                     wrongAnswer = wrongAnswer + 1;
