@@ -14,5 +14,7 @@ public class SquareMatricesCompass extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.square_matrices_compass);
+
+
     }
 }

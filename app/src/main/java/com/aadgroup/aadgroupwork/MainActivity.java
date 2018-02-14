@@ -99,6 +99,15 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        Button menuButton = findViewById(R.id.menuButton);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
         Button dotButton = findViewById(R.id.btn_dot);
         dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
