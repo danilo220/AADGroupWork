@@ -34,9 +34,9 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     Button menuButton;
     TextView timerText;
 
-    ArrayList<String> previousLocation = new ArrayList<String>();
-    ArrayList<String> previousCard = new ArrayList<String>();
-    ArrayList<Integer> number = new ArrayList<Integer>();
+    ArrayList<String> previousLocation = new ArrayList<>();
+    ArrayList<String> previousCard = new ArrayList<>();
+    ArrayList<Integer> number = new ArrayList<>();
 
     int wrongAnswer = 0;
     int rightAnswer = 0;
@@ -45,7 +45,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        ArrayList<Integer> number = new ArrayList<Integer>();
+        ArrayList<Integer> number = new ArrayList<>();
         setContentView(R.layout.square_matrices_directions);
 
         Button resetButton = findViewById(R.id.resetButton);
@@ -55,24 +55,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         menuButton = findViewById(R.id.Menu);
         menuButton.setVisibility(View.INVISIBLE);
 
-        findViewById(R.id.dragAnswer41).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer42).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer43).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer44).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer31).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer32).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer33).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer34).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer21).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer22).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer23).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer24).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer11).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer12).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer13).setOnTouchListener(this);
-        findViewById(R.id.dragAnswer14).setOnTouchListener(this);
-
-
 /*        answer41 = (ImageView) findViewById(R.id.box41);
         answer41.setOnTouchListener(this);
         answer42 = (ImageView) findViewById(R.id.box42);
@@ -81,6 +63,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         answer43.setOnTouchListener(this);
         answer44 = (ImageView) findViewById(R.id.box44);
         answer44.setOnTouchListener(this);*/
+
         findViewById(R.id.box41).setOnDragListener(this);
         findViewById(R.id.box42).setOnDragListener(this);
         findViewById(R.id.box43).setOnDragListener(this);
@@ -104,43 +87,57 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         findViewById(R.id.box43).setOnTouchListener(this);
         findViewById(R.id.box44).setOnTouchListener(this);
 
-
-        a41 = (ImageView) findViewById(R.id.dragAnswer41);
+        a41 = findViewById(R.id.dragAnswer41);
         a41.setVisibility(View.INVISIBLE);
-        a42 = (ImageView) findViewById(R.id.dragAnswer42);
+        a41.setOnTouchListener(this);
+        a42 = findViewById(R.id.dragAnswer42);
         a42.setVisibility(View.INVISIBLE);
-        a43 = (ImageView) findViewById(R.id.dragAnswer43);
+        a42.setOnTouchListener(this);
+        a43 = findViewById(R.id.dragAnswer43);
         a43.setVisibility(View.INVISIBLE);
-        a44 = (ImageView) findViewById(R.id.dragAnswer44);
+        a43.setOnTouchListener(this);
+        a44 = findViewById(R.id.dragAnswer44);
         a44.setVisibility(View.INVISIBLE);
+        a44.setOnTouchListener(this);
 
-        a31 = (ImageView) findViewById(R.id.dragAnswer31);
+        a31 = findViewById(R.id.dragAnswer31);
         a31.setVisibility(View.INVISIBLE);
-        a32 = (ImageView) findViewById(R.id.dragAnswer32);
+        a31.setOnTouchListener(this);
+        a32 = findViewById(R.id.dragAnswer32);
         a32.setVisibility(View.INVISIBLE);
-        a33 = (ImageView) findViewById(R.id.dragAnswer33);
+        a32.setOnTouchListener(this);
+        a33 = findViewById(R.id.dragAnswer33);
         a33.setVisibility(View.INVISIBLE);
-        a34 = (ImageView) findViewById(R.id.dragAnswer34);
+        a33.setOnTouchListener(this);
+        a34 = findViewById(R.id.dragAnswer34);
         a34.setVisibility(View.INVISIBLE);
+        a34.setOnTouchListener(this);
 
-        a21 = (ImageView) findViewById(R.id.dragAnswer21);
+        a21 = findViewById(R.id.dragAnswer21);
         a21.setVisibility(View.INVISIBLE);
-        a22 = (ImageView) findViewById(R.id.dragAnswer22);
+        a21.setOnTouchListener(this);
+        a22 = findViewById(R.id.dragAnswer22);
         a22.setVisibility(View.INVISIBLE);
-        a23 = (ImageView) findViewById(R.id.dragAnswer23);
+        a22.setOnTouchListener(this);
+        a23 = findViewById(R.id.dragAnswer23);
         a23.setVisibility(View.INVISIBLE);
-        a24 = (ImageView) findViewById(R.id.dragAnswer24);
+        a23.setOnTouchListener(this);
+        a24 = findViewById(R.id.dragAnswer24);
         a24.setVisibility(View.INVISIBLE);
+        a24.setOnTouchListener(this);
 
-        a11 = (ImageView) findViewById(R.id.dragAnswer11);
+        a11 = findViewById(R.id.dragAnswer11);
         a11.setVisibility(View.INVISIBLE);
-        a12 = (ImageView) findViewById(R.id.dragAnswer12);
+        a11.setOnTouchListener(this);
+        a12 = findViewById(R.id.dragAnswer12);
         a12.setVisibility(View.INVISIBLE);
-        a13 = (ImageView) findViewById(R.id.dragAnswer13);
+        a12.setOnTouchListener(this);
+        a13 = findViewById(R.id.dragAnswer13);
         a13.setVisibility(View.INVISIBLE);
-        a14 = (ImageView) findViewById(R.id.dragAnswer14);
+        a13.setOnTouchListener(this);
+        a14 = findViewById(R.id.dragAnswer14);
         a14.setVisibility(View.INVISIBLE);
-
+        a14.setOnTouchListener(this);
 
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -303,7 +300,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(0);//TODO: change this pseudo code.
-                    removeCard();
+                    removeCard(view, v);
                     System.out.println(view.getId());
                     System.out.println(v.getId());
                 }

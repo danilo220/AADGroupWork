@@ -15,6 +15,7 @@ public class menuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        dotCancel = findViewById(R.id.dotcancel);
         dotCancel.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
@@ -28,7 +29,6 @@ public class menuActivity extends AppCompatActivity {
         int compassFinish = 0;
         int pathformFinish = 1;
 
-        dotCancel = findViewById(R.id.dotcancel);
         directions = findViewById(R.id.directions);
         roadsigns = findViewById(R.id.roadsign);
         compass = findViewById(R.id.compass);
