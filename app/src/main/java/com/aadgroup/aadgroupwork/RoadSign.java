@@ -39,7 +39,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         findViewById(R.id.eleventhImage).setOnDragListener(this);
         findViewById(R.id.twelvethImage).setOnDragListener(this);
 
-        resetButton = (Button) findViewById(R.id.resetButtonRoadSign);
+/*        resetButton = (Button) findViewById(R.id.resetButtonRoadSign);
         resetButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -48,7 +48,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                 Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
                 startActivity(myIntent);
             }
-        });
+        });*/
     }
 
     @Override
