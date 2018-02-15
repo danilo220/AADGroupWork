@@ -37,8 +37,8 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     Button menuButton;
     TextView timerText, hintText;
 
-    ArrayList<String> previousLocation = new ArrayList<String>();
-    ArrayList<String> previousCard = new ArrayList<String>();
+    //ArrayList<String> previousLocation = new ArrayList<String>();
+    //ArrayList<String> previousCard = new ArrayList<String>();
     ArrayList<Integer> number = new ArrayList<Integer>();
 
     //int wrongAnswer = 0;
@@ -104,12 +104,8 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         findViewById(R.id.box12).setOnDragListener(this);
         findViewById(R.id.box13).setOnDragListener(this);
         findViewById(R.id.box14).setOnDragListener(this);
-        findViewById(R.id.cycler).setOnDragListener(this);
 
-        findViewById(R.id.box41).setOnTouchListener(this);
-        findViewById(R.id.box42).setOnTouchListener(this);
-        findViewById(R.id.box43).setOnTouchListener(this);
-        findViewById(R.id.box44).setOnTouchListener(this);
+        //findViewById(R.id.cycler).setOnDragListener(this);
 
 
         a41 = (ImageView) findViewById(R.id.dragAnswer41);
@@ -197,7 +193,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         });
 
     }
-    void removePoints(View view, View v)
+/*    void removePoints(View view, View v)
     {
         if (view.getId() == R.id.dragAnswer41)
         {
@@ -222,7 +218,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         {
             System.out.print("Error drag not answer 41 and points are  " + points);
         }
-    }
+    }*/
 
     @Override
     public boolean onTouch(View v, MotionEvent e) {
@@ -246,7 +242,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         for (int i = 1; i <= 16; ++i){
             number.add(i);
     }
-        //Collections.shuffle(number);
+        Collections.shuffle(number);
         number.add(0);
     }
 
@@ -268,13 +264,14 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     }
 
     private void randomPicture(){
-        choosePicture = number.get(12);
+        choosePicture = number.get(0);
         number.remove(0);
-        System.out.println(number);
-        System.out.println(choosePicture);
+
+        System.out.println("Current Score" + points);
         if (choosePicture == 0)
         {
             System.out.println("Finished Game@@@@@@@@@@@@@@@@@@@@@@@");
+            System.out.println(points);
             menuButton.setVisibility(View.VISIBLE);
         }
         if (choosePicture == 1){
@@ -337,10 +334,10 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
             case DragEvent.ACTION_DROP:
                 //System.out.println("Points atm drop: " + points);
 
-                if (v.getId() == R.id.cycler){
+/*                if (v.getId() == R.id.cycler){
                     removePoints(view, v);
                     v.setBackgroundResource(0);//TODO: change this pseudo code.
-                }
+                }*/
 
                 if (view.getId() == R.id.dragAnswer41) {
                     randomPicture();
@@ -350,14 +347,16 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 points, points atm dragAnswer41 " + points);
+                        findViewById(R.id.box41).setOnDragListener(null);
                     }
-                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11 )
+                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11 &&  )
                     {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer41 " + points);
+
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -374,6 +373,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box42).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box41 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box32 || v.getId() == R.id.box22 || v.getId() == R.id.box12 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -395,14 +395,17 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
-                        //rightAnswer = rightAnswer + 2;
+                        points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box43).setOnDragListener(null);
                     }
-/*                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box44 || v.getId() == R.id.box33 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
+                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box44 || v.getId() == R.id.box33 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
-                        rightAnswer = rightAnswer + 1;
-                    }*/
+                        points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                    }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -417,14 +420,17 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
-                        //rightAnswer = rightAnswer + 2;
+                        points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box44).setOnDragListener(null);
                     }
-/*                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box43 || v.getId() == R.id.box34 || v.getId() == R.id.box24 || v.getId() == R.id.box14 ) {
+                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box43 || v.getId() == R.id.box34 || v.getId() == R.id.box24 || v.getId() == R.id.box14 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
-                        rightAnswer = rightAnswer + 1;
-                    }*/
+                        points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                    }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -442,12 +448,16 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box31).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box32 || v.getId() == R.id.box33 || v.getId() == R.id.box34 || v.getId() == R.id.box41 || v.getId() == R.id.box21 || v.getId() == R.id.box11 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
+
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -464,12 +474,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box32).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box31 || v.getId() == R.id.box33 || v.getId() == R.id.box34 || v.getId() == R.id.box42 || v.getId() == R.id.box22 || v.getId() == R.id.box12 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -486,12 +499,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box33).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box31 || v.getId() == R.id.box32 || v.getId() == R.id.box34 || v.getId() == R.id.box43 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -508,12 +524,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box34).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box31 || v.getId() == R.id.box32 || v.getId() == R.id.box33 || v.getId() == R.id.box44 || v.getId() == R.id.box24 || v.getId() == R.id.box14 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -529,12 +548,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box21).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box22 || v.getId() == R.id.box23 || v.getId() == R.id.box24 || v.getId() == R.id.box41 || v.getId() == R.id.box31 || v.getId() == R.id.box11 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -550,12 +572,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box22).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box21 || v.getId() == R.id.box23 || v.getId() == R.id.box24 || v.getId() == R.id.box42 || v.getId() == R.id.box32 || v.getId() == R.id.box12 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -571,12 +596,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box23).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box21 || v.getId() == R.id.box22 || v.getId() == R.id.box24 || v.getId() == R.id.box43 || v.getId() == R.id.box33 || v.getId() == R.id.box13 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -592,12 +620,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box24).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box21 || v.getId() == R.id.box22 || v.getId() == R.id.box23 || v.getId() == R.id.box44 || v.getId() == R.id.box34 || v.getId() == R.id.box14 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -613,12 +644,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box11).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box12 || v.getId() == R.id.box13 || v.getId() == R.id.box14 || v.getId() == R.id.box21 || v.getId() == R.id.box31 || v.getId() == R.id.box41 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -634,12 +668,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box12).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box11 || v.getId() == R.id.box13 || v.getId() == R.id.box14 || v.getId() == R.id.box22 || v.getId() == R.id.box32 || v.getId() == R.id.box42 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -655,12 +692,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box13).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box11 || v.getId() == R.id.box12 || v.getId() == R.id.box14 || v.getId() == R.id.box23 || v.getId() == R.id.box33 || v.getId() == R.id.box43 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -676,12 +716,15 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
                         points += 2;
+                        System.out.println("added 2 point, points atm dragAnswer42 " + points);
+                        findViewById(R.id.box14).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box12 || v.getId() == R.id.box13 || v.getId() == R.id.box11 || v.getId() == R.id.box24 || v.getId() == R.id.box34 || v.getId() == R.id.box44 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
                         points += 1;
+                        System.out.println("added 1 point, points atm dragAnswer42 " + points);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
