@@ -71,43 +71,43 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
         //Answer boxes
         firstImageBoxV = (ImageView) findViewById(R.id.firstImageBox);
-        firstImageBoxV.setOnDragListener(this);
+        //firstImageBoxV.setOnDragListener(this);
 
         secondImageBoxV = (ImageView) findViewById(R.id.secondImageBox);
-        secondImageBoxV.setOnDragListener(this);
+        //secondImageBoxV.setOnDragListener(this);
 
         thirdImageBoxV = (ImageView) findViewById(R.id.thirdImageBox);
-        thirdImageBoxV.setOnDragListener(this);
+        //thirdImageBoxV.setOnDragListener(this);
 
         thirdImageBoxV = (ImageView) findViewById(R.id.thirdImageBox);
-        thirdImageBoxV.setOnDragListener(this);
+        //thirdImageBoxV.setOnDragListener(this);
 
         fourthImageBoxV = (ImageView) findViewById(R.id.fourthImageBox);
-        fourthImageBoxV.setOnDragListener(this);
+        //fourthImageBoxV.setOnDragListener(this);
 
         fifthImageBoxV = (ImageView) findViewById(R.id.fifthImageBox);
-        fifthImageBoxV.setOnDragListener(this);
+        //fifthImageBoxV.setOnDragListener(this);
 
         sixthImageBoxV = (ImageView) findViewById(R.id.sixthImageBox);
-        sixthImageBoxV.setOnDragListener(this);
+        //sixthImageBoxV.setOnDragListener(this);
 
         seventhImageBoxV = (ImageView) findViewById(R.id.seventhImageBox);
-        seventhImageBoxV.setOnDragListener(this);
+        //seventhImageBoxV.setOnDragListener(this);
 
         eightImageBoxV = (ImageView) findViewById(R.id.eightImageBox);
-        eightImageBoxV.setOnDragListener(this);
+        //eightImageBoxV.setOnDragListener(this);
 
         ninthImageBoxV = (ImageView) findViewById(R.id.ninthImageBox);
-        ninthImageBoxV.setOnDragListener(this);
+        //ninthImageBoxV.setOnDragListener(this);
 
         tenthImageBoxV = (ImageView) findViewById(R.id.tenthImageBox);
-        tenthImageBoxV.setOnDragListener(this);
+        //tenthImageBoxV.setOnDragListener(this);
 
         eleventhImageBoxV = (ImageView) findViewById(R.id.eleventhImageBox);
-        eleventhImageBoxV.setOnDragListener(this);
+        //eleventhImageBoxV.setOnDragListener(this);
 
         twelvethImageBoxV = (ImageView) findViewById(R.id.twelvethImageBox);
-        twelvethImageBoxV.setOnDragListener(this);
+        //twelvethImageBoxV.setOnDragListener(this);
 
 
         resetButton = (Button) findViewById(R.id.resetButtonRoadSign);
@@ -155,12 +155,70 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
                     return true;
                 }*/
-                if(view.getId() == R.id.roadSignOne)
+
+                if (view.getId() == R.id.roadSignOne)
                 {
-                    ViewGroup vGroup = (ViewGroup) view.getParent();
+                    if(v.getId() == R.id.firstImage)
+                    {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.firstImage).setOnDragListener(null);
+                    }
+
+                    if(v.getId() == R.id.secondImage)
+                    {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.secondImage).setOnDragListener(null);
+                    }
+/*                    if (v.getId() == R.id.firstImage && firstImageBoxV.getDrawable() != null) {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                    }
+
+                    if (v.getId() == R.id.secondImage && secondImageBoxV.getDrawable() != null) {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                    }*/
+/*                    ViewGroup vGroup = (ViewGroup) view.getParent();
                     vGroup.removeView(view);
-                    v.setBackgroundResource(R.drawable.road_sign_one);
+                    firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);*/
+                    //findViewById(R.id.firstImageBox).setOnDragListener(null);
                 }
+                //##################################################################################
+                if (view.getId() == R.id.roadSignTwo) {
+/*                    if (v.getId() == R.id.firstImage && firstImageBoxV.getDrawable() != null) {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                    }
+
+                    if (v.getId() == R.id.secondImage && secondImageBoxV.getDrawable() != null) {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                    }*/
+                    if(v.getId() == R.id.firstImage)
+                    {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.firstImage).setOnDragListener(null);
+                    }
+
+                    if(v.getId() == R.id.secondImage)
+                    {
+                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);
+                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.secondImage).setOnDragListener(null);
+                    }
+                }
+
                 else
                 {
                     System.out.println("Error");
