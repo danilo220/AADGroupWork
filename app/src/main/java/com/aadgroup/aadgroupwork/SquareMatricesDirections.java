@@ -33,7 +33,7 @@ import static android.content.ContentValues.TAG;
 
 public class SquareMatricesDirections extends Activity implements View.OnTouchListener, View.OnDragListener {
     public int choosePicture;
-    ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, hint;
+    ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, hint, answer41, answer42, answer43, answer44, answer31, answer21, answer11;
     Button menuButton;
     TextView timerText, hintText;
 
@@ -80,14 +80,14 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         findViewById(R.id.dragAnswer14).setOnTouchListener(this);
 
 
-/*        answer41 = (ImageView) findViewById(R.id.box41);
-        answer41.setOnTouchListener(this);
+        answer41 = (ImageView) findViewById(R.id.box41);
         answer42 = (ImageView) findViewById(R.id.box42);
-        answer42.setOnTouchListener(this);
         answer43 = (ImageView) findViewById(R.id.box43);
-        answer43.setOnTouchListener(this);
         answer44 = (ImageView) findViewById(R.id.box44);
-        answer44.setOnTouchListener(this);*/
+        answer31 = (ImageView) findViewById(R.id.box31);
+        answer21 = (ImageView) findViewById(R.id.box21);
+        answer11 = (ImageView) findViewById(R.id.box11);
+
         findViewById(R.id.box41).setOnDragListener(this);
         findViewById(R.id.box42).setOnDragListener(this);
         findViewById(R.id.box43).setOnDragListener(this);
@@ -356,13 +356,14 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer41 " + points);
+                        v.setOnDragListener(null);
 
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
-                        //Wrong answer
+                        v.setOnDragListener(null);
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer42) {
@@ -381,11 +382,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
-                        v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
+                        v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code..
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -398,6 +401,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box43).setOnDragListener(null);
+
                     }
                     else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box44 || v.getId() == R.id.box33 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
                         ViewGroup from = (ViewGroup) view.getParent();
@@ -405,11 +409,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -430,11 +436,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -457,12 +465,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
-
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -483,11 +492,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -508,11 +519,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -533,11 +546,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -557,11 +572,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -581,11 +598,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -605,11 +624,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -629,11 +650,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -653,11 +676,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -677,11 +702,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -701,11 +728,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
@@ -725,11 +754,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
+                        v.setOnDragListener(null);
                     }
                     else{
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
+                        v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
