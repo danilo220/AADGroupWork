@@ -1,6 +1,7 @@
 package com.aadgroup.aadgroupwork;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Intent;
 import android.media.Image;
@@ -278,9 +279,14 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
     private void getHint(){
         if (totalHints > 0){
-            Toast.makeText(SquareMatricesDirections.this, "position the cards shown below so that\n" +
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(true);
+            builder.setTitle("Hint " + totalHints);
+            builder.setMessage("position the cards shown below so that\n" +
                     "each car is travelling in the direction indicated by the bottom arrows and\n" +
-                    "each lorry in the direction indicated by the arrows on the left side.", Toast.LENGTH_LONG).show();
+                    "each lorry in the direction indicated by the arrows on the left side.");
+            builder.setPositiveButton("OK", null);
+            builder.show();
             totalHints = totalHints - 1;
             hintText.setText(totalHints+" Remaining hints left");
         }
