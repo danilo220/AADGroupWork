@@ -2,6 +2,7 @@ package com.aadgroup.aadgroupwork;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by Danilo on 30/01/2018.
@@ -16,7 +18,11 @@ import android.widget.ImageView;
 
 public class RoadSign extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener
 {
+    int points = 0;
+    Button startButton;
     Button resetButton;
+
+    TextView timerText;
     //Road Signs
     ImageView firstImg;
     ImageView secondImg;
@@ -52,6 +58,8 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 /*        firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);*/
 
+        //Timer
+        timerText = (TextView) findViewById(R.id.timerTextView);
         //Road Signs
         firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);
@@ -89,6 +97,18 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         twelvethImg = (ImageView) findViewById(R.id.roadSignTwelve);
         twelvethImg.setOnTouchListener(this);
 
+        firstImg.setVisibility(View.INVISIBLE);
+        secondImg.setVisibility(View.INVISIBLE);
+        thirdImg.setVisibility(View.INVISIBLE);
+        fourthImg.setVisibility(View.INVISIBLE);
+        fifthImg.setVisibility(View.INVISIBLE);
+        sixthImg.setVisibility(View.INVISIBLE);
+        seventhImg.setVisibility(View.INVISIBLE);
+        eightImg.setVisibility(View.INVISIBLE);
+        ninthImg.setVisibility(View.INVISIBLE);
+        tenthImg.setVisibility(View.INVISIBLE);
+        eleventhImg.setVisibility(View.INVISIBLE);
+        twelvethImg.setVisibility(View.INVISIBLE);
         //findViewById(R.id.roadSignOne).setOnTouchListener(this);
 /*        findViewById(R.id.roadSignTwo).setOnTouchListener(this);
         findViewById(R.id.roadSignThree).setOnTouchListener(this);
@@ -156,18 +176,110 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         //twelvethImageBoxV.setOnDragListener(this);
 
 
+        startButton = (Button) findViewById(R.id.startButtonRoadSign);
+        startButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                makeImagesVisible();
+                new CountDownTimer(180000, 1000) //3 minutes
+                {
+
+                    public void onTick(long millisUntilFinished)
+                    {
+                        timerText.setText("Timer: " + millisUntilFinished / 1000);
+                    }
+
+                    public void onFinish()
+                    {
+                        timerText.setText("“That’s fine, you have done enough now and can stop");
+                        points = points;
+                        //menuButton.setVisibility(View.VISIBLE);
+                        resetButton.setVisibility(View.INVISIBLE);
+                    }
+                }.start();
+
+                startButton.setVisibility(View.INVISIBLE);
+            }
+        });
+
         resetButton = (Button) findViewById(R.id.resetButtonRoadSign);
         resetButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
-                startActivity(myIntent);
+/*                Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
+                startActivity(myIntent);*/
+                points = 0;
+                resetListeners();
+                firstImg.setVisibility(View.VISIBLE);
+                secondImg.setVisibility(View.VISIBLE);
+                thirdImg.setVisibility(View.VISIBLE);
+                fourthImg.setVisibility(View.VISIBLE);
+                fifthImg.setVisibility(View.VISIBLE);
+                sixthImg.setVisibility(View.VISIBLE);
+                seventhImg.setVisibility(View.VISIBLE);
+                eightImg.setVisibility(View.VISIBLE);
+                ninthImg.setVisibility(View.VISIBLE);
+                tenthImg.setVisibility(View.VISIBLE);
+                eleventhImg.setVisibility(View.VISIBLE);
+                twelvethImg.setVisibility(View.VISIBLE);
+
+                fifthImageBoxV.setBackground(null);
+
+                firstImageBoxV.setBackground(null);
+                secondImageBoxV.setBackground(null);
+                thirdImageBoxV.setBackground(null);
+                thirdImageBoxV.setBackground(null);
+                fourthImageBoxV.setBackground(null);
+                fifthImageBoxV.setBackground(null);
+                sixthImageBoxV.setBackground(null);
+                seventhImageBoxV.setBackground(null);
+                eightImageBoxV.setBackground(null);
+                ninthImageBoxV.setBackground(null);
+                tenthImageBoxV.setBackground(null);
+                eleventhImageBoxV.setBackground(null);
+                twelvethImageBoxV.setBackground(null);
+
+                //f.setOnDragListener(this);
+                //findViewById(R.id.firstImage).setOnDragListener(this);
             }
         });
     }
+    private void makeImagesVisible()
+    {
+        firstImg.setVisibility(View.VISIBLE);
+        secondImg.setVisibility(View.VISIBLE);
+        thirdImg.setVisibility(View.VISIBLE);
+        fourthImg.setVisibility(View.VISIBLE);
+        fifthImg.setVisibility(View.VISIBLE);
+        sixthImg.setVisibility(View.VISIBLE);
+        seventhImg.setVisibility(View.VISIBLE);
+        eightImg.setVisibility(View.VISIBLE);
+        ninthImg.setVisibility(View.VISIBLE);
+        tenthImg.setVisibility(View.VISIBLE);
+        eleventhImg.setVisibility(View.VISIBLE);
+        twelvethImg.setVisibility(View.VISIBLE);
 
+    }
+    private void resetListeners()
+    {
+        findViewById(R.id.firstImage).setOnDragListener(this);
+        findViewById(R.id.secondImage).setOnDragListener(this);
+        findViewById(R.id.thirdImage).setOnDragListener(this);
+        findViewById(R.id.fourthImage).setOnDragListener(this);
+        findViewById(R.id.fifthImage).setOnDragListener(this);
+        findViewById(R.id.sixthImage).setOnDragListener(this);
+        findViewById(R.id.seventhImage).setOnDragListener(this);
+        findViewById(R.id.eightImage).setOnDragListener(this);
+        findViewById(R.id.nithImage).setOnDragListener(this);
+        findViewById(R.id.tenthImage).setOnDragListener(this);
+        findViewById(R.id.eleventhImage).setOnDragListener(this);
+        findViewById(R.id.twelvethImage).setOnDragListener(this);
+
+    }
     @Override
     public boolean onTouch(View v, MotionEvent e)
     {
