@@ -20,11 +20,11 @@ import java.util.ArrayList;
 public class DotCancellation extends AppCompatActivity implements View.OnClickListener
 {
     ArrayList<Tile> allTiles = new ArrayList<>();
-    Account loggedInAcc;
     Boolean scrollBottom = false;
     Boolean scrollRight = false;
     TextView txtCounter;
     Counter counter;
+    Account loggedInAcc;
     TestResults allResults;
 
     @Override
@@ -40,10 +40,15 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         if (intent.hasExtra("AccountDetails")) {
             loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
-
-            Toast toast = Toast.makeText(this, "Logged in as " + loggedInAcc.getUsername(), Toast.LENGTH_SHORT);
-            toast.show();
         }
+        if (intent.hasExtra("TestResults")) {
+            allResults = (TestResults) intent.getSerializableExtra("TestResults");
+        }
+        else
+        {
+            allResults = new TestResults();
+        }
+
         AddAllTiles();
 
         ImageView finishButton = findViewById(R.id.iv_finish);
@@ -190,6 +195,11 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         }
         allResults = new TestResults();
         allResults.setDotCancellationResults(timeTaken, missedFourDots, cancelledNonFourDots);
+
+        Intent intent = new Intent(getApplicationContext(), menuActivity.class);
+        intent.putExtra("AccountDetails", loggedInAcc);
+        intent.putExtra("TestResults", loggedInAcc);
+        startActivity(intent);
     }
 
 

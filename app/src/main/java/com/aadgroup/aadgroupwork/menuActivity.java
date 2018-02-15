@@ -35,12 +35,26 @@ public class menuActivity extends AppCompatActivity {
 
     List<String> itemlist = new ArrayList<String>();
 
+    Account loggedInAcc;
+    TestResults allResults;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("AccountDetails")) {
+            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
+        }
+        if (intent.hasExtra("TestResults")) {
+            allResults = (TestResults) intent.getSerializableExtra("TestResults");
+        }
+        else {
+            allResults = new TestResults();
+        }
 
         addData();
         getData();
@@ -60,6 +74,8 @@ public class menuActivity extends AppCompatActivity {
         dotCancel.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", loggedInAcc);
                 startActivity(intent);
             }
         });
@@ -120,6 +136,8 @@ public class menuActivity extends AppCompatActivity {
             directions.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });
@@ -129,6 +147,8 @@ public class menuActivity extends AppCompatActivity {
             compass.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), SquareMatricesCompass.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });
@@ -139,6 +159,8 @@ public class menuActivity extends AppCompatActivity {
             roadsigns.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), RoadSign.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });
@@ -150,6 +172,8 @@ public class menuActivity extends AppCompatActivity {
             pathformer.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), PathForming.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });

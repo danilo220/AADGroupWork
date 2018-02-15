@@ -28,10 +28,6 @@ import java.util.Collections;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Created by Danilo on 30/01/2018.
- */
-
 public class SquareMatricesDirections extends Activity implements View.OnTouchListener, View.OnDragListener {
     public int choosePicture;
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, hint, answer41, answer42, answer43, answer44, answer31, answer21, answer11;
@@ -45,12 +41,25 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     int points = 0;
     int totalHints = 2;
 
+    Account loggedInAcc;
+    TestResults allResults;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         ArrayList<Integer> number = new ArrayList<Integer>();
         setContentView(R.layout.square_matrices_directions);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("AccountDetails")) {
+            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
+        }
+        if (intent.hasExtra("TestResults")) {
+            allResults = (TestResults) intent.getSerializableExtra("TestResults");
+        }
+        {
+            allResults = new TestResults();
+        }
 
         Button resetButton = findViewById(R.id.resetButton);
         final Button startButton = findViewById(R.id.start);
@@ -270,9 +279,10 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         int firstNum = 0;
         number.removeAll(number);
         //ArrayList<Integer> number = new ArrayList<Integer>();
-        for (int i = 1; i <= 16; ++i){
+        for (int i = 1; i <= 16; ++i)
+        {
             number.add(i);
-    }
+        }
         Collections.shuffle(number);
         number.add(0);
     }
@@ -290,13 +300,10 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
             totalHints = totalHints - 1;
             hintText.setText(totalHints+" Remaining hints left");
         }
-
         else{
             hintText.setText("No more hints left");
             hint.setVisibility(View.INVISIBLE);
         }
-
-
     }
 
     private void randomPicture(){
@@ -361,7 +368,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         if (choosePicture == 16){
             a44.setVisibility(View.VISIBLE);
         }
-
     }
 
     @Override

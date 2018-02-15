@@ -50,11 +50,30 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     ImageView tenthImageBoxV;
     ImageView eleventhImageBoxV;
     ImageView twelvethImageBoxV;
+
+    Account loggedInAcc;
+    TestResults allResults;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.road_sign);
+<<<<<<< HEAD
+=======
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("AccountDetails")) {
+            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
+        }
+        if (intent.hasExtra("TestResults")) {
+            allResults = (TestResults) intent.getSerializableExtra("TestResults");
+        }
+        {
+            allResults = new TestResults();
+        }
+
+>>>>>>> 4655eb2915d9bac1d20338c86cea23d5f3eb8b81
 /*        firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);*/
 
