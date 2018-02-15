@@ -32,6 +32,7 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         //int wrongAnswer = 0;
         int points = 0;
         int totalHints = 2;
+        //pushing
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
