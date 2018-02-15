@@ -149,6 +149,15 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        Button compassButton = findViewById(R.id.btn_compass);
+        compassButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), SquareMatricesCompass.class);
+                startActivity(myIntent);
+            }
+        });
+
         Button roadRecognitionButton = findViewById(R.id.btn_road_recognition);
         roadRecognitionButton.setOnClickListener(new View.OnClickListener() {
             @Override

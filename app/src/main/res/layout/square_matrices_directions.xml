@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions41"
+        android:src="@drawable/car_south_southeast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions42"
+        android:src="@drawable/car_south_northeast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions43"
+        android:src="@drawable/car_south_southwest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions44"
+        android:src="@drawable/car_south_east"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions31"
+        android:src="@drawable/car_north_southeast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +90,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions32"
+        android:src="@drawable/car_north_northeast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions33"
+        android:src="@drawable/car_north_southwest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +120,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions34"
+        android:src="@drawable/carnortheast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +135,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions21"
+        android:src="@drawable/car_northwest_southeast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +150,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions22"
+        android:src="@drawable/car_northeast_northwest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +165,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions23"
+        android:src="@drawable/car_northwest_southwest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -180,7 +180,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions24"
+        android:src="@drawable/car_east_northwest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +195,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions11"
+        android:src="@drawable/carwestsoutheast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +210,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions12"
+        android:src="@drawable/car_west_northeast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +225,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions13"
+        android:src="@drawable/car_west_southwest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -240,7 +240,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions14"
+        android:src="@drawable/careastwest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -319,7 +319,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/left"
+                android:src="@drawable/south"
                 />
 
             <ImageView
@@ -355,7 +355,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/right" />
+                android:src="@drawable/north" />
 
             <ImageView
                 android:id="@+id/box31"
@@ -390,7 +390,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/down" />
+                android:src="@drawable/northwest" />
 
             <ImageView
                 android:id="@+id/box21"
@@ -421,7 +421,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/up" />
+                android:src="@drawable/west" />
 
             <ImageView
                 android:id="@+id/box11"
@@ -468,25 +468,25 @@
                 android:id="@+id/imageView10"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/rightsmall" />
+                android:src="@drawable/southeast" />
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/upsmall" />
+                android:src="@drawable/northeast" />
 
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/leftsmall" />
+                android:src="@drawable/southwest" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/downsmall" />
+                android:src="@drawable/east" />
 
         </TableRow>
 
