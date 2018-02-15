@@ -6,15 +6,37 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import java.text.DateFormat;
+import java.util.Date;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class menuActivity extends AppCompatActivity {
-    TextView dotCancel, directions, roadsigns, compass, pathformer;
+    TextView dotCancel, directions, roadsigns, compass, pathformer, score;
+    DatabaseReference databaseReference;
+    //Firebase firebaseReference;
+
+    FirebaseUser user;
+    String uid;
+
+    List<String> itemlist = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
 
+        addData();
 
         int dotFinish = 0;
         int directionsFinish = 0;
@@ -79,4 +101,43 @@ public class menuActivity extends AppCompatActivity {
         }
 
     }
+
+    private void addData(){
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        String userID = uid;
+        String result = "pass";
+
+        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+
+        databaseReference.child("users").child(userID).setValue(userID);
+        databaseReference.child("users").child(userID).child("Email").setValue(email);
+        databaseReference.child("users").child(userID).child("Result").setValue(result);
+        databaseReference.child("users").child(userID).child("Date & Time").setValue(currentDateTimeString);
+    }
+
+/*    private void go(){
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener (new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot){
+                itemlist.clear();
+
+                String userResult = dataSnapshot.child(uid).child("Result").getValue(String.class);
+                String resultDate = dataSnapshot.child(uid).child("Date").getValue(String.class);
+
+                itemlist.add(userResult);
+                itemlist.add(resultDate);
+            }
+
+
+    }*/
+
+    protected void onStart(){
+        super.onStart();
+        score = (TextView) findViewById(R.id.score);
+    }
+
 }

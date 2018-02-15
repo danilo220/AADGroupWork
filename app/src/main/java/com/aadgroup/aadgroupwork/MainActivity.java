@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
-                Button logInButton = findViewById(R.id.btn_dot);
+        Button logInButton = findViewById(R.id.btn_login);
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -229,6 +229,7 @@ public class MainActivity extends AppCompatActivity
 
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
             Toast.makeText(MainActivity.this, "Fields are Empty", Toast.LENGTH_LONG).show();
+
         } else {
             mAuth.signInWithEmailAndPassword(username, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -241,6 +242,9 @@ public class MainActivity extends AppCompatActivity
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Toast.makeText(MainActivity.this, "Sign in Successful", Toast.LENGTH_LONG).show();
+                            }
+                            else{
+                                Toast.makeText(MainActivity.this, "Email or Password incorrect", Toast.LENGTH_LONG).show();
                             }
 
                             // ...
