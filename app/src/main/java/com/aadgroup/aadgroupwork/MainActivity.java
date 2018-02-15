@@ -170,6 +170,16 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        Button pathFormingButton = findViewById(R.id.btn_path_forming);
+        pathFormingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getApplicationContext(), PathForming.class);
+                startActivity(myIntent);
+            }
+        });
+
+
         Button resultsButton = findViewById(R.id.btn_results);
         resultsButton.setOnClickListener(new View.OnClickListener() {
             @Override

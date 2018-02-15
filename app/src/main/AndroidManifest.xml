@@ -22,6 +22,7 @@
         <activity android:name=".RoadSign" />
         <activity android:name=".SquareMatricesCompass" />
         <activity android:name=".SquareMatricesDirections" />
+        <activity android:name=".DrawView" />
         <activity
             android:name=".Results"
             android:parentActivityName=".MainActivity" />

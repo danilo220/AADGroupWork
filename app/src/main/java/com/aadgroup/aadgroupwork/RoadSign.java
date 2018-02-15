@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Danilo on 30/01/2018.
@@ -54,7 +55,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.road_sign);
-
 /*        firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);*/
 
@@ -280,9 +280,28 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         findViewById(R.id.twelvethImage).setOnDragListener(this);
 
     }
+
+    void finishGame()
+    {
+        if(twelvethImageBoxV.getDrawable() != null)
+        {
+            //startButton.setVisibility(View.VISIBLE);
+/*            Toast.makeText(RoadSign.this,
+                    "Finished", Toast.LENGTH_LONG).show();*/
+            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(myIntent);
+        }
+/*        else
+        {
+            Toast.makeText(RoadSign.this,
+                    "Not finished", Toast.LENGTH_LONG).show();
+        }*/
+        //twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_eight);
+    }
     @Override
     public boolean onTouch(View v, MotionEvent e)
     {
+        finishGame();
         if (e.getAction() == MotionEvent.ACTION_DOWN)
         {
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -294,11 +313,13 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         {
             return false;
         }
+
     }
 
     @Override
     public boolean onDrag(View v, DragEvent event)
     {
+        finishGame();
         final int action = event.getAction();
         View view = (View) event.getLocalState();
         switch (action)
@@ -313,6 +334,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         firstImg.setVisibility(View.INVISIBLE);
                         firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
                         findViewById(R.id.firstImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.secondImage)
                     {
@@ -395,6 +417,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         secondImg.setVisibility(View.INVISIBLE);
                         secondImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
                         findViewById(R.id.secondImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.thirdImage)
                     {
@@ -478,6 +501,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         thirdImg.setVisibility(View.INVISIBLE);
                         thirdImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
                         findViewById(R.id.thirdImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.fourthImage)
                     {
@@ -561,6 +585,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         fourthImg.setVisibility(View.INVISIBLE);
                         fourthImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
                         findViewById(R.id.fourthImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.fifthImage)
                     {
@@ -644,6 +669,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         fifthImg.setVisibility(View.INVISIBLE);
                         fifthImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
                         findViewById(R.id.fifthImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.sixthImage)
                     {
@@ -727,6 +753,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         sixthImg.setVisibility(View.INVISIBLE);
                         sixthImageBoxV.setBackgroundResource(R.drawable.road_sign_six);
                         findViewById(R.id.sixthImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.seventhImage)
                     {
@@ -810,6 +837,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         seventhImg.setVisibility(View.INVISIBLE);
                         seventhImageBoxV.setBackgroundResource(R.drawable.road_sign_seven);
                         findViewById(R.id.seventhImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.eightImage)
                     {
@@ -893,6 +921,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         eightImg.setVisibility(View.INVISIBLE);
                         eightImageBoxV.setBackgroundResource(R.drawable.road_sign_eight);
                         findViewById(R.id.eightImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.nithImage)
                     {
@@ -976,6 +1005,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         ninthImg.setVisibility(View.INVISIBLE);
                         ninthImageBoxV.setBackgroundResource(R.drawable.road_sign_nine);
                         findViewById(R.id.nithImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.tenthImage)
                     {
@@ -1059,6 +1089,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         tenthImg.setVisibility(View.INVISIBLE);
                         tenthImageBoxV.setBackgroundResource(R.drawable.road_sign_ten);
                         findViewById(R.id.tenthImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.eleventhImage)
                     {
@@ -1142,6 +1173,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         eleventhImg.setVisibility(View.INVISIBLE);
                         eleventhImageBoxV.setBackgroundResource(R.drawable.road_sign_eleven);
                         findViewById(R.id.eleventhImage).setOnDragListener(null);
+                        points += 1;
                     }
                     if(v.getId() == R.id.twelvethImage)
                     {
@@ -1225,6 +1257,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                         twelvethImg.setVisibility(View.INVISIBLE);
                         twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_twelve);
                         findViewById(R.id.twelvethImage).setOnDragListener(null);
+                        points += 1;
                     }
                 }
                 else
