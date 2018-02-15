@@ -16,10 +16,20 @@ import android.widget.ImageView;
 
 public class RoadSign extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener
 {
-    ImageView firstImg;
     Button resetButton;
-
-
+    //Road Signs
+    ImageView firstImg;
+    ImageView secondImg;
+    ImageView thirdImg;
+    ImageView fourthImg;
+    ImageView fifthImg;
+    ImageView sixthImage;
+    ImageView seventhImg;
+    ImageView eightImg;
+    ImageView ninthImg;
+    ImageView tenthImg;
+    ImageView eleventhImg;
+    ImageView twelvethImg;
     //Answer boxes
     ImageView firstImageBoxV;
     ImageView secondImageBoxV;
@@ -43,8 +53,44 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         firstImg.setOnTouchListener(this);*/
 
         //Road Signs
-        findViewById(R.id.roadSignOne).setOnTouchListener(this);
-        findViewById(R.id.roadSignTwo).setOnTouchListener(this);
+        firstImg = (ImageView) findViewById(R.id.roadSignOne);
+        firstImg.setOnTouchListener(this);
+
+        secondImg = (ImageView) findViewById(R.id.roadSignTwo);
+        secondImg.setOnTouchListener(this);
+
+        thirdImg = (ImageView) findViewById(R.id.roadSignThree);
+        thirdImg.setOnTouchListener(this);
+
+        fourthImg = (ImageView) findViewById(R.id.roadSignFour);
+        fourthImg.setOnTouchListener(this);
+
+        fifthImg = (ImageView) findViewById(R.id.roadSignFive);
+        fifthImg.setOnTouchListener(this);
+
+        sixthImage = (ImageView) findViewById(R.id.roadSignSix);
+        sixthImage.setOnTouchListener(this);
+
+        seventhImg = (ImageView) findViewById(R.id.roadSignSeven);
+        seventhImg.setOnTouchListener(this);
+
+        eightImg = (ImageView) findViewById(R.id.roadSignEight);
+        eightImg.setOnTouchListener(this);
+
+        ninthImg = (ImageView) findViewById(R.id.roadSignNine);
+        ninthImg.setOnTouchListener(this);
+
+        tenthImg = (ImageView) findViewById(R.id.roadSignTen);
+        tenthImg.setOnTouchListener(this);
+
+        eleventhImg = (ImageView) findViewById(R.id.roadSignEleven);
+        eleventhImg.setOnTouchListener(this);
+
+        twelvethImg = (ImageView) findViewById(R.id.roadSignTwelve);
+        twelvethImg.setOnTouchListener(this);
+
+        //findViewById(R.id.roadSignOne).setOnTouchListener(this);
+/*        findViewById(R.id.roadSignTwo).setOnTouchListener(this);
         findViewById(R.id.roadSignThree).setOnTouchListener(this);
         findViewById(R.id.roadSignFour).setOnTouchListener(this);
         findViewById(R.id.roadSignFive).setOnTouchListener(this);
@@ -53,7 +99,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         findViewById(R.id.roadSignEight).setOnTouchListener(this);
         findViewById(R.id.roadSignNine).setOnTouchListener(this);
         findViewById(R.id.roadSignTen).setOnTouchListener(this);
-        findViewById(R.id.roadSignEleven).setOnTouchListener(this);
+        findViewById(R.id.roadSignEleven).setOnTouchListener(this);*/
 
         //Road Scenes
         findViewById(R.id.firstImage).setOnDragListener(this);
@@ -146,79 +192,390 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         switch (action)
         {
             case DragEvent.ACTION_DROP:
-                /*if(view.getId() == R.id.roadSignOne && v.getId() == R.id.firstImage)
-                {
-                    ViewGroup vGroup = (ViewGroup) view.getParent();
-                    vGroup.removeView(view);
-                    v.setBackgroundResource(R.drawable.road_sign_one);
-                    //v.setBackgroundResource(firstImg);
-
-                    return true;
-                }*/
-
                 if (view.getId() == R.id.roadSignOne)
                 {
                     if(v.getId() == R.id.firstImage)
                     {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
+/*                        ViewGroup vGroup = (ViewGroup) view.getParent();
+                        vGroup.removeView(view);*/
+                        firstImg.setVisibility(View.INVISIBLE);
                         firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
                         findViewById(R.id.firstImage).setOnDragListener(null);
                     }
-
                     if(v.getId() == R.id.secondImage)
                     {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
+                        firstImg.setVisibility(View.INVISIBLE);
                         secondImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
                         findViewById(R.id.secondImage).setOnDragListener(null);
                     }
-/*                    if (v.getId() == R.id.firstImage && firstImageBoxV.getDrawable() != null) {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
-                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                    if(v.getId() == R.id.thirdImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        thirdImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.thirdImage).setOnDragListener(null);
                     }
-
-                    if (v.getId() == R.id.secondImage && secondImageBoxV.getDrawable() != null) {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
-                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
-                    }*/
-/*                    ViewGroup vGroup = (ViewGroup) view.getParent();
-                    vGroup.removeView(view);
-                    firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);*/
-                    //findViewById(R.id.firstImageBox).setOnDragListener(null);
+                    if(v.getId() == R.id.fourthImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        fourthImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.fourthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fifthImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        fifthImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.fifthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.sixthImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        sixthImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.sixthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.seventhImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        seventhImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.seventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eightImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        eightImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.eightImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.nithImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        ninthImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.nithImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.tenthImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        tenthImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.tenthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eleventhImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        eleventhImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.eleventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.twelvethImage)
+                    {
+                        firstImg.setVisibility(View.INVISIBLE);
+                        twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
+                        findViewById(R.id.twelvethImage).setOnDragListener(null);
+                    }
                 }
                 //##################################################################################
-                if (view.getId() == R.id.roadSignTwo) {
-/*                    if (v.getId() == R.id.firstImage && firstImageBoxV.getDrawable() != null) {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
-                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
-                    }
-
-                    if (v.getId() == R.id.secondImage && secondImageBoxV.getDrawable() != null) {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
-                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
-                    }*/
+                if (view.getId() == R.id.roadSignTwo)
+                {
                     if(v.getId() == R.id.firstImage)
                     {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
+                        secondImg.setVisibility(View.INVISIBLE);
                         firstImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
                         findViewById(R.id.firstImage).setOnDragListener(null);
                     }
-
                     if(v.getId() == R.id.secondImage)
                     {
-                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);
+                        secondImg.setVisibility(View.INVISIBLE);
                         secondImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
                         findViewById(R.id.secondImage).setOnDragListener(null);
                     }
+                    if(v.getId() == R.id.thirdImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        thirdImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.thirdImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fourthImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        fourthImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.fourthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fifthImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        fifthImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.fifthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.sixthImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        sixthImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.sixthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.seventhImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        seventhImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.seventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eightImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        eightImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.eightImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.nithImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        ninthImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.nithImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.tenthImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        tenthImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.tenthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eleventhImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        eleventhImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.eleventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.twelvethImage)
+                    {
+                        secondImg.setVisibility(View.INVISIBLE);
+                        twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_two);
+                        findViewById(R.id.twelvethImage).setOnDragListener(null);
+                    }
                 }
 
+                //##################################################################################
+                if (view.getId() == R.id.roadSignThree)
+                {
+                    if(v.getId() == R.id.firstImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.firstImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.secondImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.secondImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.thirdImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        thirdImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.thirdImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fourthImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        fourthImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.fourthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fifthImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        fifthImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.fifthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.sixthImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        sixthImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.sixthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.seventhImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        seventhImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.seventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eightImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        eightImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.eightImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.nithImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        ninthImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.nithImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.tenthImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        tenthImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.tenthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eleventhImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        eleventhImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.eleventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.twelvethImage)
+                    {
+                        thirdImg.setVisibility(View.INVISIBLE);
+                        twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_three);
+                        findViewById(R.id.twelvethImage).setOnDragListener(null);
+                    }
+                }
+
+                //##################################################################################
+                if (view.getId() == R.id.roadSignFour)
+                {
+                    if(v.getId() == R.id.firstImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.firstImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.secondImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.secondImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.thirdImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        thirdImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.thirdImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fourthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        fourthImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.fourthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fifthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        fifthImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.fifthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.sixthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        sixthImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.sixthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.seventhImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        seventhImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.seventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eightImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        eightImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.eightImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.nithImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        ninthImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.nithImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.tenthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        tenthImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.tenthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eleventhImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        eleventhImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.eleventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.twelvethImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_four);
+                        findViewById(R.id.twelvethImage).setOnDragListener(null);
+                    }
+                }
+
+                //##################################################################################
+                if (view.getId() == R.id.roadSignFive)
+                {
+                    if(v.getId() == R.id.firstImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        firstImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.firstImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.secondImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        secondImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.secondImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.thirdImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        thirdImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.thirdImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fourthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        fourthImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.fourthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.fifthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        fifthImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.fifthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.sixthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        sixthImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.sixthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.seventhImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        seventhImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.seventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eightImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        eightImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.eightImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.nithImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        ninthImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.nithImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.tenthImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        tenthImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.tenthImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.eleventhImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        eleventhImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.eleventhImage).setOnDragListener(null);
+                    }
+                    if(v.getId() == R.id.twelvethImage)
+                    {
+                        fourthImg.setVisibility(View.INVISIBLE);
+                        twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_five);
+                        findViewById(R.id.twelvethImage).setOnDragListener(null);
+                    }
+                }
                 else
                 {
                     System.out.println("Error");
