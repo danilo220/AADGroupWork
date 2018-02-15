@@ -243,7 +243,7 @@ public class menuActivity extends AppCompatActivity {
 
     private void getData(){
         //FirebaseUser user = mAuth.getCurrentUser();
-        String test = FirebaseDatabase.getInstance().getReference("Email");
+        //String test = FirebaseDatabase.getInstance().getReference("Email");
         System.out.println(databaseReference + "COLLECTED");
 
 
