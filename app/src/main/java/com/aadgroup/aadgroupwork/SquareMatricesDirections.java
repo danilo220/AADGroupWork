@@ -88,61 +88,28 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         answer21 = (ImageView) findViewById(R.id.box21);
         answer11 = (ImageView) findViewById(R.id.box11);
 
-        findViewById(R.id.box41).setOnDragListener(this);
-        findViewById(R.id.box42).setOnDragListener(this);
-        findViewById(R.id.box43).setOnDragListener(this);
-        findViewById(R.id.box44).setOnDragListener(this);
-        findViewById(R.id.box31).setOnDragListener(this);
-        findViewById(R.id.box32).setOnDragListener(this);
-        findViewById(R.id.box33).setOnDragListener(this);
-        findViewById(R.id.box34).setOnDragListener(this);
-        findViewById(R.id.box21).setOnDragListener(this);
-        findViewById(R.id.box22).setOnDragListener(this);
-        findViewById(R.id.box23).setOnDragListener(this);
-        findViewById(R.id.box24).setOnDragListener(this);
-        findViewById(R.id.box11).setOnDragListener(this);
-        findViewById(R.id.box12).setOnDragListener(this);
-        findViewById(R.id.box13).setOnDragListener(this);
-        findViewById(R.id.box14).setOnDragListener(this);
-
-        //findViewById(R.id.cycler).setOnDragListener(this);
-
-
         a41 = (ImageView) findViewById(R.id.dragAnswer41);
-        a41.setVisibility(View.INVISIBLE);
         a42 = (ImageView) findViewById(R.id.dragAnswer42);
-        a42.setVisibility(View.INVISIBLE);
         a43 = (ImageView) findViewById(R.id.dragAnswer43);
-        a43.setVisibility(View.INVISIBLE);
         a44 = (ImageView) findViewById(R.id.dragAnswer44);
-        a44.setVisibility(View.INVISIBLE);
 
         a31 = (ImageView) findViewById(R.id.dragAnswer31);
-        a31.setVisibility(View.INVISIBLE);
         a32 = (ImageView) findViewById(R.id.dragAnswer32);
-        a32.setVisibility(View.INVISIBLE);
         a33 = (ImageView) findViewById(R.id.dragAnswer33);
-        a33.setVisibility(View.INVISIBLE);
         a34 = (ImageView) findViewById(R.id.dragAnswer34);
-        a34.setVisibility(View.INVISIBLE);
 
         a21 = (ImageView) findViewById(R.id.dragAnswer21);
-        a21.setVisibility(View.INVISIBLE);
         a22 = (ImageView) findViewById(R.id.dragAnswer22);
-        a22.setVisibility(View.INVISIBLE);
         a23 = (ImageView) findViewById(R.id.dragAnswer23);
-        a23.setVisibility(View.INVISIBLE);
         a24 = (ImageView) findViewById(R.id.dragAnswer24);
-        a24.setVisibility(View.INVISIBLE);
 
         a11 = (ImageView) findViewById(R.id.dragAnswer11);
-        a11.setVisibility(View.INVISIBLE);
         a12 = (ImageView) findViewById(R.id.dragAnswer12);
-        a12.setVisibility(View.INVISIBLE);
         a13 = (ImageView) findViewById(R.id.dragAnswer13);
-        a13.setVisibility(View.INVISIBLE);
         a14 = (ImageView) findViewById(R.id.dragAnswer14);
-        a14.setVisibility(View.INVISIBLE);
+        resetListeners();
+        //findViewById(R.id.cycler).setOnDragListener(this);
+
 
         hint.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -163,11 +130,32 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
-                Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
-                startActivity(myIntent);
+                //finish();
+                //Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
+                //startActivity(myIntent);
+                resetListeners();
+                random();
+                randomPicture();
+                
+                findViewById(R.id.box41).setBackgroundResource(0);
+                findViewById(R.id.box42).setBackgroundResource(0);
+                findViewById(R.id.box43).setBackgroundResource(0);
+                findViewById(R.id.box44).setBackgroundResource(0);
+                findViewById(R.id.box31).setBackgroundResource(0);
+                findViewById(R.id.box32).setBackgroundResource(0);
+                findViewById(R.id.box33).setBackgroundResource(0);
+                findViewById(R.id.box34).setBackgroundResource(0);
+                findViewById(R.id.box21).setBackgroundResource(0);
+                findViewById(R.id.box22).setBackgroundResource(0);
+                findViewById(R.id.box23).setBackgroundResource(0);
+                findViewById(R.id.box24).setBackgroundResource(0);
+                findViewById(R.id.box11).setBackgroundResource(0);
+                findViewById(R.id.box12).setBackgroundResource(0);
+                findViewById(R.id.box13).setBackgroundResource(0);
+                findViewById(R.id.box14).setBackgroundResource(0);
             }
         });
+
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,10 +223,50 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     //ArrayList<String> previousLocation = new ArrayList<Integer>();
     //ArrayList<String> previousCard = new ArrayList<Integer>();
 
+    private void resetListeners(){
+
+        findViewById(R.id.box41).setOnDragListener(this);
+        findViewById(R.id.box42).setOnDragListener(this);
+        findViewById(R.id.box43).setOnDragListener(this);
+        findViewById(R.id.box44).setOnDragListener(this);
+        findViewById(R.id.box31).setOnDragListener(this);
+        findViewById(R.id.box32).setOnDragListener(this);
+        findViewById(R.id.box33).setOnDragListener(this);
+        findViewById(R.id.box34).setOnDragListener(this);
+        findViewById(R.id.box21).setOnDragListener(this);
+        findViewById(R.id.box22).setOnDragListener(this);
+        findViewById(R.id.box23).setOnDragListener(this);
+        findViewById(R.id.box24).setOnDragListener(this);
+        findViewById(R.id.box11).setOnDragListener(this);
+        findViewById(R.id.box12).setOnDragListener(this);
+        findViewById(R.id.box13).setOnDragListener(this);
+        findViewById(R.id.box14).setOnDragListener(this);
+
+        a41.setVisibility(View.INVISIBLE);
+        a42.setVisibility(View.INVISIBLE);
+        a43.setVisibility(View.INVISIBLE);
+        a44.setVisibility(View.INVISIBLE);
+
+        a31.setVisibility(View.INVISIBLE);
+        a32.setVisibility(View.INVISIBLE);
+        a33.setVisibility(View.INVISIBLE);
+        a34.setVisibility(View.INVISIBLE);
+
+        a21.setVisibility(View.INVISIBLE);
+        a22.setVisibility(View.INVISIBLE);
+        a23.setVisibility(View.INVISIBLE);
+        a24.setVisibility(View.INVISIBLE);
+
+        a11.setVisibility(View.INVISIBLE);
+        a12.setVisibility(View.INVISIBLE);
+        a13.setVisibility(View.INVISIBLE);
+        a14.setVisibility(View.INVISIBLE);
+    }
+
     private void random(){
         int firstNum = 0;
         //ArrayList<Integer> number = new ArrayList<Integer>();
-
+        number.removeAll(number);
         for (int i = 1; i <= 16; ++i){
             number.add(i);
     }
@@ -267,6 +295,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         choosePicture = number.get(0);
         number.remove(0);
 
+        System.out.println(number);
         System.out.println("Current Score" + points);
         if (choosePicture == 0)
         {
@@ -332,6 +361,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         View view = (View) e.getLocalState();
         switch (e.getAction()) {
             case DragEvent.ACTION_DROP:
+                randomPicture();
                 //System.out.println("Points atm drop: " + points);
 
 /*                if (v.getId() == R.id.cycler){
@@ -340,7 +370,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 }*/
 
                 if (view.getId() == R.id.dragAnswer41) {
-                    randomPicture();
                     if (v.getId() == R.id.box41) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -367,7 +396,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer42) {
-                    randomPicture();
                     if (v.getId() == R.id.box42) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -393,7 +421,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer43) {
-                    randomPicture();
                     if (v.getId() == R.id.box43) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -421,7 +448,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 }
 
                 else if (view.getId() == R.id.dragAnswer44) {
-                    randomPicture();
                     if (v.getId() == R.id.box44) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -450,7 +476,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
 
                 else if (view.getId() == R.id.dragAnswer31) {
-                    randomPicture();
                     if (v.getId() == R.id.box31) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -477,7 +502,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 }
 
                 else if (view.getId() == R.id.dragAnswer32) {
-                    randomPicture();
                     if (v.getId() == R.id.box32) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -504,7 +528,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 }
 
                 else if (view.getId() == R.id.dragAnswer33) {
-                    randomPicture();
                     if (v.getId() == R.id.box33) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -530,7 +553,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer34) {
-                    randomPicture();
                     if (v.getId() == R.id.box34) {
                         ViewGroup from = (ViewGroup) view.getParent();
 
@@ -557,7 +579,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer21) {
-                    randomPicture();
                     if (v.getId() == R.id.box21) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -583,7 +604,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer22) {
-                    randomPicture();
                     if (v.getId() == R.id.box22) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -609,7 +629,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer23) {
-                    randomPicture();
                     if (v.getId() == R.id.box23) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -635,7 +654,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer24) {
-                    randomPicture();
                     if (v.getId() == R.id.box24) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -661,7 +679,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer11) {
-                    randomPicture();
                     if (v.getId() == R.id.box11) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -687,7 +704,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer12) {
-                    randomPicture();
                     if (v.getId() == R.id.box12) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -713,7 +729,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer13) {
-                    randomPicture();
                     if (v.getId() == R.id.box13) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
@@ -739,7 +754,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer14) {
-                    randomPicture();
                     if (v.getId() == R.id.box14) {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
