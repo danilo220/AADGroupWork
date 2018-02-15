@@ -19,10 +19,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.view.View.DragShadowBuilder;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Danilo on 30/01/2018.
@@ -30,9 +33,9 @@ import java.util.Collections;
 
 public class SquareMatricesDirections extends Activity implements View.OnTouchListener, View.OnDragListener {
     public int choosePicture;
-    ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14;
+    ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, hint;
     Button menuButton;
-    TextView timerText;
+    TextView timerText, hintText;
 
     ArrayList<String> previousLocation = new ArrayList<String>();
     ArrayList<String> previousCard = new ArrayList<String>();
@@ -40,6 +43,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
     //int wrongAnswer = 0;
     int points = 0;
+    int totalHints = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,9 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
         menuButton = findViewById(R.id.Menu);
         menuButton.setVisibility(View.INVISIBLE);
+
+        hintText = (TextView)findViewById(R.id.hintText);
+        hint = (ImageView) findViewById(R.id.hint);
 
         findViewById(R.id.dragAnswer41).setOnTouchListener(this);
         findViewById(R.id.dragAnswer42).setOnTouchListener(this);
@@ -140,6 +147,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         a13.setVisibility(View.INVISIBLE);
         a14 = (ImageView) findViewById(R.id.dragAnswer14);
         a14.setVisibility(View.INVISIBLE);
+
+        hint.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                getHint();
+            }
+        });
 
 
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -236,6 +250,23 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         number.add(0);
     }
 
+    private void getHint(){
+        if (totalHints > 0){
+            Toast.makeText(SquareMatricesDirections.this, "position the cards shown below so that\n" +
+                    "each car is travelling in the direction indicated by the bottom arrows and\n" +
+                    "each lorry in the direction indicated by the arrows on the left side.", Toast.LENGTH_LONG).show();
+            totalHints = totalHints - 1;
+            hintText.setText(totalHints+" Remaining hints left");
+        }
+
+        else{
+            hintText.setText("No more hints left");
+            hint.setVisibility(View.INVISIBLE);
+        }
+
+
+    }
+
     private void randomPicture(){
         choosePicture = number.get(12);
         number.remove(0);
@@ -308,8 +339,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
                 if (v.getId() == R.id.cycler){
                     removePoints(view, v);
-                    //ViewGroup from = (ViewGroup) view.getParent();
-                    //from.removeView(view);
                     v.setBackgroundResource(0);//TODO: change this pseudo code.
                 }
 

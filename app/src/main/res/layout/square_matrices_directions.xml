@@ -319,7 +319,8 @@
                 android:id="@+id/imageView"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/leftleft" />
+                android:src="@drawable/left"
+                />
 
             <ImageView
                 android:id="@+id/box41"
@@ -354,7 +355,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/rightleft" />
+                android:src="@drawable/right" />
 
             <ImageView
                 android:id="@+id/box31"
@@ -389,7 +390,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/downleft" />
+                android:src="@drawable/down" />
 
             <ImageView
                 android:id="@+id/box21"
@@ -420,7 +421,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/upleft" />
+                android:src="@drawable/up" />
 
             <ImageView
                 android:id="@+id/box11"
@@ -448,33 +449,44 @@
             android:layout_height="46dp">
 
             <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="70dp"
-                android:layout_height="match_parent" />
+                android:id="@+id/hint"
+                android:layout_width="61dp"
+                android:layout_height="53dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/hint"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.789" />
 
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/rightright" />
+                android:src="@drawable/right" />
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/upright" />
+                android:src="@drawable/up" />
 
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="70dp"
                 android:layout_height="76dp"
-                android:src="@drawable/leftright" />
+                android:src="@drawable/left" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/downright" />
+                android:src="@drawable/down" />
 
         </TableRow>
 
@@ -508,12 +520,28 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/directions11"
+        android:src="@drawable/bin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.778" />
+
+    <TextView
+        android:id="@+id/hintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="2 Remaining hints left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.756" />
 
 </android.support.constraint.ConstraintLayout>
