@@ -18,14 +18,44 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 {
     ImageView firstImg;
     Button resetButton;
+
+
+    //Answer boxes
+    ImageView firstImageBoxV;
+    ImageView secondImageBoxV;
+    ImageView thirdImageBoxV;
+    ImageView fourthImageBoxV;
+    ImageView fifthImageBoxV;
+    ImageView sixthImageBoxV;
+    ImageView seventhImageBoxV;
+    ImageView eightImageBoxV;
+    ImageView ninthImageBoxV;
+    ImageView tenthImageBoxV;
+    ImageView eleventhImageBoxV;
+    ImageView twelvethImageBoxV;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.road_sign);
 
-        firstImg = (ImageView) findViewById(R.id.roadSignOne);
-        firstImg.setOnTouchListener(this);
+/*        firstImg = (ImageView) findViewById(R.id.roadSignOne);
+        firstImg.setOnTouchListener(this);*/
+
+        //Road Signs
+        findViewById(R.id.roadSignOne).setOnTouchListener(this);
+        findViewById(R.id.roadSignTwo).setOnTouchListener(this);
+        findViewById(R.id.roadSignThree).setOnTouchListener(this);
+        findViewById(R.id.roadSignFour).setOnTouchListener(this);
+        findViewById(R.id.roadSignFive).setOnTouchListener(this);
+        findViewById(R.id.roadSignSix).setOnTouchListener(this);
+        findViewById(R.id.roadSignSeven).setOnTouchListener(this);
+        findViewById(R.id.roadSignEight).setOnTouchListener(this);
+        findViewById(R.id.roadSignNine).setOnTouchListener(this);
+        findViewById(R.id.roadSignTen).setOnTouchListener(this);
+        findViewById(R.id.roadSignEleven).setOnTouchListener(this);
+
+        //Road Scenes
         findViewById(R.id.firstImage).setOnDragListener(this);
         findViewById(R.id.secondImage).setOnDragListener(this);
         findViewById(R.id.thirdImage).setOnDragListener(this);
@@ -39,7 +69,48 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         findViewById(R.id.eleventhImage).setOnDragListener(this);
         findViewById(R.id.twelvethImage).setOnDragListener(this);
 
-/*        resetButton = (Button) findViewById(R.id.resetButtonRoadSign);
+        //Answer boxes
+        firstImageBoxV = (ImageView) findViewById(R.id.firstImageBox);
+        firstImageBoxV.setOnDragListener(this);
+
+        secondImageBoxV = (ImageView) findViewById(R.id.secondImageBox);
+        secondImageBoxV.setOnDragListener(this);
+
+        thirdImageBoxV = (ImageView) findViewById(R.id.thirdImageBox);
+        thirdImageBoxV.setOnDragListener(this);
+
+        thirdImageBoxV = (ImageView) findViewById(R.id.thirdImageBox);
+        thirdImageBoxV.setOnDragListener(this);
+
+        fourthImageBoxV = (ImageView) findViewById(R.id.fourthImageBox);
+        fourthImageBoxV.setOnDragListener(this);
+
+        fifthImageBoxV = (ImageView) findViewById(R.id.fifthImageBox);
+        fifthImageBoxV.setOnDragListener(this);
+
+        sixthImageBoxV = (ImageView) findViewById(R.id.sixthImageBox);
+        sixthImageBoxV.setOnDragListener(this);
+
+        seventhImageBoxV = (ImageView) findViewById(R.id.seventhImageBox);
+        seventhImageBoxV.setOnDragListener(this);
+
+        eightImageBoxV = (ImageView) findViewById(R.id.eightImageBox);
+        eightImageBoxV.setOnDragListener(this);
+
+        ninthImageBoxV = (ImageView) findViewById(R.id.ninthImageBox);
+        ninthImageBoxV.setOnDragListener(this);
+
+        tenthImageBoxV = (ImageView) findViewById(R.id.tenthImageBox);
+        tenthImageBoxV.setOnDragListener(this);
+
+        eleventhImageBoxV = (ImageView) findViewById(R.id.eleventhImageBox);
+        eleventhImageBoxV.setOnDragListener(this);
+
+        twelvethImageBoxV = (ImageView) findViewById(R.id.twelvethImageBox);
+        twelvethImageBoxV.setOnDragListener(this);
+
+
+        resetButton = (Button) findViewById(R.id.resetButtonRoadSign);
         resetButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -48,7 +119,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                 Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
                 startActivity(myIntent);
             }
-        });*/
+        });
     }
 
     @Override

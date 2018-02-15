@@ -10,12 +10,12 @@
         android:id="@+id/tableLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow android:gravity="center">
+
             <ImageView
                 android:id="@+id/firstImage"
                 android:layout_width="120dp"
@@ -42,6 +42,7 @@
         </TableRow>
 
         <TableRow android:gravity="center">
+
             <ImageView
                 android:id="@+id/firstImageBox"
                 android:layout_width="120dp"
@@ -91,6 +92,7 @@
         </TableRow>
 
         <TableRow android:gravity="center">
+
             <ImageView
                 android:id="@+id/fifthImageBox"
                 android:layout_width="120dp"
@@ -140,8 +142,9 @@
         </TableRow>
 
         <TableRow android:gravity="center">
+
             <ImageView
-                android:id="@+id/nithImageBox"
+                android:id="@+id/ninthImageBox"
                 android:layout_width="120dp"
                 android:layout_height="100dp" />
 
@@ -260,7 +263,18 @@
                 android:paddingRight="10dip"
                 android:src="@drawable/road_sign_nine" />
         </TableRow>
+
     </TableLayout>
+
+    <Button
+        android:id="@+id/resetButtonRoadSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:layout_marginTop="8dp"
+        android:text="Reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
 
 </android.support.constraint.ConstraintLayout>
 
