@@ -468,25 +468,25 @@
                 android:id="@+id/imageView10"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/right" />
+                android:src="@drawable/rightsmall" />
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/up" />
+                android:src="@drawable/upsmall" />
 
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="70dp"
-                android:layout_height="76dp"
-                android:src="@drawable/left" />
+                android:layout_height="match_parent"
+                android:src="@drawable/leftsmall" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/down" />
+                android:src="@drawable/downsmall" />
 
         </TableRow>
 

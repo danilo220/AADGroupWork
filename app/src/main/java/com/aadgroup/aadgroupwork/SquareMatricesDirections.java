@@ -36,7 +36,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, hint, answer41, answer42, answer43, answer44, answer31, answer21, answer11;
     Button menuButton;
     TextView timerText, hintText;
-
     //ArrayList<String> previousLocation = new ArrayList<String>();
     //ArrayList<String> previousCard = new ArrayList<String>();
     ArrayList<Integer> number = new ArrayList<Integer>();
@@ -133,10 +132,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 //finish();
                 //Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
                 //startActivity(myIntent);
+
+                points = 0;
                 resetListeners();
+
                 random();
                 randomPicture();
-                
+
                 findViewById(R.id.box41).setBackgroundResource(0);
                 findViewById(R.id.box42).setBackgroundResource(0);
                 findViewById(R.id.box43).setBackgroundResource(0);
@@ -265,8 +267,8 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
     private void random(){
         int firstNum = 0;
-        //ArrayList<Integer> number = new ArrayList<Integer>();
         number.removeAll(number);
+        //ArrayList<Integer> number = new ArrayList<Integer>();
         for (int i = 1; i <= 16; ++i){
             number.add(i);
     }
@@ -296,7 +298,9 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         number.remove(0);
 
         System.out.println(number);
-        System.out.println("Current Score" + points);
+        System.out.println("Current Score " + points);
+        System.out.println(choosePicture);
+
         if (choosePicture == 0)
         {
             System.out.println("Finished Game@@@@@@@@@@@@@@@@@@@@@@@");
@@ -370,9 +374,8 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 }*/
 
                 if (view.getId() == R.id.dragAnswer41) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box41) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 points, points atm dragAnswer41 " + points);
@@ -380,8 +383,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                     }
                     else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11)
                     {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
+
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer41 " + points);
@@ -389,41 +391,33 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions41);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer42) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box42) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box42).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box41 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box32 || v.getId() == R.id.box22 || v.getId() == R.id.box12 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions42);//TODO: change this pseudo code..
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer43) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box43) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
@@ -431,16 +425,12 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
                     }
                     else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box44 || v.getId() == R.id.box33 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions43);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
@@ -449,24 +439,18 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
                 else if (view.getId() == R.id.dragAnswer44) {
                     if (v.getId() == R.id.box44) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box44).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box42 || v.getId() == R.id.box41 || v.getId() == R.id.box43 || v.getId() == R.id.box34 || v.getId() == R.id.box24 || v.getId() == R.id.box14 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions44);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
@@ -476,25 +460,20 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
 
                 else if (view.getId() == R.id.dragAnswer31) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box31) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box31).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box32 || v.getId() == R.id.box33 || v.getId() == R.id.box34 || v.getId() == R.id.box41 || v.getId() == R.id.box21 || v.getId() == R.id.box11 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions31);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
@@ -502,25 +481,20 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 }
 
                 else if (view.getId() == R.id.dragAnswer32) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box32) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box32).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box31 || v.getId() == R.id.box33 || v.getId() == R.id.box34 || v.getId() == R.id.box42 || v.getId() == R.id.box22 || v.getId() == R.id.box12 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions32);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
@@ -528,251 +502,200 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 }
 
                 else if (view.getId() == R.id.dragAnswer33) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box33) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box33).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box31 || v.getId() == R.id.box32 || v.getId() == R.id.box34 || v.getId() == R.id.box43 || v.getId() == R.id.box23 || v.getId() == R.id.box13 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions33);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer34) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box34) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box34).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box31 || v.getId() == R.id.box32 || v.getId() == R.id.box33 || v.getId() == R.id.box44 || v.getId() == R.id.box24 || v.getId() == R.id.box14 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions34);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer21) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box21) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box21).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box22 || v.getId() == R.id.box23 || v.getId() == R.id.box24 || v.getId() == R.id.box41 || v.getId() == R.id.box31 || v.getId() == R.id.box11 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions21);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer22) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box22) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box22).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box21 || v.getId() == R.id.box23 || v.getId() == R.id.box24 || v.getId() == R.id.box42 || v.getId() == R.id.box32 || v.getId() == R.id.box12 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions22);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer23) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box23) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box23).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box21 || v.getId() == R.id.box22 || v.getId() == R.id.box24 || v.getId() == R.id.box43 || v.getId() == R.id.box33 || v.getId() == R.id.box13 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions23);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer24) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box24) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box24).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box21 || v.getId() == R.id.box22 || v.getId() == R.id.box23 || v.getId() == R.id.box44 || v.getId() == R.id.box34 || v.getId() == R.id.box14 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions24);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer11) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box11) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box11).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box12 || v.getId() == R.id.box13 || v.getId() == R.id.box14 || v.getId() == R.id.box21 || v.getId() == R.id.box31 || v.getId() == R.id.box41 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions11);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer12) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box12) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box12).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box11 || v.getId() == R.id.box13 || v.getId() == R.id.box14 || v.getId() == R.id.box22 || v.getId() == R.id.box32 || v.getId() == R.id.box42 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions12);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer13) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box13) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box13).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box11 || v.getId() == R.id.box12 || v.getId() == R.id.box14 || v.getId() == R.id.box23 || v.getId() == R.id.box33 || v.getId() == R.id.box43 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions13);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
                 }
                 else if (view.getId() == R.id.dragAnswer14) {
+                    view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box14) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
                         points += 2;
                         System.out.println("added 2 point, points atm dragAnswer42 " + points);
                         findViewById(R.id.box14).setOnDragListener(null);
                     }
                     else if (v.getId() == R.id.box12 || v.getId() == R.id.box13 || v.getId() == R.id.box11 || v.getId() == R.id.box24 || v.getId() == R.id.box34 || v.getId() == R.id.box44 ) {
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
                         points += 1;
                         System.out.println("added 1 point, points atm dragAnswer42 " + points);
                         v.setOnDragListener(null);
                     }
                     else{
-                        ViewGroup from = (ViewGroup) view.getParent();
-                        from.removeView(view);
                         v.setBackgroundResource(R.drawable.directions14);//TODO: change this pseudo code.
                         v.setOnDragListener(null);
                         //Wrong answer
