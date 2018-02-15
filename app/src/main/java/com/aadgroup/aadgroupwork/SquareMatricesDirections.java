@@ -349,7 +349,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         System.out.println("added 2 points, points atm dragAnswer41 " + points);
                         findViewById(R.id.box41).setOnDragListener(null);
                     }
-                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11 &&  )
+                    else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44 || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11)
                     {
                         ViewGroup from = (ViewGroup) view.getParent();
                         from.removeView(view);
