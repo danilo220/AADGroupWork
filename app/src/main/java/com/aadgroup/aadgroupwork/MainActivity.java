@@ -1,5 +1,4 @@
 package com.aadgroup.aadgroupwork;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -18,16 +17,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Locale;
-
 import static java.lang.System.in;
 
 public class MainActivity extends AppCompatActivity
@@ -36,14 +38,17 @@ public class MainActivity extends AppCompatActivity
     //int accIndex = -1;
     private boolean userIsInteracting;
     private FirebaseAuth mAuth;
-
-
+    private DatabaseReference mDatabase;
+    private DatabaseReference mUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mUsers = mDatabase.child("users");
 
         Button logInButton = findViewById(R.id.btn_login);
         logInButton.setOnClickListener(new View.OnClickListener() {
@@ -52,8 +57,6 @@ public class MainActivity extends AppCompatActivity
                 signIn();
             }
         });
-
-
 
 /*        allAccounts.add(new Account("Dave123", "1234", false));
         allAccounts.add(new Account("Sarah88", "1234", false));
@@ -246,11 +249,23 @@ public class MainActivity extends AppCompatActivity
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
 
-                                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
-                                startActivity(myIntent);
+                                //Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
+                                //startActivity(myIntent);
                                 // Sign in success, update UI with the signed-in user's information
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Toast.makeText(MainActivity.this, "Sign in Successful", Toast.LENGTH_LONG).show();
+                                //FirebaseUser user = mAuth.getCurrentUser();
+                                //Toast.makeText(MainActivity.this, "Sign in Successful", Toast.LENGTH_LONG).show();
+                                mUsers.child("Email").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        String value = "didnt find anything";
+                                        value = dataSnapshot.getValue(String.class);
+                                        Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
+                                    }
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                        //nothing
+                                    }
+                                });
                             }
                             else{
                                 Toast.makeText(MainActivity.this, "Email or Password incorrect", Toast.LENGTH_LONG).show();
