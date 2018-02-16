@@ -72,7 +72,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             allResults = new TestResults();
         }
         if (intent.hasExtra("TestFinish")) {
-            testFinish = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("TestFinish");
+            testFinish = getIntent().getIntegerArrayListExtra("TestFinish");
         }
         else
         {
@@ -203,7 +203,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         twelvethImageBoxV = (ImageView) findViewById(R.id.twelvethImageBox);
         //twelvethImageBoxV.setOnDragListener(this);
 
-
         startButton = (Button) findViewById(R.id.startButtonRoadSign);
         startButton.setOnClickListener(new View.OnClickListener()
         {
@@ -279,13 +278,14 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                 //findViewById(R.id.firstImage).setOnDragListener(this);
             }
         });
+
         finishButton = (Button) findViewById(R.id.finishButton);
         finishButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                points = points;
+                //points = points;
                 Intent intent = new Intent(getApplicationContext(), menuActivity.class);
                 allResults.setRoadSignRecognitionScore(points);
                 intent.putExtra("AccountDetails", loggedInAcc);

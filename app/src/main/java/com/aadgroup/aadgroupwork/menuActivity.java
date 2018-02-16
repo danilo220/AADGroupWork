@@ -1,5 +1,4 @@
 package com.aadgroup.aadgroupwork;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -11,10 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.util.Date;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +60,7 @@ public class menuActivity extends AppCompatActivity {
         }
 
         if (intent.hasExtra("TestFinish")) {
-            testFinish = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("TestFinish");
+            testFinish = getIntent().getIntegerArrayListExtra("TestFinish");
         }
         else
         {
@@ -215,20 +211,22 @@ public class menuActivity extends AppCompatActivity {
 
         if (testFinish.get(3) == 1){
             roadsigns.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-            score = findViewById(R.id.score);
-            score.setPaintFlags(score.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
-            score.setOnClickListener(new TextView.OnClickListener(){
-                public void onClick(View v){
-                    if (testFinish.get(3) == 1) {
-                        Intent intent = new Intent(getApplicationContext(), Results.class);
-                        intent.putExtra("AccountDetails", loggedInAcc);
-                        intent.putExtra("TestResults", allResults);
-                        intent.putIntegerArrayListExtra("TestFinish", testFinish);
-                        startActivity(intent);
-                    }
-                }
-            });
+
         }
+
+        score = findViewById(R.id.score);
+        score.setPaintFlags(score.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+        score.setOnClickListener(new TextView.OnClickListener(){
+            public void onClick(View v){
+                //if (testFinish.get(3) == 1) {
+                Intent intent = new Intent(getApplicationContext(), Results.class);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", allResults);
+                //intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                startActivity(intent);
+                // }
+            }
+        });
     }
 
     private void giveDotInfo(){
@@ -330,9 +328,6 @@ public class menuActivity extends AppCompatActivity {
                 System.out.println(result);
                 System.out.println(username);
                 System.out.println(usertype);
-
-
-
             }
 
             @Override
@@ -340,9 +335,6 @@ public class menuActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
 

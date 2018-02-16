@@ -13,7 +13,7 @@ public class Results extends AppCompatActivity {
     Account loggedInAcc;
     TestResults allResults;
 
-    TextView dotTime, dotMissed, dotFalsePositives, direction, compass, roadSign, result;
+    TextView dotTime, dotMissed, dotFalsePositives, direction, compass, roadSign, passOrFail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +50,14 @@ public class Results extends AppCompatActivity {
         roadSign = findViewById(R.id.tv_roadsigns);
         roadSign.setText(roadSign.getText() + Integer.toString(allResults.getRoadSignRecognitionScore()));
 
-        result.findViewById(R.id.tv_result);
+        passOrFail = findViewById(R.id.tv_pass);
         if (allResults.passTests())
         {
-            result.setText("PASS! :)");
+            passOrFail.setText("PASS! :)");
         }
         else
         {
-            result.setText("FAIL! :(");
+            passOrFail.setText("FAIL! :(");
         }
     }
 }
