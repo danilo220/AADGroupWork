@@ -30,9 +30,7 @@ public class Results extends AppCompatActivity {
         else
         {
             allResults = new TestResults();
-            allResults.setDotCancellationResults(9000, 500, 100);
         }
-        
 
         dotTime = findViewById(R.id.tv_dc_time);
         dotTime.setText(dotTime.getText() + Integer.toString(allResults.getTime()));

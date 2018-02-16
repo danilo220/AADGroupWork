@@ -15,17 +15,15 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
- * Created by Danilo on 30/01/2018.
- */
-
 public class RoadSign extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener
 {
     int points = 0;
     Button startButton;
     Button resetButton;
+    Button finishButton;
 
     TextView timerText;
+    //TextView pointsTextView;
     //Road Signs
     ImageView firstImg;
     ImageView secondImg;
@@ -89,6 +87,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
         //Timer
         timerText = (TextView) findViewById(R.id.timerTextView);
+        //pointsTextView = (TextView) findViewById(R.id.PointsTestView);
         //Road Signs
         firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);
@@ -212,6 +211,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             public void onClick(View view)
             {
                 makeImagesVisible();
+                //finishGame();
                 new CountDownTimer(180000, 1000) //3 minutes
                 {
 
@@ -222,10 +222,12 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
                     public void onFinish()
                     {
-                        timerText.setText("“That’s fine, you have done enough now and can stop");
+                        //timerText.setText("That’s fine, you have done enough now and can stop");
                         points = points;
                         //menuButton.setVisibility(View.VISIBLE);
                         resetButton.setVisibility(View.INVISIBLE);
+                        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(myIntent);
                     }
                 }.start();
 
@@ -239,6 +241,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             @Override
             public void onClick(View view)
             {
+                //pointsTextView.setText("Points: " + points);
 /*                Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
                 startActivity(myIntent);*/
                 points = 0;
@@ -276,6 +279,17 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                 //findViewById(R.id.firstImage).setOnDragListener(this);
             }
         });
+        finishButton = (Button) findViewById(R.id.finishButton);
+        finishButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                points = points;
+                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
     private void makeImagesVisible()
     {
@@ -310,11 +324,12 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
     }
 
-    void finishGame()
+/*    void finishGame()
     {
-        if(twelvethImageBoxV.getDrawable() != null)
+        if(twelvethImageBoxV.getDrawable() != null && firstImageBoxV.getDrawable() != null)
         {
             //startButton.setVisibility(View.VISIBLE);
+<<<<<<< HEAD
 /*            Toast.makeText(RoadSign.this,
                     "Finished", Toast.LENGTH_LONG).show();*/
             Intent intent = new Intent(getApplicationContext(), menuActivity.class);
@@ -324,18 +339,22 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             testFinish.set(3, 1);
             intent.putIntegerArrayListExtra("TestFinish", testFinish);
             startActivity(intent);
+*//*            Toast.makeText(RoadSign.this,
+                    "Finished", Toast.LENGTH_LONG).show();*//*
+            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(myIntent);
         }
-/*        else
+*//*        else
         {
             Toast.makeText(RoadSign.this,
                     "Not finished", Toast.LENGTH_LONG).show();
-        }*/
+        }*//*
         //twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_eight);
-    }
+    }*/
     @Override
     public boolean onTouch(View v, MotionEvent e)
     {
-        finishGame();
+        //finishGame();
         if (e.getAction() == MotionEvent.ACTION_DOWN)
         {
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -353,7 +372,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     @Override
     public boolean onDrag(View v, DragEvent event)
     {
-        finishGame();
+        //finishGame();
         final int action = event.getAction();
         View view = (View) event.getLocalState();
         switch (action)

@@ -18,10 +18,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by Danilo on 30/01/2018.
- */
-
 public class SquareMatricesCompass extends Activity implements View.OnTouchListener, View.OnDragListener {
     public int choosePicture;
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, b1, b2, b3, b4, b5, b6, b7, b8 ,b9, b10, hint;
@@ -160,6 +156,8 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
                 testFinish.set(2, 1);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);
                 startActivity(intent);
+                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
+                startActivity(myIntent);
             }
         });
 
