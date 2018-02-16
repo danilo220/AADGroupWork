@@ -212,6 +212,7 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
                 }.start();
 
                 startButton.setVisibility(View.INVISIBLE);
+                menuButton.setVisibility(View.VISIBLE);
             }
         });
 
@@ -355,7 +356,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         {
             System.out.println("Finished Game@@@@@@@@@@@@@@@@@@@@@@@");
             System.out.println(points);
-            menuButton.setVisibility(View.VISIBLE);
         }
         if (choosePicture == 1){
             a11.setVisibility(View.VISIBLE);
