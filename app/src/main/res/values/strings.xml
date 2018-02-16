@@ -7,7 +7,7 @@
     <string name="results">Test Results:</string>
     <string name="selectLanguage">Select a Language</string>
     <string name="beginTest">Begin Test</string>
-    <string name="viewResults">View Results</string>
+    <string name="clinicialPanel">Go To Clinician Panel</string>
     <string-array name="languages">
         <item>English</item>
         <item>German</item>
@@ -18,4 +18,7 @@
     <string name="finish">Finish Test</string>
     <string name="seconds">0:00</string>
     <string name="title_activity_menu_form">menuForm</string>
+    <string name="clinician_header">Clinician Panel</string>
+    <string name="clinician_description">This is where the clinician would see the results of his patients</string>
+    <string name="logout">Log Out</string>
 </resources>

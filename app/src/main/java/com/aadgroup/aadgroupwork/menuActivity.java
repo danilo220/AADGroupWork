@@ -159,10 +159,10 @@ public class menuActivity extends AppCompatActivity {
         }
 
         score = findViewById(R.id.score);
-        score.setPaintFlags(score.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
         score.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
                 if (testFinish.get(3) == 1) {
+                    score.setPaintFlags(score.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
                     Intent intent = new Intent(getApplicationContext(), Results.class);
                     intent.putExtra("TestResults", allResults);
                     intent.putIntegerArrayListExtra("TestFinish", testFinish);

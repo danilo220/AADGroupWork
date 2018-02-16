@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Database" />
         <activity android:name=".DotCancellation" />
         <activity android:name=".PathForming" />
         <activity android:name=".RoadSign" />
@@ -26,7 +25,8 @@
         <activity
             android:name=".Results"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".menuActivity"></activity>
+        <activity android:name=".menuActivity" />
+        <activity android:name=".ClinicianActivity"></activity>
     </application>
 
 </manifest>

@@ -22,9 +22,7 @@ import java.util.Date;
 public class Results extends AppCompatActivity {
 
     TestResults allResults;
-
     DatabaseReference databaseReference;
-
     FirebaseUser user;
     String uid;
     String username;

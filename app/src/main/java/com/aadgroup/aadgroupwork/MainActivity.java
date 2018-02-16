@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
@@ -12,24 +13,27 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
 {
-    //int accIndex = -1;
     private boolean userIsInteracting;
     private FirebaseAuth mAuth;
-    private DatabaseReference mDatabase;
-    private DatabaseReference mUsers;
+    Button btnBegin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +41,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mUsers = mDatabase.child("users");
 
         Button logInButton = findViewById(R.id.btn_login);
         logInButton.setOnClickListener(new View.OnClickListener() {
@@ -48,71 +50,10 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-/*      final Button btnBegin = findViewById(R.id.btn_begin);
+        btnBegin = findViewById(R.id.btn_begin);
         btnBegin.setVisibility(View.VISIBLE);
         btnBegin.setOnClickListener(new View.OnClickListener()
         {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), DotCancellation.class);
-                myIntent.putExtra("AccountDetails", allAccounts.get(accIndex));
-                startActivity(myIntent);
-            }
-        });
-
-        Button logInButton = findViewById(R.id.btn_login);
-        logInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText txtUsername = findViewById(R.id.txtUsername);
-                String username = txtUsername.getText().toString();
-
-                EditText txtPassword = findViewById(R.id.txtPassword);
-                String password = txtPassword.getText().toString();
-
-                Boolean accountFound = false;
-
-                for (int i = 0; i < allAccounts.size(); i++)
-                {
-                    if (allAccounts.get(i).getUsername().equals(username))
-                    {
-                        accountFound = true;
-                        accIndex = i;
-                        break;
-                    }
-                }
-
-                if (accountFound && allAccounts.get(accIndex).getPassword().equals(password))
-                {
-                    ConstraintLayout loginLayout = findViewById(R.id.loginLayout);
-                    loginLayout.setVisibility(View.GONE);
-
-                    ConstraintLayout loggedOnLayout = findViewById(R.id.loggedInLayout);
-                    loggedOnLayout.setVisibility(View.VISIBLE);
-
-                    TextView loggedInMsg = findViewById(R.id.txtLoggedInMsg);
-                    loggedInMsg.setText(getResources().getString(R.string.loggedIn) + username + "!");
-
-                    if (allAccounts.get(accIndex).getIsClinician())
-                    {
-                        Button btnResults = findViewById(R.id.btn_results);
-                        btnResults.setVisibility(View.VISIBLE);
-                    }
-                    else
-                    {
-                        btnBegin.setVisibility(View.VISIBLE);
-                    }
-                }
-                else
-                {
-                    TextView errorMsg = findViewById(R.id.txtErrorMessage);
-                    errorMsg.setText("Account details incorrect!");
-                }
-            }
-        });*/
-
-        Button menuButton = findViewById(R.id.menuButton);
-        menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
@@ -120,58 +61,29 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button dotButton = findViewById(R.id.btn_dot);
-        dotButton.setOnClickListener(new View.OnClickListener() {
+        Button clinicianButton = findViewById(R.id.btn_clinician);
+        clinicianButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), DotCancellation.class);
+                Intent myIntent = new Intent(getApplicationContext(), ClinicianActivity.class);
                 startActivity(myIntent);
             }
         });
 
-        Button directionButton = findViewById(R.id.btn_direction);
-        directionButton.setOnClickListener(new View.OnClickListener() {
+        Button logoutButton = findViewById(R.id.btn_logout);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
-                startActivity(myIntent);
-            }
-        });
+                ConstraintLayout loginLayout = findViewById(R.id.loginLayout);
+                loginLayout.setVisibility(View.VISIBLE);
 
-        Button compassButton = findViewById(R.id.btn_compass);
-        compassButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), SquareMatricesCompass.class);
-                startActivity(myIntent);
-            }
-        });
+                ConstraintLayout loggedInLayout = findViewById(R.id.loggedInLayout);
+                loggedInLayout.setVisibility(View.GONE);
 
-        Button roadRecognitionButton = findViewById(R.id.btn_road_recognition);
-        roadRecognitionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
-                startActivity(myIntent);
-            }
-        });
+                Button btnLogin = findViewById(R.id.btn_login);
+                btnLogin.setVisibility(View.VISIBLE);
 
-        Button pathFormingButton = findViewById(R.id.btn_path_forming);
-        pathFormingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), PathForming.class);
-                startActivity(myIntent);
-            }
-        });
-
-
-        Button resultsButton = findViewById(R.id.btn_results);
-        resultsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), Results.class);
-                startActivity(myIntent);
+                FirebaseAuth.getInstance().signOut();
             }
         });
 
@@ -243,10 +155,9 @@ public class MainActivity extends AppCompatActivity
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful())
                     {
-                        Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
-                        startActivity(myIntent);
                         // Sign in success, update UI with the signed-in user's information
                         Toast.makeText(MainActivity.this, "Sign in Successful", Toast.LENGTH_LONG).show();
+                        showPanel();
                     }
                     else
                     {
@@ -256,5 +167,45 @@ public class MainActivity extends AppCompatActivity
                 }
             });
         }
+    }
+
+    private void showPanel()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final String uid = user.getUid();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ConstraintLayout loginLayout = findViewById(R.id.loginLayout);
+                loginLayout.setVisibility(View.GONE);
+
+                ConstraintLayout loggedInLayout = findViewById(R.id.loggedInLayout);
+                loggedInLayout.setVisibility(View.VISIBLE);
+
+                TextView loggedInMsg = findViewById(R.id.txtLoggedInMsg);
+                String username = dataSnapshot.child("users").child(uid).child("Email").getValue(String.class);
+                loggedInMsg.setText(getResources().getString(R.string.loggedIn) + " " + username + "!");
+
+                Boolean clinician = dataSnapshot.child("users").child(uid).child("Clinician").getValue(Boolean.class);
+                if (clinician)
+                {
+                    Button btnClinician = findViewById(R.id.btn_clinician);
+                    btnClinician.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    Button btnBegin = findViewById(R.id.btn_begin);
+                    btnBegin.setVisibility(View.VISIBLE);
+                }
+                Button btnLogin = findViewById(R.id.btn_login);
+                btnLogin.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
