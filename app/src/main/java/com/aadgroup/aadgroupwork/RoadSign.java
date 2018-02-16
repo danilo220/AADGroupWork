@@ -286,8 +286,13 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             public void onClick(View view)
             {
                 points = points;
-                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(myIntent);
+                Intent intent = new Intent(getApplicationContext(), menuActivity.class);
+                allResults.setRoadSignRecognitionScore(points);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", allResults);
+                testFinish.set(3,1);
+                intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                startActivity(intent);
             }
         });
     }
