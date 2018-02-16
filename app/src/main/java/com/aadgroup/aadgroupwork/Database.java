@@ -20,7 +20,6 @@ public class Database extends AppCompatActivity
     private FirebaseUser user;
     private String uid;
     private DatabaseReference databaseReference;
-
     private String username;
     private String result;
     private String date;
@@ -55,7 +54,6 @@ public class Database extends AppCompatActivity
     public void fetchData() {
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

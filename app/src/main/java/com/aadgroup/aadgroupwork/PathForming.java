@@ -2,17 +2,12 @@ package com.aadgroup.aadgroupwork;
 
 import android.app.AlertDialog;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
-import java.util.Random;
 
 public class PathForming extends AppCompatActivity implements View.OnTouchListener{
 
@@ -26,8 +21,6 @@ public class PathForming extends AppCompatActivity implements View.OnTouchListen
 
         drawView = new DrawView(this);
         drawView.setBackgroundColor(Color.WHITE);
-
-//        setContentView(drawView);
 
         RelativeLayout container = findViewById(R.id.container);
         container.addView(drawView);
@@ -73,7 +66,6 @@ public class PathForming extends AppCompatActivity implements View.OnTouchListen
                 }
             }
         }
-
         return false;
     }
 

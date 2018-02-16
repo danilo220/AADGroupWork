@@ -1,9 +1,5 @@
 package com.aadgroup.aadgroupwork;
 
-/**
- * Created by Dan_n on 15/02/2018.
- */
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,9 +8,6 @@ import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
 import java.util.Random;
 
 public class DrawView extends View {
@@ -24,7 +17,6 @@ public class DrawView extends View {
     private int[] xCords;
     private int[] yCords;
     private boolean[] clicked = {false, false, false, false, false};
-    private Canvas mCanvas;
     private boolean set = false;
     private int currentNumber = 0;
 
@@ -56,9 +48,6 @@ public class DrawView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
-//        canvas.drawLine(0, 0, 20, 20, paint);
-//        canvas.drawLine(20, 0, 0, 20, paint);
-
         if(set)
         {
             for(int i = 0; i < xCords.length; ++i)
@@ -146,7 +135,6 @@ public class DrawView extends View {
     {
         set = true;
     }
-
 
     public int[] getxCords()
     {

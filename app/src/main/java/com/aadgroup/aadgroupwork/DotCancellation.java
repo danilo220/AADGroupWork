@@ -24,7 +24,6 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
     TextView txtCounter;
     Counter counter;
 
-    Account loggedInAcc;
     TestResults allResults;
     ArrayList<Integer> testFinish = new ArrayList<>();
 
@@ -39,9 +38,6 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         txtCounter.setText(counter.getTimeString());
 
         Intent intent = getIntent();
-        if (intent.hasExtra("AccountDetails")) {
-            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
-        }
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
         }
@@ -69,7 +65,6 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
                 txtCounter.setText(counter.getTimeString());
 
                 Intent intent = new Intent(getApplicationContext(), menuActivity.class);
-                intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
                 testFinish.set(0, 1);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);

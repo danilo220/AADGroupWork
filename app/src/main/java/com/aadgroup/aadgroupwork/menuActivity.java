@@ -2,41 +2,17 @@ package com.aadgroup.aadgroupwork;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import java.text.DateFormat;
-import java.util.Date;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
-import java.util.List;
 
 public class menuActivity extends AppCompatActivity {
     TextView dotCancel, directions, roadsigns, compass, pathformer, score;
     ImageView dotInfo, compassInfo, roadInfo, formInfo, directionInfo;
 
-    //DatabaseReference databaseReference;
-    //FirebaseAuth mAuth;
-    //DataSnapshot snapshot;
-    //Firebase firebaseReference;
-
-    FirebaseUser user;
-    String uid;
-
-    List<String> itemlist = new ArrayList<String>();
-
-    Account loggedInAcc;
     TestResults allResults;
     ArrayList<Integer> testFinish = new ArrayList<>();
 
@@ -45,13 +21,7 @@ public class menuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        uid = user.getUid();
-
         Intent intent = getIntent();
-        if (intent.hasExtra("AccountDetails")) {
-            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
-        }
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
         }
@@ -70,18 +40,6 @@ public class menuActivity extends AppCompatActivity {
             testFinish.add(0);
         }
 
-        String temp = "";
-        for (int i = 0; i < testFinish.size(); i++)
-        {
-            temp += " " + testFinish.get(i).toString();
-        }
-        //Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
-
-        //addData();
-        //getData();
-
-        int pathformFinish = 0;
-
         dotCancel = findViewById(R.id.dotcancel);
         directions = findViewById(R.id.directions);
         roadsigns = findViewById(R.id.roadsign);
@@ -93,22 +51,12 @@ public class menuActivity extends AppCompatActivity {
             public void onClick(View v){
                 if (testFinish.get(0) == 0) {
                     Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
-                    intent.putExtra("AccountDetails", loggedInAcc);
                     intent.putExtra("TestResults", allResults);
                     intent.putIntegerArrayListExtra("TestFinish", testFinish);
                     startActivity(intent);
                 }
             }
         });
-
-        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle("Hint " + totalHints);
-        builder.setMessage("position the cards shown below so that\n" +
-                "each car is travelling in the direction indicated by the bottom arrows and\n" +
-                "each lorry in the direction indicated by the arrows on the left side.");
-        builder.setPositiveButton("OK", null);
-        builder.show();*/
 
         dotInfo = (ImageView) findViewById(R.id.dotInfo);
         compassInfo = (ImageView) findViewById(R.id.compassInfo);
@@ -154,7 +102,6 @@ public class menuActivity extends AppCompatActivity {
         pathformer.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), PathForming.class);
-                intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);
                 startActivity(intent);
@@ -168,7 +115,6 @@ public class menuActivity extends AppCompatActivity {
                 public void onClick(View v){
                     if (testFinish.get(1) == 0) {
                         Intent intent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
-                        intent.putExtra("AccountDetails", loggedInAcc);
                         intent.putExtra("TestResults", allResults);
                         intent.putIntegerArrayListExtra("TestFinish", testFinish);
                         startActivity(intent);
@@ -184,7 +130,6 @@ public class menuActivity extends AppCompatActivity {
                 public void onClick(View v){
                     if (testFinish.get(2) == 0) {
                         Intent intent = new Intent(getApplicationContext(), SquareMatricesCompass.class);
-                        intent.putExtra("AccountDetails", loggedInAcc);
                         intent.putExtra("TestResults", allResults);
                         intent.putIntegerArrayListExtra("TestFinish", testFinish);
                         startActivity(intent);
@@ -200,7 +145,6 @@ public class menuActivity extends AppCompatActivity {
                 public void onClick(View v){
                     if (testFinish.get(3) == 0) {
                         Intent intent = new Intent(getApplicationContext(), RoadSign.class);
-                        intent.putExtra("AccountDetails", loggedInAcc);
                         intent.putExtra("TestResults", allResults);
                         intent.putIntegerArrayListExtra("TestFinish", testFinish);
                         startActivity(intent);
@@ -209,22 +153,21 @@ public class menuActivity extends AppCompatActivity {
             });
         }
 
-        if (testFinish.get(3) == 1){
+        if (testFinish.get(3) == 1)
+        {
             roadsigns.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-
         }
 
         score = findViewById(R.id.score);
         score.setPaintFlags(score.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
         score.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
-                //if (testFinish.get(3) == 1) {
-                Intent intent = new Intent(getApplicationContext(), Results.class);
-                intent.putExtra("AccountDetails", loggedInAcc);
-                intent.putExtra("TestResults", allResults);
-                //intent.putIntegerArrayListExtra("TestFinish", testFinish);
-                startActivity(intent);
-                // }
+                if (testFinish.get(3) == 1) {
+                    Intent intent = new Intent(getApplicationContext(), Results.class);
+                    intent.putExtra("TestResults", allResults);
+                    intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -294,69 +237,4 @@ public class menuActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", null);
         builder.show();
     }
-
-    /*private void addData(){
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        String userID = uid;
-        String result = "pass";
-        Boolean clinician = false;
-
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String email = user.getEmail();
-
-        databaseReference.child("users").child(userID).setValue(userID);
-        databaseReference.child("users").child(userID).child("Email").setValue(email);
-        databaseReference.child("users").child(userID).child("Result").setValue(result);
-        databaseReference.child("users").child(userID).child("Date & Time").setValue(currentDateTimeString);
-        databaseReference.child("users").child(userID).child("Clinician").setValue(clinician);
-    }
-
-    public void getData() {
-
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name1 = "hi";
-
-                String username = dataSnapshot.child("users").child(uid).child("Email").getValue(String.class);
-                String result = dataSnapshot.child("users").child(uid).child("Result").getValue(String.class);
-                String date = dataSnapshot.child("users").child(uid).child("Date & Time").getValue(String.class);
-                Boolean usertype = dataSnapshot.child("users").child(uid).child("Clinician").getValue(Boolean.class);
-
-                System.out.println(date);
-                System.out.println(result);
-                System.out.println(username);
-                System.out.println(usertype);
-                Toast.makeText(getApplicationContext(), date + " " + result + " " + username + " " + usertype, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }*/
-
-
-/*    private void go(){
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        databaseReference.addValueEventListener (new ValueEventListener(){
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot){
-                itemlist.clear();
-
-                String userResult = dataSnapshot.child(uid).child("Result").getValue(String.class);
-                String resultDate = dataSnapshot.child(uid).child("Date").getValue(String.class);
-
-                itemlist.add(userResult);
-                itemlist.add(resultDate);
-            }
-
-
-    }*/
-
 }

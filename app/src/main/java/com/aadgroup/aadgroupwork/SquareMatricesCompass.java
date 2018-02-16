@@ -5,15 +5,12 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,17 +19,13 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
     public int choosePicture;
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, b1, b2, b3, b4, b5, b6, b7, b8 ,b9, b10, hint;
     Button menuButton;
-    TextView timerText, hintText;
-    //ArrayList<String> previousLocation = new ArrayList<String>();
-    //ArrayList<String> previousCard = new ArrayList<String>();
+    TextView hintText;
     ArrayList<Integer> number = new ArrayList<Integer>();
 
-    //int wrongAnswer = 0;
     int points = 0;
     int totalHints = 2;
     //pushing
 
-    Account loggedInAcc;
     TestResults allResults;
     ArrayList<Integer> testFinish = new ArrayList<>();
 
@@ -43,9 +36,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         setContentView(R.layout.square_matrices_compass);
 
         Intent intent = getIntent();
-        if (intent.hasExtra("AccountDetails")) {
-            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
-        }
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
         }
@@ -151,7 +141,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), menuActivity.class);
                 allResults.setSquareMatriciesCompassScore(points);
-                intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
                 testFinish.set(2, 1);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);
@@ -162,9 +151,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //finish();
-                //Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
-                //startActivity(myIntent);
 
                 points = 0;
                 resetListeners();
@@ -217,32 +203,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         });
 
     }
-/*    void removePoints(View view, View v)
-{
-    if (view.getId() == R.id.dragAnswer41)
-    {
-        randomPicture();
-        if (v.getId() == R.id.box41)
-        {
-            points -= 2;
-            System.out.println("Removed 2 points atm" + points);
-        }
-        else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44
-                || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11 )
-        {
-            points -= 1;
-            System.out.println("Removed 1 point points atm" + points);
-        }
-        else
-        {
-            System.out.print("Error removePoints");
-        }
-    }
-    else
-    {
-        System.out.print("Error drag not answer 41 and points are  " + points);
-    }
-}*/
 
     @Override
     public boolean onTouch(View v, MotionEvent e) {
@@ -255,9 +215,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
             return false;
         }
     }
-
-    //ArrayList<String> previousLocation = new ArrayList<Integer>();
-    //ArrayList<String> previousCard = new ArrayList<Integer>();
 
     private void resetListeners(){
 
@@ -439,8 +396,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
 
     @Override
     public boolean onDrag(View v, DragEvent e) {
-        int action = e.getAction();
-        int choosePicture = 0;
         View view = (View) e.getLocalState();
         switch (e.getAction()) {
             case DragEvent.ACTION_DROP:
@@ -780,9 +735,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
                     if(view.getId() == R.id.dragAnswer10){
                         v.setBackgroundResource(R.drawable.car_south_southeast);//TODO: change this pseudo code.
                     }
-
-                    //wrongAnswer = wrongAnswer + 1;
-                    //System.out.println(wrongAnswer + " Wrong Answer");
 
                 }
                 break;

@@ -2,59 +2,39 @@ package com.aadgroup.aadgroupwork;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ClipData;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Chronometer;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.view.View.DragShadowBuilder;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-
-import static android.content.ContentValues.TAG;
 
 public class SquareMatricesDirections extends Activity implements View.OnTouchListener, View.OnDragListener {
     public int choosePicture;
     ImageView a41, a42, a43, a44, a31, a32, a33, a34, a21, a22, a23, a24, a11, a12, a13, a14, hint, answer41, answer42, answer43, answer44, answer31, answer21, answer11;
     Button menuButton;
-    TextView timerText, hintText;
-    //ArrayList<String> previousLocation = new ArrayList<String>();
-    //ArrayList<String> previousCard = new ArrayList<String>();
+    TextView hintText;
     ArrayList<Integer> number = new ArrayList<Integer>();
 
-    //int wrongAnswer = 0;
     int points = 0;
     int totalHints = 2;
 
-    Account loggedInAcc;
     TestResults allResults;
     ArrayList<Integer> testFinish = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ArrayList<Integer> number = new ArrayList<Integer>();
         setContentView(R.layout.square_matrices_directions);
 
         Intent intent = getIntent();
-        if (intent.hasExtra("AccountDetails")) {
-            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
-        }
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
         }
@@ -128,8 +108,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         a13 = (ImageView) findViewById(R.id.dragAnswer13);
         a14 = (ImageView) findViewById(R.id.dragAnswer14);
         resetListeners();
-        //findViewById(R.id.cycler).setOnDragListener(this);
-
 
         hint.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -138,13 +116,11 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
             }
         });
 
-
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), menuActivity.class);
                 allResults.setSquareMatriciesDirectionScore(points);
-                intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
                 testFinish.set(1, 1);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);
@@ -155,10 +131,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //finish();
-                //Intent myIntent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
-                //startActivity(myIntent);
-
                 points = 0;
                 resetListeners();
 
@@ -184,7 +156,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
             }
         });
 
-
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,34 +178,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 startButton.setVisibility(View.INVISIBLE);
             }
         });
-
     }
-/*    void removePoints(View view, View v)
-    {
-        if (view.getId() == R.id.dragAnswer41)
-        {
-            randomPicture();
-            if (v.getId() == R.id.box41)
-            {
-                points -= 2;
-                System.out.println("Removed 2 points atm" + points);
-            }
-            else if (v.getId() == R.id.box42 || v.getId() == R.id.box43 || v.getId() == R.id.box44
-                    || v.getId() == R.id.box31 || v.getId() == R.id.box21 || v.getId() == R.id.box11 )
-            {
-                points -= 1;
-                System.out.println("Removed 1 point points atm" + points);
-            }
-            else
-            {
-                System.out.print("Error removePoints");
-            }
-        }
-        else
-        {
-            System.out.print("Error drag not answer 41 and points are  " + points);
-        }
-    }*/
 
     @Override
     public boolean onTouch(View v, MotionEvent e) {
@@ -247,9 +191,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
             return false;
         }
     }
-
-    //ArrayList<String> previousLocation = new ArrayList<Integer>();
-    //ArrayList<String> previousCard = new ArrayList<Integer>();
 
     private void resetListeners(){
 
@@ -292,9 +233,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
     }
 
     private void random(){
-        int firstNum = 0;
         number.removeAll(number);
-        //ArrayList<Integer> number = new ArrayList<Integer>();
         for (int i = 1; i <= 16; ++i)
         {
             number.add(i);
@@ -388,18 +327,10 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
     @Override
     public boolean onDrag(View v, DragEvent e) {
-        int action = e.getAction();
-        int choosePicture = 0;
         View view = (View) e.getLocalState();
         switch (e.getAction()) {
             case DragEvent.ACTION_DROP:
                 randomPicture();
-                //System.out.println("Points atm drop: " + points);
-
-/*                if (v.getId() == R.id.cycler){
-                    removePoints(view, v);
-                    v.setBackgroundResource(0);//TODO: change this pseudo code.
-                }*/
 
                 if (view.getId() == R.id.dragAnswer41) {
                     view.setVisibility(View.INVISIBLE);
@@ -484,9 +415,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         //Wrong answer
                     }
                 }
-
-
-
                 else if (view.getId() == R.id.dragAnswer31) {
                     view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box31) {
@@ -507,7 +435,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         //Wrong answer
                     }
                 }
-
                 else if (view.getId() == R.id.dragAnswer32) {
                     view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box32) {
@@ -528,7 +455,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         //Wrong answer
                     }
                 }
-
                 else if (view.getId() == R.id.dragAnswer33) {
                     view.setVisibility(View.INVISIBLE);
                     if (v.getId() == R.id.box33) {
@@ -728,12 +654,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                         v.setOnDragListener(null);
                         //Wrong answer
                     }
-                }
-
-                else{
-                    //wrongAnswer = wrongAnswer + 1;
-                    //System.out.println(wrongAnswer + " Wrong Answer");
-
                 }
                 break;
         }

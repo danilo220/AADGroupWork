@@ -7,11 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,7 +21,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     Button finishButton;
 
     TextView timerText;
-    //TextView pointsTextView;
     //Road Signs
     ImageView firstImg;
     ImageView secondImg;
@@ -51,7 +48,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     ImageView eleventhImageBoxV;
     ImageView twelvethImageBoxV;
 
-    Account loggedInAcc;
     TestResults allResults;
     ArrayList<Integer> testFinish = new ArrayList<>();
 
@@ -62,9 +58,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         setContentView(R.layout.road_sign);
 
         Intent intent = getIntent();
-        if (intent.hasExtra("AccountDetails")) {
-            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
-        }
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
         }
@@ -82,12 +75,8 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             testFinish.add(0);
         }
 
-/*        firstImg = (ImageView) findViewById(R.id.roadSignOne);
-        firstImg.setOnTouchListener(this);*/
-
         //Timer
         timerText = (TextView) findViewById(R.id.timerTextView);
-        //pointsTextView = (TextView) findViewById(R.id.PointsTestView);
         //Road Signs
         firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);
@@ -137,17 +126,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         tenthImg.setVisibility(View.INVISIBLE);
         eleventhImg.setVisibility(View.INVISIBLE);
         twelvethImg.setVisibility(View.INVISIBLE);
-        //findViewById(R.id.roadSignOne).setOnTouchListener(this);
-/*        findViewById(R.id.roadSignTwo).setOnTouchListener(this);
-        findViewById(R.id.roadSignThree).setOnTouchListener(this);
-        findViewById(R.id.roadSignFour).setOnTouchListener(this);
-        findViewById(R.id.roadSignFive).setOnTouchListener(this);
-        findViewById(R.id.roadSignSix).setOnTouchListener(this);
-        findViewById(R.id.roadSignSeven).setOnTouchListener(this);
-        findViewById(R.id.roadSignEight).setOnTouchListener(this);
-        findViewById(R.id.roadSignNine).setOnTouchListener(this);
-        findViewById(R.id.roadSignTen).setOnTouchListener(this);
-        findViewById(R.id.roadSignEleven).setOnTouchListener(this);*/
 
         //Road Scenes
         findViewById(R.id.firstImage).setOnDragListener(this);
@@ -165,43 +143,30 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
         //Answer boxes
         firstImageBoxV = (ImageView) findViewById(R.id.firstImageBox);
-        //firstImageBoxV.setOnDragListener(this);
 
         secondImageBoxV = (ImageView) findViewById(R.id.secondImageBox);
-        //secondImageBoxV.setOnDragListener(this);
 
         thirdImageBoxV = (ImageView) findViewById(R.id.thirdImageBox);
-        //thirdImageBoxV.setOnDragListener(this);
 
         thirdImageBoxV = (ImageView) findViewById(R.id.thirdImageBox);
-        //thirdImageBoxV.setOnDragListener(this);
 
         fourthImageBoxV = (ImageView) findViewById(R.id.fourthImageBox);
-        //fourthImageBoxV.setOnDragListener(this);
 
         fifthImageBoxV = (ImageView) findViewById(R.id.fifthImageBox);
-        //fifthImageBoxV.setOnDragListener(this);
 
         sixthImageBoxV = (ImageView) findViewById(R.id.sixthImageBox);
-        //sixthImageBoxV.setOnDragListener(this);
 
         seventhImageBoxV = (ImageView) findViewById(R.id.seventhImageBox);
-        //seventhImageBoxV.setOnDragListener(this);
 
         eightImageBoxV = (ImageView) findViewById(R.id.eightImageBox);
-        //eightImageBoxV.setOnDragListener(this);
 
         ninthImageBoxV = (ImageView) findViewById(R.id.ninthImageBox);
-        //ninthImageBoxV.setOnDragListener(this);
 
         tenthImageBoxV = (ImageView) findViewById(R.id.tenthImageBox);
-        //tenthImageBoxV.setOnDragListener(this);
 
         eleventhImageBoxV = (ImageView) findViewById(R.id.eleventhImageBox);
-        //eleventhImageBoxV.setOnDragListener(this);
 
         twelvethImageBoxV = (ImageView) findViewById(R.id.twelvethImageBox);
-        //twelvethImageBoxV.setOnDragListener(this);
 
         startButton = (Button) findViewById(R.id.startButtonRoadSign);
         startButton.setOnClickListener(new View.OnClickListener()
@@ -210,7 +175,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             public void onClick(View view)
             {
                 makeImagesVisible();
-                //finishGame();
                 new CountDownTimer(180000, 1000) //3 minutes
                 {
 
@@ -221,9 +185,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
                     public void onFinish()
                     {
-                        //timerText.setText("That’s fine, you have done enough now and can stop");
-                        points = points;
-                        //menuButton.setVisibility(View.VISIBLE);
                         resetButton.setVisibility(View.INVISIBLE);
                         Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(myIntent);
@@ -240,9 +201,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             @Override
             public void onClick(View view)
             {
-                //pointsTextView.setText("Points: " + points);
-/*                Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
-                startActivity(myIntent);*/
                 points = 0;
                 resetListeners();
                 firstImg.setVisibility(View.VISIBLE);
@@ -273,9 +231,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                 tenthImageBoxV.setBackground(null);
                 eleventhImageBoxV.setBackground(null);
                 twelvethImageBoxV.setBackground(null);
-
-                //f.setOnDragListener(this);
-                //findViewById(R.id.firstImage).setOnDragListener(this);
             }
         });
 
@@ -285,10 +240,8 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             @Override
             public void onClick(View view)
             {
-                //points = points;
                 Intent intent = new Intent(getApplicationContext(), menuActivity.class);
                 allResults.setRoadSignRecognitionScore(points);
-                intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
                 testFinish.set(3,1);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);
@@ -329,32 +282,9 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
     }
 
-    /* finishGame()
-    {
-        if(twelvethImageBoxV.getDrawable() != null && firstImageBoxV.getDrawable() != null)
-        {
-            //startButton.setVisibility(View.VISIBLE);
-           //Toast.makeText(RoadSign.this,"Finished", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(getApplicationContext(), menuActivity.class);
-            allResults.setRoadSignRecognitionScore(points);
-            intent.putExtra("AccountDetails", loggedInAcc);
-            intent.putExtra("TestResults", allResults);
-            testFinish.set(3, 1);
-            intent.putIntegerArrayListExtra("TestFinish", testFinish);
-            startActivity(intent);
-        }
-       else
-        {
-            Toast.makeText(RoadSign.this,
-                    "Not finished", Toast.LENGTH_LONG).show();
-        }
-        //twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_eight);
-    }*/
-
     @Override
     public boolean onTouch(View v, MotionEvent e)
     {
-        //finishGame();
         if (e.getAction() == MotionEvent.ACTION_DOWN)
         {
             View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -371,7 +301,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     @Override
     public boolean onDrag(View v, DragEvent event)
     {
-        //finishGame();
         final int action = event.getAction();
         View view = (View) event.getLocalState();
         switch (action)
@@ -381,8 +310,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
                 {
                     if(v.getId() == R.id.firstImage)
                     {
-/*                        ViewGroup vGroup = (ViewGroup) view.getParent();
-                        vGroup.removeView(view);*/
                         firstImg.setVisibility(View.INVISIBLE);
                         firstImageBoxV.setBackgroundResource(R.drawable.road_sign_one);
                         findViewById(R.id.firstImage).setOnDragListener(null);
