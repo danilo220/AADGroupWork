@@ -324,14 +324,14 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
     }
 
-    /*void finishGame()
+    /* finishGame()
     {
         if(twelvethImageBoxV.getDrawable() != null && firstImageBoxV.getDrawable() != null)
         {
             //startButton.setVisibility(View.VISIBLE);
            //Toast.makeText(RoadSign.this,"Finished", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(getApplicationContext(), menuActivity.class);
-            allResults.setSquareMatriciesDirectionScore(points);
+            allResults.setRoadSignRecognitionScore(points);
             intent.putExtra("AccountDetails", loggedInAcc);
             intent.putExtra("TestResults", allResults);
             testFinish.set(3, 1);
