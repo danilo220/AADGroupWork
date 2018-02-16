@@ -59,8 +59,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.road_sign);
-<<<<<<< HEAD
-=======
 
         Intent intent = getIntent();
         if (intent.hasExtra("AccountDetails")) {
@@ -73,7 +71,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             allResults = new TestResults();
         }
 
->>>>>>> 4655eb2915d9bac1d20338c86cea23d5f3eb8b81
 /*        firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);*/
 
