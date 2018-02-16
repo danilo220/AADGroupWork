@@ -337,9 +337,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             testFinish.set(3, 1);
             intent.putIntegerArrayListExtra("TestFinish", testFinish);
             startActivity(intent);
-           Toast.makeText(RoadSign.this,"Finished", Toast.LENGTH_LONG).show();
-            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(myIntent);
         }
        else
         {
