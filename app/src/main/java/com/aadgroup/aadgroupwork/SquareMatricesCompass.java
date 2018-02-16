@@ -150,7 +150,7 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), menuActivity.class);
-                allResults.setSquareMatriciesDirectionScore(points);
+                allResults.setSquareMatriciesCompassScore(points);
                 intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
                 testFinish.set(2, 1);
