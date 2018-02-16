@@ -324,14 +324,12 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
     }
 
-/*    void finishGame()
+    /*void finishGame()
     {
         if(twelvethImageBoxV.getDrawable() != null && firstImageBoxV.getDrawable() != null)
         {
             //startButton.setVisibility(View.VISIBLE);
-<<<<<<< HEAD
-/*            Toast.makeText(RoadSign.this,
-                    "Finished", Toast.LENGTH_LONG).show();*/
+           //Toast.makeText(RoadSign.this,"Finished", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(getApplicationContext(), menuActivity.class);
             allResults.setSquareMatriciesDirectionScore(points);
             intent.putExtra("AccountDetails", loggedInAcc);
@@ -339,18 +337,18 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             testFinish.set(3, 1);
             intent.putIntegerArrayListExtra("TestFinish", testFinish);
             startActivity(intent);
-*//*            Toast.makeText(RoadSign.this,
-                    "Finished", Toast.LENGTH_LONG).show();*//*
+           Toast.makeText(RoadSign.this,"Finished", Toast.LENGTH_LONG).show();
             Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(myIntent);
         }
-*//*        else
+       else
         {
             Toast.makeText(RoadSign.this,
                     "Not finished", Toast.LENGTH_LONG).show();
-        }*//*
+        }
         //twelvethImageBoxV.setBackgroundResource(R.drawable.road_sign_eight);
     }*/
+
     @Override
     public boolean onTouch(View v, MotionEvent e)
     {
@@ -366,7 +364,6 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         {
             return false;
         }
-
     }
 
     @Override
