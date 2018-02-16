@@ -25,7 +25,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
     Button finishButton;
 
     TextView timerText;
-    TextView pointsTextView;
+    //TextView pointsTextView;
     //Road Signs
     ImageView firstImg;
     ImageView secondImg;
@@ -78,7 +78,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
         //Timer
         timerText = (TextView) findViewById(R.id.timerTextView);
-        pointsTextView = (TextView) findViewById(R.id.PointsTestView);
+        //pointsTextView = (TextView) findViewById(R.id.PointsTestView);
         //Road Signs
         firstImg = (ImageView) findViewById(R.id.roadSignOne);
         firstImg.setOnTouchListener(this);
@@ -232,7 +232,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             @Override
             public void onClick(View view)
             {
-                pointsTextView.setText("Points: " + points);
+                //pointsTextView.setText("Points: " + points);
 /*                Intent myIntent = new Intent(getApplicationContext(), RoadSign.class);
                 startActivity(myIntent);*/
                 points = 0;

@@ -296,24 +296,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
 
-    <TextView
-        android:id="@+id/PointsTestView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Points:"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout3"
-        app:layout_constraintTop_toTopOf="@+id/tableLayout3" />
-
     <Button
         android:id="@+id/finishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginBottom="24dp"
         android:text="Finish"
-        app:layout_constraintEnd_toEndOf="@+id/PointsTestView"
-        app:layout_constraintStart_toEndOf="@+id/PointsTestView"
-        app:layout_constraintTop_toBottomOf="@+id/PointsTestView" />
+        app:layout_constraintBottom_toBottomOf="@+id/tableLayout3"
+        app:layout_constraintStart_toStartOf="@+id/tableLayout3" />
+
+    <!--    <TextView
+            android:id="@+id/PointsTestView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Points:"
+            app:layout_constraintStart_toStartOf="@+id/tableLayout3"
+            app:layout_constraintTop_toTopOf="@+id/tableLayout3" />-->
 
 
 </android.support.constraint.ConstraintLayout>
