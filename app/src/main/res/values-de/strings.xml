@@ -1,15 +1,25 @@
 <resources>
-    <string name="app_name">AADGroupWork</string>
-    <string name="username">Nutzername:</string>
-    <string name="password">Passwort:</string>
-    <string name="login">Einloggen</string>
-    <string name="loggedIn">Du bist eingeloggt als </string>
-    <string name="results">Place results here</string>
-    <string name="selectLanguage">Wähle eine Sprache</string>
-    <string name="beginTest">Test Beginnen</string>
-    <string name="viewResults">Ergebnisse anzeigen</string>
-    <string-array name="languages">
-        <item>Englisch</item>
-        <item>Deutsche</item>
-    </string-array>
+<string name="app_name">Stroke Driver Screening Beurteilung</string>
+<string name="username">Nutzername:</string>
+<string name="password">Passwort:</string>
+<string name="login">Einloggen</string>
+<string name="loggedIn">Du bist eingeloggt als </string>
+<string name="results">Platziere die Ergebnisse hier</string>
+<string name="selectLanguage">Wähle eine Sprache</string>
+<string name="beginTest">Test Beginnen</string>
+<string name="clinicialPanel">Gehe zu Kliniker-Panel</string>
+<string-array name="languages">
+    <item>Englisch</item>
+    <item>Deutsche</item>
+</string-array>
+<string name="action_finish">Test beenden</string>
+<string name="vertical">Vertical Up/Down</string>
+<string name="horizontal">Horizontal Left/Right</string>
+<string name="finish">Test beenden</string>
+<string name="seconds">0:00</string>
+<string name="title_activity_menu_form">menuForm</string>
+<string name="clinician_header">Kliniker-Panel
+</string>
+<string name="clinician_description">Hier sieht der Kliniker die Ergebnisse seiner Patienten</string>
+<string name="logout">Ausloggen</string>
 </resources>

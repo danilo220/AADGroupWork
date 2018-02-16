@@ -93,15 +93,17 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if (userIsInteracting) {
-
                     String selectedLanguage = languageSelect.getSelectedItem().toString();
-
                     switch (selectedLanguage) {
                         case "English":
                             switchLanguage("en");
+                            languageSelect.setSelection(0);
+                            userIsInteracting = false;
                             break;
                         case "German":
                             switchLanguage("de");
+                            languageSelect.setSelection(1);
+                            userIsInteracting = false;
                             break;
                         default:
                             break;
