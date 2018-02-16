@@ -8,7 +8,7 @@ public class TestResults implements Serializable {
     private int dotCancellation_falsePositives = 0;
     private int squareMatriciesDirectionScore = 0; //maximum of 32
     private int squareMatriciesCompassScore = 0; //maximum of 32
-    private int roadSignRecognitionScore = 0; //maximum of 32
+    private int roadSignRecognitionScore = 0; //maximum of 12
 
     public void setDotCancellationResults(int time, int missed, int incorrect)
     {
@@ -62,5 +62,20 @@ public class TestResults implements Serializable {
     public int getFalsePositives()
     {
         return dotCancellation_falsePositives;
+    }
+
+    public int getSquareMatriciesDirectionScore()
+    {
+        return squareMatriciesDirectionScore;
+    }
+
+    public int getSquareMatriciesCompassScore()
+    {
+        return squareMatriciesCompassScore;
+    }
+
+    public int getRoadSignRecognitionScore()
+    {
+        return roadSignRecognitionScore;
     }
 }

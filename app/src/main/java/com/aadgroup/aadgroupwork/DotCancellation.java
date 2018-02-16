@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,16 +54,12 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         finishButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 CalculateScore();
-                Toast toast = Toast.makeText(getApplicationContext(), "Missed: " + Integer.toString(allResults.getMissed()) + " Incorrect: " + Integer.toString(allResults.getFalsePositives()) + " Time: " + Integer.toString(allResults.getTime()), Toast.LENGTH_SHORT);
-                toast.show();
                 txtCounter.setText(counter.getTimeString());
 
-                /*
-                Intent myIntent = new Intent(getApplicationContext(), NEXT ACTIVITY HERE);
-                myIntent.putExtra("AccountDetails", loggedInAcc);
-                myIntent.putExtra("TestResults", allResults);
-                startActivity(myIntent);
-                 */
+                Intent intent = new Intent(getApplicationContext(), menuActivity.class);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", allResults);
+                startActivity(intent);
             }
         });
 
@@ -195,11 +190,6 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         }
         allResults = new TestResults();
         allResults.setDotCancellationResults(timeTaken, missedFourDots, cancelledNonFourDots);
-
-        Intent intent = new Intent(getApplicationContext(), menuActivity.class);
-        intent.putExtra("AccountDetails", loggedInAcc);
-        intent.putExtra("TestResults", loggedInAcc);
-        startActivity(intent);
     }
 
 
