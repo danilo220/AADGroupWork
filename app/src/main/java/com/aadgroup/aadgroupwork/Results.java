@@ -3,6 +3,8 @@ package com.aadgroup.aadgroupwork;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,13 +82,17 @@ public class Results extends AppCompatActivity {
         passOrFail = findViewById(R.id.tv_pass);
         if (allResults.passTests())
         {
-            passOrFail.setText("PASS! :)");
+            passOrFail.setText("You Passed");
+            ImageView tick = findViewById(R.id.iv_tick);
+            tick.setVisibility(View.VISIBLE);
             databaseReference.child("users").child(uid).child("Result").setValue("Pass");
         }
         else
         {
-            passOrFail.setText("FAIL! :(");
+            passOrFail.setText("You Did Not Pass");
             databaseReference.child("users").child(uid).child("Result").setValue("Fail");
+            ImageView cross = findViewById(R.id.iv_cross);
+            cross.setVisibility(View.VISIBLE);
         }
     }
 
