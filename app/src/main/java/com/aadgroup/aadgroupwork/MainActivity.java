@@ -228,8 +228,6 @@ public class MainActivity extends AppCompatActivity
                 startActivity(refresh);
                 finish();
             }
-
-
         });
     }
 
@@ -259,12 +257,24 @@ public class MainActivity extends AppCompatActivity
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
 
+                                Database db = new Database();
+                                Boolean clinician = db.getClinician();
+
+                                if (clinician)
+                                {
+                                    Toast.makeText(MainActivity.this, "User is a clinician", Toast.LENGTH_LONG).show();
+                                }
+                                else
+                                {
+                                    Toast.makeText(MainActivity.this, "User is NOT a clinician", Toast.LENGTH_LONG).show();
+                                }
+
                                 Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
                                 startActivity(myIntent);
                                 // Sign in success, update UI with the signed-in user's information
                                 //FirebaseUser user = mAuth.getCurrentUser();
                                 //Toast.makeText(MainActivity.this, "Sign in Successful", Toast.LENGTH_LONG).show();
-                                mUsers.child("Email").addListenerForSingleValueEvent(new ValueEventListener() {
+                                /*mUsers.child("Email").addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         String value = "didnt find anything";
@@ -275,7 +285,7 @@ public class MainActivity extends AppCompatActivity
                                     public void onCancelled(DatabaseError databaseError) {
                                         //nothing
                                     }
-                                });
+                                });*/
                             }
                             else{
                                 Toast.makeText(MainActivity.this, "Email or Password incorrect", Toast.LENGTH_LONG).show();

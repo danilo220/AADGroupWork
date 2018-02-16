@@ -26,9 +26,9 @@ public class menuActivity extends AppCompatActivity {
     TextView dotCancel, directions, roadsigns, compass, pathformer, score;
     ImageView dotInfo, compassInfo, roadInfo, formInfo, directionInfo;
 
-    DatabaseReference databaseReference;
-    FirebaseAuth mAuth;
-    DataSnapshot snapshot;
+    //DatabaseReference databaseReference;
+    //FirebaseAuth mAuth;
+    //DataSnapshot snapshot;
     //Firebase firebaseReference;
 
     FirebaseUser user;
@@ -77,8 +77,8 @@ public class menuActivity extends AppCompatActivity {
         }
         //Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
 
-        addData();
-        getData();
+        //addData();
+        //getData();
 
         int pathformFinish = 0;
 
@@ -295,10 +295,11 @@ public class menuActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void addData(){
+    /*private void addData(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
         String userID = uid;
         String result = "pass";
+        Boolean clinician = false;
 
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -308,6 +309,7 @@ public class menuActivity extends AppCompatActivity {
         databaseReference.child("users").child(userID).child("Email").setValue(email);
         databaseReference.child("users").child(userID).child("Result").setValue(result);
         databaseReference.child("users").child(userID).child("Date & Time").setValue(currentDateTimeString);
+        databaseReference.child("users").child(userID).child("Clinician").setValue(clinician);
     }
 
     public void getData() {
@@ -322,12 +324,13 @@ public class menuActivity extends AppCompatActivity {
                 String username = dataSnapshot.child("users").child(uid).child("Email").getValue(String.class);
                 String result = dataSnapshot.child("users").child(uid).child("Result").getValue(String.class);
                 String date = dataSnapshot.child("users").child(uid).child("Date & Time").getValue(String.class);
-                String usertype = dataSnapshot.child("users").child(uid).child("Clinician").getValue(String.class);
+                Boolean usertype = dataSnapshot.child("users").child(uid).child("Clinician").getValue(Boolean.class);
 
                 System.out.println(date);
                 System.out.println(result);
                 System.out.println(username);
                 System.out.println(usertype);
+                Toast.makeText(getApplicationContext(), date + " " + result + " " + username + " " + usertype, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -335,7 +338,7 @@ public class menuActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 
 /*    private void go(){
