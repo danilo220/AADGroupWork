@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -38,6 +40,9 @@ public class menuActivity extends AppCompatActivity {
 
     List<String> itemlist = new ArrayList<String>();
 
+    Account loggedInAcc;
+    TestResults allResults;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +52,24 @@ public class menuActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
 
+        Intent intent = getIntent();
+        if (intent.hasExtra("AccountDetails")) {
+            loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
+        }
+        if (intent.hasExtra("TestResults")) {
+            allResults = (TestResults) intent.getSerializableExtra("TestResults");
+            Toast.makeText(getApplicationContext(), "MM: " + allResults.getTime(), Toast.LENGTH_SHORT).show();
+        }
+        else {
+            allResults = new TestResults();
+        }
+
         addData();
         getData();
 
         int dotFinish = 1;
         int directionsFinish = 0;
-        int roadSignsFinish = 0;
+        final int roadSignsFinish = 0;
         int compassFinish = 0;
         int pathformFinish = 0;
 
@@ -65,6 +82,8 @@ public class menuActivity extends AppCompatActivity {
         dotCancel.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", loggedInAcc);
                 startActivity(intent);
             }
         });
@@ -125,6 +144,8 @@ public class menuActivity extends AppCompatActivity {
             directions.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });
@@ -134,6 +155,8 @@ public class menuActivity extends AppCompatActivity {
             compass.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), SquareMatricesCompass.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });
@@ -144,6 +167,8 @@ public class menuActivity extends AppCompatActivity {
             roadsigns.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), RoadSign.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });
@@ -155,6 +180,8 @@ public class menuActivity extends AppCompatActivity {
             pathformer.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     Intent intent = new Intent(getApplicationContext(), PathForming.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", loggedInAcc);
                     startActivity(intent);
                 }
             });
@@ -162,6 +189,16 @@ public class menuActivity extends AppCompatActivity {
         if (pathformFinish == 1){
             pathformer.setPaintFlags(pathformer.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
+
+        score = (TextView) findViewById(R.id.score);
+        score.setOnClickListener(new TextView.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), Results.class);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", allResults);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -297,10 +334,5 @@ public class menuActivity extends AppCompatActivity {
 
 
     }*/
-
-    protected void onStart(){
-        super.onStart();
-        score = (TextView) findViewById(R.id.score);
-    }
 
 }

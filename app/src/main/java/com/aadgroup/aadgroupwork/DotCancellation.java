@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,11 +19,11 @@ import java.util.ArrayList;
 public class DotCancellation extends AppCompatActivity implements View.OnClickListener
 {
     ArrayList<Tile> allTiles = new ArrayList<>();
-    Account loggedInAcc;
     Boolean scrollBottom = false;
     Boolean scrollRight = false;
     TextView txtCounter;
     Counter counter;
+    Account loggedInAcc;
     TestResults allResults;
 
     @Override
@@ -40,26 +39,27 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         if (intent.hasExtra("AccountDetails")) {
             loggedInAcc = (Account) intent.getSerializableExtra("AccountDetails");
-
-            Toast toast = Toast.makeText(this, "Logged in as " + loggedInAcc.getUsername(), Toast.LENGTH_SHORT);
-            toast.show();
         }
+        if (intent.hasExtra("TestResults")) {
+            allResults = (TestResults) intent.getSerializableExtra("TestResults");
+        }
+        else
+        {
+            allResults = new TestResults();
+        }
+
         AddAllTiles();
 
         ImageView finishButton = findViewById(R.id.iv_finish);
         finishButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 CalculateScore();
-                Toast toast = Toast.makeText(getApplicationContext(), "Missed: " + Integer.toString(allResults.getMissed()) + " Incorrect: " + Integer.toString(allResults.getFalsePositives()) + " Time: " + Integer.toString(allResults.getTime()), Toast.LENGTH_SHORT);
-                toast.show();
                 txtCounter.setText(counter.getTimeString());
 
-                /*
-                Intent myIntent = new Intent(getApplicationContext(), NEXT ACTIVITY HERE);
-                myIntent.putExtra("AccountDetails", loggedInAcc);
-                myIntent.putExtra("TestResults", allResults);
-                startActivity(myIntent);
-                 */
+                Intent intent = new Intent(getApplicationContext(), menuActivity.class);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", allResults);
+                startActivity(intent);
             }
         });
 
