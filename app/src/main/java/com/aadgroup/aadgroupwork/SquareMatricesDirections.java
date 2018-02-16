@@ -165,22 +165,22 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 random();
                 randomPicture();
 
-                findViewById(R.id.box41).setBackgroundResource(0);
-                findViewById(R.id.box42).setBackgroundResource(0);
-                findViewById(R.id.box43).setBackgroundResource(0);
-                findViewById(R.id.box44).setBackgroundResource(0);
-                findViewById(R.id.box31).setBackgroundResource(0);
-                findViewById(R.id.box32).setBackgroundResource(0);
-                findViewById(R.id.box33).setBackgroundResource(0);
-                findViewById(R.id.box34).setBackgroundResource(0);
-                findViewById(R.id.box21).setBackgroundResource(0);
-                findViewById(R.id.box22).setBackgroundResource(0);
-                findViewById(R.id.box23).setBackgroundResource(0);
-                findViewById(R.id.box24).setBackgroundResource(0);
-                findViewById(R.id.box11).setBackgroundResource(0);
-                findViewById(R.id.box12).setBackgroundResource(0);
-                findViewById(R.id.box13).setBackgroundResource(0);
-                findViewById(R.id.box14).setBackgroundResource(0);
+                findViewById(R.id.box41).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box42).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box43).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box44).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box31).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box32).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box33).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box34).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box21).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box22).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box23).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box24).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box11).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box12).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box13).setBackgroundResource(R.drawable.box);
+                findViewById(R.id.box14).setBackgroundResource(R.drawable.box);
             }
         });
 
