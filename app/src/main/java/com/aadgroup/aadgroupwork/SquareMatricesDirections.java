@@ -131,7 +131,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
                 startActivity(myIntent);
             }
         });

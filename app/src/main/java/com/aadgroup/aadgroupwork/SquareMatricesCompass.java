@@ -142,7 +142,7 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
                 startActivity(myIntent);
             }
         });
