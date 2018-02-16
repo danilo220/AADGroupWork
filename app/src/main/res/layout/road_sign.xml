@@ -18,26 +18,26 @@
 
             <ImageView
                 android:id="@+id/firstImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_one" />
 
             <ImageView
                 android:id="@+id/secondImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_two" />
 
             <ImageView
                 android:id="@+id/thirdImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_three" />
 
             <ImageView
                 android:id="@+id/fourthImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_four" />
         </TableRow>
 
@@ -45,49 +45,49 @@
 
             <ImageView
                 android:id="@+id/firstImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/secondImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/thirdImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/fourthImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
         </TableRow>
 
         <TableRow android:gravity="center">
 
             <ImageView
                 android:id="@+id/fifthImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_five" />
 
             <ImageView
                 android:id="@+id/sixthImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_six" />
 
             <ImageView
                 android:id="@+id/seventhImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_seven" />
 
             <ImageView
                 android:id="@+id/eightImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_eight" />
         </TableRow>
 
@@ -95,49 +95,49 @@
 
             <ImageView
                 android:id="@+id/fifthImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/sixthImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/seventhImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/eightImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
         </TableRow>
 
         <TableRow android:gravity="center">
 
             <ImageView
                 android:id="@+id/nithImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_nine" />
 
             <ImageView
                 android:id="@+id/tenthImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_ten" />
 
             <ImageView
                 android:id="@+id/eleventhImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_eleven" />
 
             <ImageView
                 android:id="@+id/twelvethImage"
-                android:layout_width="120dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/road_recognition_twelve" />
         </TableRow>
 
@@ -145,23 +145,23 @@
 
             <ImageView
                 android:id="@+id/ninthImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/tenthImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/eleventhImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/twelvethImageBox"
-                android:layout_width="120dp"
-                android:layout_height="100dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
         </TableRow>
     </TableLayout>
 
@@ -280,8 +280,7 @@
         android:id="@+id/startButtonRoadSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="456dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="304dp"
         android:text="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
