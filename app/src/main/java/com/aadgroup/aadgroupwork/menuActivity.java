@@ -3,8 +3,10 @@ package com.aadgroup.aadgroupwork;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import java.util.Date;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -25,9 +28,9 @@ public class menuActivity extends AppCompatActivity {
     TextView dotCancel, directions, roadsigns, compass, pathformer, score;
     ImageView dotInfo, compassInfo, roadInfo, formInfo, directionInfo;
 
-
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
+    DataSnapshot snapshot;
     //Firebase firebaseReference;
 
     FirebaseUser user;
@@ -39,6 +42,8 @@ public class menuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
 
@@ -241,13 +246,39 @@ public class menuActivity extends AppCompatActivity {
         databaseReference.child("users").child(userID).child("Date & Time").setValue(currentDateTimeString);
     }
 
-    private void getData(){
-        //FirebaseUser user = mAuth.getCurrentUser();
-        //String test = FirebaseDatabase.getInstance().getReference("Email");
-        System.out.println(databaseReference + "COLLECTED");
+    public void getData() {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name1 = "hi";
+
+                String username = dataSnapshot.child("users").child(uid).child("Email").getValue(String.class);
+                String result = dataSnapshot.child("users").child(uid).child("Result").getValue(String.class);
+                String date = dataSnapshot.child("users").child(uid).child("Date & Time").getValue(String.class);
+                String usertype = dataSnapshot.child("users").child(uid).child("Clinician").getValue(String.class);
+
+                System.out.println(date);
+                System.out.println(result);
+                System.out.println(username);
+                System.out.println(usertype);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
 
     }
+
 
 /*    private void go(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
