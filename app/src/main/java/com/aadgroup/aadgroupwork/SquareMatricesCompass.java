@@ -156,8 +156,6 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
                 testFinish.set(2, 1);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);
                 startActivity(intent);
-                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
-                startActivity(myIntent);
             }
         });
 

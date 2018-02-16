@@ -79,7 +79,7 @@ public class menuActivity extends AppCompatActivity {
         {
             temp += " " + testFinish.get(i).toString();
         }
-        Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
 
         addData();
         getData();
@@ -92,6 +92,7 @@ public class menuActivity extends AppCompatActivity {
         compass = findViewById(R.id.compass);
         pathformer = findViewById(R.id.pathforming);
 
+        dotCancel.setPaintFlags(dotCancel.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
         dotCancel.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
                 if (testFinish.get(0) == 0) {
@@ -165,7 +166,8 @@ public class menuActivity extends AppCompatActivity {
         });
 
         if (testFinish.get(0) == 1){
-            dotCancel.setPaintFlags(dotCancel.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            dotCancel.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            directions.setPaintFlags(directions.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
             directions.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     if (testFinish.get(1) == 0) {
@@ -180,7 +182,8 @@ public class menuActivity extends AppCompatActivity {
         }
 
         if (testFinish.get(1) == 1){
-            directions.setPaintFlags(directions.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            directions.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            compass.setPaintFlags(compass.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
             compass.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     if (testFinish.get(2) == 0) {
@@ -192,11 +195,11 @@ public class menuActivity extends AppCompatActivity {
                     }
                 }
             });
-
         }
 
         if (testFinish.get(2) == 1){
-            compass.setPaintFlags(compass.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            compass.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            roadsigns.setPaintFlags(roadsigns.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
             roadsigns.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     if (testFinish.get(3) == 0) {
@@ -208,12 +211,12 @@ public class menuActivity extends AppCompatActivity {
                     }
                 }
             });
-
         }
 
         if (testFinish.get(3) == 1){
-            roadsigns.setPaintFlags(roadsigns.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            roadsigns.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             score = findViewById(R.id.score);
+            score.setPaintFlags(score.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
             score.setOnClickListener(new TextView.OnClickListener(){
                 public void onClick(View v){
                     if (testFinish.get(3) == 1) {

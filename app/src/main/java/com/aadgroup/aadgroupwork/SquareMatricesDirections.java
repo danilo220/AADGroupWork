@@ -149,8 +149,6 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
                 testFinish.set(1, 1);
                 intent.putIntegerArrayListExtra("TestFinish", testFinish);
                 startActivity(intent);
-                Intent myIntent = new Intent(getApplicationContext(), menuActivity.class);
-                startActivity(myIntent);
             }
         });
 
