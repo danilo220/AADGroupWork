@@ -38,6 +38,7 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
 
     Account loggedInAcc;
     TestResults allResults;
+    ArrayList<Integer> testFinish = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,16 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         else
         {
             allResults = new TestResults();
+        }
+        if (intent.hasExtra("TestFinish")) {
+            testFinish = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("TestFinish");
+        }
+        else
+        {
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
         }
 
         Button resetButton = findViewById(R.id.resetButton);
@@ -142,8 +153,13 @@ public class SquareMatricesCompass extends Activity implements View.OnTouchListe
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(myIntent);
+                Intent intent = new Intent(getApplicationContext(), menuActivity.class);
+                allResults.setSquareMatriciesDirectionScore(points);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", allResults);
+                testFinish.set(2, 1);
+                intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                startActivity(intent);
             }
         });
 

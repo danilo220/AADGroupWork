@@ -42,12 +42,12 @@ public class menuActivity extends AppCompatActivity {
 
     Account loggedInAcc;
     TestResults allResults;
+    ArrayList<Integer> testFinish = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
@@ -58,19 +58,32 @@ public class menuActivity extends AppCompatActivity {
         }
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
-            Toast.makeText(getApplicationContext(), "MM: " + allResults.getTime(), Toast.LENGTH_SHORT).show();
         }
         else {
             allResults = new TestResults();
         }
 
+        if (intent.hasExtra("TestFinish")) {
+            testFinish = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("TestFinish");
+        }
+        else
+        {
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
+        }
+
+        String temp = "";
+        for (int i = 0; i < testFinish.size(); i++)
+        {
+            temp += " " + testFinish.get(i).toString();
+        }
+        Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
+
         addData();
         getData();
 
-        int dotFinish = 1;
-        int directionsFinish = 0;
-        final int roadSignsFinish = 0;
-        int compassFinish = 0;
         int pathformFinish = 0;
 
         dotCancel = findViewById(R.id.dotcancel);
@@ -81,10 +94,13 @@ public class menuActivity extends AppCompatActivity {
 
         dotCancel.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
-                intent.putExtra("AccountDetails", loggedInAcc);
-                intent.putExtra("TestResults", loggedInAcc);
-                startActivity(intent);
+                if (testFinish.get(0) == 0) {
+                    Intent intent = new Intent(getApplicationContext(), DotCancellation.class);
+                    intent.putExtra("AccountDetails", loggedInAcc);
+                    intent.putExtra("TestResults", allResults);
+                    intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -138,68 +154,78 @@ public class menuActivity extends AppCompatActivity {
             }
         });
 
-
-        if (dotFinish == 1){
-            dotCancel.setPaintFlags(dotCancel.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            directions.setOnClickListener(new TextView.OnClickListener(){
-                public void onClick(View v){
-                    Intent intent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
-                    intent.putExtra("AccountDetails", loggedInAcc);
-                    intent.putExtra("TestResults", loggedInAcc);
-                    startActivity(intent);
-                }
-            });
-        }
-        if (directionsFinish == 1){
-            directions.setPaintFlags(directions.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            compass.setOnClickListener(new TextView.OnClickListener(){
-                public void onClick(View v){
-                    Intent intent = new Intent(getApplicationContext(), SquareMatricesCompass.class);
-                    intent.putExtra("AccountDetails", loggedInAcc);
-                    intent.putExtra("TestResults", loggedInAcc);
-                    startActivity(intent);
-                }
-            });
-
-        }
-        if (compassFinish == 1){
-            compass.setPaintFlags(compass.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            roadsigns.setOnClickListener(new TextView.OnClickListener(){
-                public void onClick(View v){
-                    Intent intent = new Intent(getApplicationContext(), RoadSign.class);
-                    intent.putExtra("AccountDetails", loggedInAcc);
-                    intent.putExtra("TestResults", loggedInAcc);
-                    startActivity(intent);
-                }
-            });
-
-        }
-        if (roadSignsFinish == 1){
-            roadsigns.setPaintFlags(roadsigns.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
-            pathformer.setOnClickListener(new TextView.OnClickListener(){
-                public void onClick(View v){
-                    Intent intent = new Intent(getApplicationContext(), PathForming.class);
-                    intent.putExtra("AccountDetails", loggedInAcc);
-                    intent.putExtra("TestResults", loggedInAcc);
-                    startActivity(intent);
-                }
-            });
-        }
-        if (pathformFinish == 1){
-            pathformer.setPaintFlags(pathformer.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        }
-
-        score = (TextView) findViewById(R.id.score);
-        score.setOnClickListener(new TextView.OnClickListener(){
+        pathformer.setOnClickListener(new TextView.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Results.class);
+                Intent intent = new Intent(getApplicationContext(), PathForming.class);
                 intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
+                intent.putIntegerArrayListExtra("TestFinish", testFinish);
                 startActivity(intent);
             }
         });
 
+        if (testFinish.get(0) == 1){
+            dotCancel.setPaintFlags(dotCancel.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            directions.setOnClickListener(new TextView.OnClickListener(){
+                public void onClick(View v){
+                    if (testFinish.get(1) == 0) {
+                        Intent intent = new Intent(getApplicationContext(), SquareMatricesDirections.class);
+                        intent.putExtra("AccountDetails", loggedInAcc);
+                        intent.putExtra("TestResults", allResults);
+                        intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+
+        if (testFinish.get(1) == 1){
+            directions.setPaintFlags(directions.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            compass.setOnClickListener(new TextView.OnClickListener(){
+                public void onClick(View v){
+                    if (testFinish.get(2) == 0) {
+                        Intent intent = new Intent(getApplicationContext(), SquareMatricesCompass.class);
+                        intent.putExtra("AccountDetails", loggedInAcc);
+                        intent.putExtra("TestResults", allResults);
+                        intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                        startActivity(intent);
+                    }
+                }
+            });
+
+        }
+
+        if (testFinish.get(2) == 1){
+            compass.setPaintFlags(compass.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            roadsigns.setOnClickListener(new TextView.OnClickListener(){
+                public void onClick(View v){
+                    if (testFinish.get(3) == 0) {
+                        Intent intent = new Intent(getApplicationContext(), RoadSign.class);
+                        intent.putExtra("AccountDetails", loggedInAcc);
+                        intent.putExtra("TestResults", allResults);
+                        intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                        startActivity(intent);
+                    }
+                }
+            });
+
+        }
+
+        if (testFinish.get(3) == 1){
+            roadsigns.setPaintFlags(roadsigns.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            score = findViewById(R.id.score);
+            score.setOnClickListener(new TextView.OnClickListener(){
+                public void onClick(View v){
+                    if (testFinish.get(3) == 1) {
+                        Intent intent = new Intent(getApplicationContext(), Results.class);
+                        intent.putExtra("AccountDetails", loggedInAcc);
+                        intent.putExtra("TestResults", allResults);
+                        intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
     }
 
     private void giveDotInfo(){

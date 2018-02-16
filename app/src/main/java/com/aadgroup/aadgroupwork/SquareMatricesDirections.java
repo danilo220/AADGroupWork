@@ -43,6 +43,7 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
 
     Account loggedInAcc;
     TestResults allResults;
+    ArrayList<Integer> testFinish = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +58,18 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
         }
-        {
+        else {
             allResults = new TestResults();
+        }
+        if (intent.hasExtra("TestFinish")) {
+            testFinish = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("TestFinish");
+        }
+        else
+        {
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
         }
 
         Button resetButton = findViewById(R.id.resetButton);
@@ -131,8 +142,13 @@ public class SquareMatricesDirections extends Activity implements View.OnTouchLi
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(myIntent);
+                Intent intent = new Intent(getApplicationContext(), menuActivity.class);
+                allResults.setSquareMatriciesDirectionScore(points);
+                intent.putExtra("AccountDetails", loggedInAcc);
+                intent.putExtra("TestResults", allResults);
+                testFinish.set(1, 1);
+                intent.putIntegerArrayListExtra("TestFinish", testFinish);
+                startActivity(intent);
             }
         });
 

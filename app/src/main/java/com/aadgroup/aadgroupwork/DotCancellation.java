@@ -23,8 +23,10 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
     Boolean scrollRight = false;
     TextView txtCounter;
     Counter counter;
+
     Account loggedInAcc;
     TestResults allResults;
+    ArrayList<Integer> testFinish = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,16 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
         {
             allResults = new TestResults();
         }
+        if (intent.hasExtra("TestFinish")) {
+            testFinish = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("TestFinish");
+        }
+        else
+        {
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
+        }
 
         AddAllTiles();
 
@@ -59,6 +71,8 @@ public class DotCancellation extends AppCompatActivity implements View.OnClickLi
                 Intent intent = new Intent(getApplicationContext(), menuActivity.class);
                 intent.putExtra("AccountDetails", loggedInAcc);
                 intent.putExtra("TestResults", allResults);
+                testFinish.set(0, 1);
+                intent.putIntegerArrayListExtra("TestFinish", testFinish);
                 startActivity(intent);
             }
         });

@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by Danilo on 30/01/2018.
  */
@@ -53,6 +55,7 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
 
     Account loggedInAcc;
     TestResults allResults;
+    ArrayList<Integer> testFinish = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -67,8 +70,18 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
         if (intent.hasExtra("TestResults")) {
             allResults = (TestResults) intent.getSerializableExtra("TestResults");
         }
-        {
+        else {
             allResults = new TestResults();
+        }
+        if (intent.hasExtra("TestFinish")) {
+            testFinish = (ArrayList<Integer>) getIntent().getIntegerArrayListExtra("TestFinish");
+        }
+        else
+        {
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
+            testFinish.add(0);
         }
 
 /*        firstImg = (ImageView) findViewById(R.id.roadSignOne);
@@ -304,8 +317,13 @@ public class RoadSign extends AppCompatActivity implements View.OnTouchListener,
             //startButton.setVisibility(View.VISIBLE);
 /*            Toast.makeText(RoadSign.this,
                     "Finished", Toast.LENGTH_LONG).show();*/
-            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(myIntent);
+            Intent intent = new Intent(getApplicationContext(), menuActivity.class);
+            allResults.setSquareMatriciesDirectionScore(points);
+            intent.putExtra("AccountDetails", loggedInAcc);
+            intent.putExtra("TestResults", allResults);
+            testFinish.set(3, 1);
+            intent.putIntegerArrayListExtra("TestFinish", testFinish);
+            startActivity(intent);
         }
 /*        else
         {
